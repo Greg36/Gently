@@ -1,2 +1,2 @@
-# underscores
-Personal fork of underscores with grunt.
+# Gently
+Gently is a free editorial WordPress theme.
