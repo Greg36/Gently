@@ -106,7 +106,7 @@ add_action( 'widgets_init', 'gently_widgets_init' );
  * @todo Add superfish.
  */
 function gently_scripts() {
-	wp_enqueue_style( 'gently-style', get_template_directory_uri() . '/css/style.min.css' );
+	wp_enqueue_style( 'gently-style', get_template_directory_uri() . '/css/style.css' );
 
 	wp_enqueue_script( 'gently-app', get_template_directory_uri() . '/js/app.min.js', array(), '20120206', true );
 

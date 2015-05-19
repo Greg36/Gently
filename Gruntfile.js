@@ -6,11 +6,10 @@ module.exports = function(grunt) {
 
         watch: {
             options: {
-                livereload: true
+                spawn: false
             },
             js: {
                 files: [
-                    'Gruntfile.js',
                     'js/source/**/*.js'
                 ],
                 tasks: ['uglify']
@@ -21,6 +20,18 @@ module.exports = function(grunt) {
                     'css/sass/*.scss'
                 ],
                 tasks: ['sass', 'autoprefixer', 'concat', 'cssmin']
+            }
+        },
+
+        browserSync: {
+            dev: {
+                bsFiles: {
+                    src : 'css/style.css'
+                },
+                options: {
+                    proxy: "gently.dev",
+                    watchTask: true
+                }
             }
         },
 
@@ -128,9 +139,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks( 'grunt-wp-i18n' );
     grunt.loadNpmTasks( 'grunt-potomo' );
     grunt.loadNpmTasks( 'grunt-newer' );
+    grunt.loadNpmTasks( 'grunt-browser-sync' );
 
     // register tasks
-    grunt.registerTask( 'default', ['watch']);
+    grunt.registerTask( 'default', ['browserSync', 'watch']);
     grunt.registerTask( 'makethepot', ['makepot'] );
 
     grunt.registerTask('build', ['uglify', 'sass', 'autoprefixer', 'concat', 'cssmin', 'newer:imagemin', 'makepot', 'potomo' ]);
