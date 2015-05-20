@@ -3,22 +3,116 @@ button,
 input,
 select,
 textarea {
-	color: $color__text-main;
-	font-family: $font__main;
-	@include font-size(1);
-	line-height: $font__line-height-body;
+  color: $color__text-main;
+  font-family: $font__main;
+  @include font-size(1);
+  line-height: $font__line-height-body;
+}
+
+/* Bigger text on desktop resolution */
+@media screen and (min-width: 800px) {
+  body,
+  button,
+  input,
+  select,
+  textarea {
+    @include font-size-desktop(1);
+  }
 }
 
 /* HEADINGS */
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
+  font-family: $font__title;
+  color: $color__text-headings;
 }
+
+h1 {
+  @include font-size(2.684);
+  line-height: 1.15em;
+  margin-top: 1.277em;
+  margin-bottom: 0.628em;
+}
+
+h2 {
+  @include font-size(1.631);
+  line-height: 1.250em;
+  margin-top: 1.645em;
+  margin-bottom: 0;
+}
+
+h3 {
+  @include font-size(1.158);
+  line-height: 1.377em;
+  margin-top: 1.318em;
+  margin-bottom: 0;
+}
+h3 + p {
+  margin-top: 0.210em;
+}
+
+h4 {
+  @include font-size(0.947);
+  line-height: 1.611em;
+  margin-top: 1.611em;
+  margin-bottom: 0;
+}
+h4 + p {
+  margin-top: 0.052em;
+}
+
+h5 {
+  @include font-size(0.842);
+  margin-top: $margin__content;
+  margin-bottom: 0;
+}
+h5 + p {
+  margin-top: 0;
+}
+
+h6 {
+  @include font-size(0.737);
+  margin-top: $margin__content;
+  margin-bottom: 0;
+}
+h6 + p {
+  margin-top: 0;
+}
+
+/* Bigger headings on desktop resolution */
+@media screen and (min-width: 800px) {
+  h1 {
+    @include font-size-desktop(2.684);
+  }
+
+  h2 {
+    @include font-size-desktop(1.631);
+  }
+
+  h3 {
+    @include font-size-desktop(1.158);
+  }
+
+  h4 {
+    @include font-size-desktop(0.947);
+  }
+
+  h5 {
+    @include font-size-desktop(0.842);
+  }
+
+  h6 {
+    @include font-size-desktop(0.737);
+  }
+}
+
 
 /* COPY */
 
 p {
-  margin-bottom: 1.5em;
+  margin-top: $margin__content;
+  margin-bottom: 0;
 }
 
 dfn, cite, em, i {
@@ -26,8 +120,22 @@ dfn, cite, em, i {
 }
 
 blockquote {
-  margin: 0 1.5em;
+  margin: $margin__content 0 0 -0.75em;
+  padding-left: 0.65em;
+  font-style: italic;
+  color: $color__text-quotes;
+  border-color: lighten($color__text-quotes, 15%);
+  border-style: solid;
+  border-width: 0 0 0 3px;
+
+  cite {
+    display: block;
+    text-align: right;
+    font-size: 0.85em;
+    margin-top: 0.5em;
+  }
 }
+
 
 address {
   margin: 0 0 1.5em;
@@ -36,17 +144,18 @@ address {
 pre {
   background: $color__background-pre;
   font-family: $font__pre;
-  @include font-size(0.9375);
+  @include font-size(0.947);
   line-height: $font__line-height-pre;
   margin-bottom: 1.6em;
   max-width: 100%;
   overflow: auto;
   padding: 1.6em;
+  border-radius: $detail__border-radius;
 }
 
 code, kbd, tt, var {
   font-family: $font__code;
-  @include font-size(0.9375);
+  @include font-size(0.947);
 }
 
 abbr, acronym {

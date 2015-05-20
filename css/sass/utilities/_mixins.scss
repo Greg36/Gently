@@ -4,6 +4,12 @@
   font-size: $sizeValue * 1rem;
 }
 
+// Rem output with px fallback for desktop
+@mixin font-size-desktop($sizeValue: 1) {
+  font-size: ($sizeValue * 19) * 1px;
+  font-size: $sizeValue * 1.1875 * 1rem;
+}
+
 // Center block
 @mixin center-block {
   display: block;

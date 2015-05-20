@@ -2,29 +2,32 @@
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+a.btn {
   border: 1px solid;
-  border-color: $color__border-button;
-  border-radius: 3px;
-  background: $color__background-button;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, .8);
+  border-color: #ccc #ccc #bbb;
+  border-radius: 6px;
+  color: #fff;
+  background: $color__link;
+  text-decoration: none;
+  font-weight: bold;
   @include font-size(0.75);
   line-height: 1;
-  padding: .6em 1em .4em;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  padding: 0.6em 1em;
+  letter-spacing: 0.25px;
 
   &:hover {
-    border-color: $color__border-button-hover;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
+    background: $color__link-visited;
+    color: #F0FAFF;
   }
 
   &:active,
   &:focus {
     border-color: $color__border-button-focus;
-    box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+    color: #F0FAFF;
   }
 }
+
 
 /* FIELDS */
 
@@ -33,10 +36,15 @@ input[type="email"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
+input[type="number"],
+select,
 textarea {
   color: $color__text-input;
   border: 1px solid $color__border-input;
   border-radius: 3px;
+  @include font-size(0.8);
+  line-height: 2;
+  padding-left: 0.7em;
 
   &:focus {
     color: $color__text-input-focus;
@@ -49,9 +57,49 @@ input[type="url"],
 input[type="password"],
 input[type="search"] {
   padding: 3px;
+  padding-left: 0.7em;
+}
+
+input.is-error {
+  border-color: #E81010;
+  background: #FFF5F5;
+}
+input.is-valid {
+  border-color: #87D549;
+  background: #FCFFFC;
 }
 
 textarea {
-  padding-left: 3px;
   width: 100%;
+  padding: 0.7em;
+}
+
+select {
+  padding: 4px;
+}
+
+label {
+  display: block;
+  margin-top: 1.125em;
+  margin-bottom: 0.1em;
+  @include font-size(1);
+}
+
+label, legend {
+  abbr[title] {
+    color: $color__input-warning;
+    border: none;
+  }
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 2em 0;
+
+  ul {
+    list-style: none;
+    margin: 1em 0;
+    padding: 0;
+  }
 }
