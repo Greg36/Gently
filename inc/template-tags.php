@@ -67,7 +67,8 @@ endif;
 
 if ( ! function_exists( 'gently_posted_on' ) ) :
 /**
- * Prints HTML with meta information for the current post-date/time and author.
+ * Prints HTML with meta information for the current post-date/time, author and comments count.
+ * @todo Add multiple author option.
  */
 function gently_posted_on() {
 	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
@@ -82,47 +83,46 @@ function gently_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
-	$posted_on = sprintf(
-		esc_html_x( 'Posted on %s', 'post date', 'gently' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
-	);
+	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
-	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'gently' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
+	$byline = '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
 
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK
+	/* Display comments count only if the are available. */
+	if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+		$comments =  sprintf(
+			'<a class="comments-count" href="' . get_comments_link() . '"><span class="screen-reader-text">%s</span><i class="fa fa-comments"></i>' . get_comments_number() . '</a>',
+			esc_html__( 'Comments count', 'gently' )
+		);
+	} else {
+		$comments = '';
+	}
 
+	echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>' . $comments; // WPCS: XSS OK
+}
+endif;
+
+if ( ! function_exists( 'gently_featured_image' ) ) :
+/**
+ * Prints HTML with post's featured image.
+ */
+function gently_featured_image() {
+	if ( has_post_thumbnail() ) {
+		$thumbnail = sprintf(
+			'<a href="%s" title="%s">' . get_the_post_thumbnail() . '</a>',
+			get_the_permalink(),
+			the_title_attribute( 'echo=0' )
+		);
+		echo $thumbnail;
+	}
 }
 endif;
 
 if ( ! function_exists( 'gently_entry_footer' ) ) :
 /**
- * Prints HTML with meta information for the categories, tags and comments.
+ * Prints HTML with meta information.
+ * @todo Delete or use as base of single post footer.
  */
 function gently_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' == get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'gently' ) );
-		if ( $categories_list && gently_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'gently' ) . '</span>', $categories_list ); // WPCS: XSS OK
-		}
-
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'gently' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'gently' ) . '</span>', $tags_list ); // WPCS: XSS OK
-		}
-	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'gently' ), esc_html__( '1 Comment', 'gently' ), esc_html__( '% Comments', 'gently' ) );
-		echo '</span>';
-	}
-
 	edit_post_link( esc_html__( 'Edit', 'gently' ), '<span class="edit-link">', '</span>' );
 }
 endif;

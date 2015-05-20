@@ -69,3 +69,18 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	}
 	add_action( 'wp_head', 'gently_render_title' );
 endif;
+
+/**
+ * Custom excerpt 'read more'.
+ */
+if ( ! function_exists( 'gently_excerpt_more' ) ) :
+	function gently_excerpt_more( $more ) {
+		return sprintf(
+			'... <div class="excerpt-read-more"><a href="%s" title="%s">%s</a></div>',
+			get_permalink( get_the_ID() ),
+			esc_html__( 'Read ', 'gently' ) . esc_attr( get_the_title( get_the_ID() ) ),
+			__( 'Continue reading', 'gently' )
+		);
+	}
+	add_filter( 'excerpt_more', 'gently_excerpt_more' );
+endif;
