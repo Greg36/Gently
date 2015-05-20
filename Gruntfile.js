@@ -98,7 +98,7 @@ module.exports = function(grunt) {
             theme: {
                 options: {
                     domainPath: 'languages',
-                    potFilename: '_s.pot',
+                    potFilename: 'gently.pot',
                     type: 'wp-theme',
                     exclude: [
                         'node_modules',
