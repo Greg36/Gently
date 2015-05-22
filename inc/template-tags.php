@@ -71,39 +71,109 @@ if ( ! function_exists( 'gently_posted_on' ) ) :
  * @todo Add multiple author option.
  */
 function gently_posted_on() {
-	$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-	}
 
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
+	$time_string = gently_entry_time();
 
 	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
 	$byline = '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
 
-	/* Display comments count only if the are available. */
-	if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		$comments =  sprintf(
-			'<a class="comments-count" href="' . get_comments_link() . '"><span class="screen-reader-text">%s</span><i class="fa fa-comments"></i>' . get_comments_number() . '</a>',
-			esc_html__( 'Comments count', 'gently' )
-		);
-	} else {
-		$comments = '';
-	}
+	$comments_count = gently_comments_count();
 
-	echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>' . $comments; // WPCS: XSS OK
+	echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>' . $comments_count; // WPCS: XSS OK
 }
+endif;
+
+if ( ! function_exists( 'gently_entry_time' ) ) :
+	/**
+	 * Returns HTML with meta information for the current post-date/time.
+	 * @return string Formatted post-date.
+	 */
+	function gently_entry_time() {
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		}
+
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		);
+
+		return $time_string;
+	}
+endif;
+
+if ( ! function_exists( 'gently_comments_count' ) ) :
+	/**
+	 * Returns HTML with comments count if there are any.
+	 * @return string Comments count.
+	 */
+	function gently_comments_count() {
+		/* Display comments count only if the are available. */
+		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			return  sprintf(
+				'<a class="comments-count" href="' . get_comments_link() . '"><span class="screen-reader-text">%s</span><i class="fa fa-comments"></i>' . get_comments_number() . '</a>',
+				esc_html__( 'Comments count', 'gently' )
+			);
+		}
+		return '';
+	}
+endif;
+
+if ( ! function_exists( 'gently_comments_link' ) ) :
+	/**
+	 * Returns HTML with comments link if there are available.
+	 * @return string Comments count.
+	 */
+	function gently_comments_link() {
+		/* Display comments count only if the are available. */
+		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			return sprintf (
+				'<span class="comments-link">%s</span>',
+				comments_popup_link( esc_html__( 'Leave a comment', 'gently' ), esc_html__( '1 Comment', 'gently' ), esc_html__( '% Comments', 'gently' ) )
+			);
+		}
+		return '';
+	}
+endif;
+
+if ( ! function_exists( 'gently_list_categories' ) ) :
+	/**
+	 * Returns HTML list of categories.
+	 * @return string List of categories.
+	 */
+	function gently_list_categories() {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( esc_html__( ', ', 'gently' ) );
+		if ( $categories_list && gently_categorized_blog() ) {
+			return '<span class="cat-links">' . $categories_list . '</span>';
+		}
+		return '';
+	}
+endif;
+
+if ( ! function_exists( 'gently_list_tags' ) ) :
+	/**
+	 * Returns HTML list of tags.
+	 * @return string List of tags.
+	 */
+	function gently_list_tags() {
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'gently' ) );
+		if ( $tags_list ) {
+			return '<span class="tags-links">' . $tags_list . '</span>';
+		}
+		return '';
+	}
 endif;
 
 if ( ! function_exists( 'gently_featured_image' ) ) :
 /**
  * Prints HTML with post's featured image.
+ * @todo Add caption from native attachment or add metabox to back-end post.
  */
 function gently_featured_image() {
 	if ( has_post_thumbnail() ) {

@@ -10,7 +10,7 @@
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 
-			<?php gently_featured_image(); ?>
+
 
 			<div class="entry-meta">
 				<?php gently_posted_on(); ?>
