@@ -193,7 +193,7 @@ if ( ! function_exists( 'gently_entry_footer' ) ) :
  * @todo Delete or use as base of single post footer.
  */
 function gently_entry_footer() {
-	edit_post_link( esc_html__( 'Edit', 'gently' ), '<span class="edit-link">', '</span>' );
+//	edit_post_link( esc_html__( 'Edit', 'gently' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
@@ -334,3 +334,78 @@ function gently_category_transient_flusher() {
 }
 add_action( 'edit_category', 'gently_category_transient_flusher' );
 add_action( 'save_post',     'gently_category_transient_flusher' );
+
+/**
+ * Prints HTML with user's social media icon links.
+ * @return string Formatted author's social icons.
+ */
+function gently_author_social_icons() {
+	$links = array('facebook','twitter','google-plus','pinterest','linkedin');
+
+	foreach ( $links as $link ) {
+		if( get_the_author_meta( $link ) ) {
+			printf( '<a href="%s"><i class="fa fa-%s-square"></i></a>',
+				esc_url( get_the_author_meta( $link ) ),
+				$link
+			);
+		}
+	}
+}
+
+/**
+ * Prints related posts based on first tag.
+ * @return string Formatted related posts.
+ * @todo Test Jetpack related posts for this function.
+ */
+function gently_related_posts() {
+	$args = array(
+		'post__not_in'     => array( get_the_ID() ),
+		'posts_per_page'   => 3,
+		'caller_get_posts' => 1
+	);
+	$tags = wp_get_post_tags( get_the_ID() );
+	$categories = wp_get_post_categories( get_the_ID() );
+
+	if ( $tags ) {
+		$args['tag__in'] = $tags[0]->term_id;
+	} elseif ( $categories ) {
+		$args['category__in'] = $categories[0];
+	} else {
+		return;
+	}
+
+	/* Query posts */
+	$related  = new WP_Query( $args );
+
+	if ( $related->have_posts() ) {
+		sprintf( '<h3>%s</h3>', esc_html__( 'Related posts:' ) );
+		while ( $related->have_posts() ) {
+			$related->the_post();
+			echo gently_related_post();
+		}
+	}
+
+	wp_reset_postdata();
+}
+
+/**
+ * Returns formatted post for use in related posts.
+ * @todo Remove conditional and add default image?
+ */
+function gently_related_post() {
+	?>
+	<div class="row">
+		<?php if ( has_post_thumbnail() ) { ?>
+			<div class="small-12 medium-3 columns">
+				<?php gently_featured_image(); ?>
+			</div>
+			<div class="small-12 medium-9 columns">
+		<?php } ?>
+			<?php gently_entry_time(); ?>
+			<?php gently_comments_count(); ?>
+			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+			<?php echo wp_trim_words( get_the_excerpt() ); ?>
+		<?php if ( has_post_thumbnail() ) echo '</div>'; ?>
+	</div>
+	<?php
+}

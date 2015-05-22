@@ -84,3 +84,31 @@ if ( ! function_exists( 'gently_excerpt_more' ) ) :
 	}
 	add_filter( 'excerpt_more', 'gently_excerpt_more' );
 endif;
+
+/**
+ * Social media links in user's profile settings.
+ */
+function gently_user_contact_methods( $user_contact ) {
+
+	// Add user contact methods
+	$user_contact['facebook']   = __( 'Facebook'   );
+	$user_contact['twitter'] = __( 'Twitter' );
+	$user_contact['google-plus'] = __( 'Google+' );
+	$user_contact['pinterest'] = __('Pinterest');
+	$user_contact['linkedin'] = __('LinkedIn');
+
+
+	return $user_contact;
+}
+add_filter( 'user_contactmethods', 'gently_user_contact_methods' );
+
+/**
+ * Disable AddToAny plugin from displaying button in default position.
+ * @return bool
+ */
+function gently_addtoany_disable_default_sharing_in_single() {
+		if ( is_single() )
+			return true;
+
+}
+add_filter( 'addtoany_sharing_disabled', 'gently_addtoany_disable_default_sharing_in_single' );

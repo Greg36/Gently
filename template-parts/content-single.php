@@ -37,20 +37,28 @@
 
 	<footer class="entry-footer">
 		<div class="row">
-			<div class="medium-6 columns">
-				<div class="row">
-					<div class="small-6 columns">
-						about author
+			<div class="small-6 columns">
+				<div class="entry-author">
+					<div class="author-info">
+						<?php the_author(); ?>
+						<?php gently_author_social_icons(); ?>
 					</div>
-					<div class="small-6 columns">
-						author social
+					<div class="author-bio">
+						<?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
+						<?php echo get_the_author_meta( 'description' ); ?>
 					</div>
 				</div>
-				tags
+				<div class="entry-tags">
+					<?php echo gently_list_tags(); ?>
+				</div>
 			</div>
-			<div class="medium-6 columns">
-				c.cout <br>
-				share
+			<div class="small-6 columns">
+				<div>
+					<?php echo gently_comments_count(); ?>
+				</div>
+				<div>
+					<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
+				</div>
 			</div>
 		</div>
 	</footer><!-- .entry-footer -->
