@@ -361,7 +361,7 @@ function gently_related_posts() {
 	$args = array(
 		'post__not_in'     => array( get_the_ID() ),
 		'posts_per_page'   => 3,
-		'caller_get_posts' => 1
+		'ignore_sticky_posts' => 1
 	);
 	$tags = wp_get_post_tags( get_the_ID() );
 	$categories = wp_get_post_categories( get_the_ID() );
