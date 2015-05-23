@@ -13,8 +13,12 @@
 function gently_customize_register( $wp_customize ) {
 	if ( class_exists( 'Kirki' ) ) {
 		$wp_customize->add_section( 'base_typography', array(
-			'title'    => __( 'Base typography', 'mytheme' ),
+			'title'    => __( 'Base typography', 'gently' ),
 			'priority' => 30,
+		) );
+		$wp_customize->add_section( 'social', array(
+			'title'    => __( 'Social media', 'gently' ),
+			'priority' => 31,
 		) );
 	}
 }
@@ -196,6 +200,31 @@ function gently_kirki_fields( $fields ) {
 				'property' => 'color'
 			),
 		)
+	);
+
+
+	$fields[] = array(
+		'type'        => 'sortable',
+		'setting'     => 'share_buttons',
+		'label'       => __( 'Share buttons', 'kirki' ),
+		'description' => __( 'This is the control description', 'kirki' ),
+		'help'        => __( 'This is some extra help. You can use this to add some additional instructions for users. The main description should go in the "description" of the field, this is only to be used for help tips.', 'kirki' ),
+		'section'     => 'social',
+		'default'     => array(
+			'facebook',
+			'twitter',
+			'google'
+		),
+		'priority'    => 10,
+		'choices'     => array(
+			'facebook'    => __( 'Facebook', 'gently' ),
+			'twitter'     => __( 'Twitter', 'gently' ),
+			'google'      => __( 'Google+', 'gently' ),
+			'reddit'      => __( 'Reddit', 'gently' ),
+			'linkedin'    => __( 'LinkedIn', 'gently' ),
+			'stumbleupon' => __( 'StumbleUpon', 'gently' ),
+			'pinterest'   => __( 'Pinterest', 'gently' )
+		),
 	);
 
 	return $fields;

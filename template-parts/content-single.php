@@ -7,6 +7,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 
+
 		<div class="entry-meta">
 			<div class="row">
 				<div class="small-8 large-9 columns">
@@ -57,7 +58,9 @@
 					<?php echo gently_comments_count(); ?>
 				</div>
 				<div>
-					<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
+<!--					--><?php //if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
+					<?php gently_share_buttons(); ?>
+
 				</div>
 			</div>
 		</div>

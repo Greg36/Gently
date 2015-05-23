@@ -134,3 +134,8 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Share buttons.
+ */
+require get_template_directory() .'/inc/share-buttons.php';
