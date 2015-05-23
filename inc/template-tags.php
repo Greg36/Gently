@@ -340,7 +340,7 @@ add_action( 'save_post',     'gently_category_transient_flusher' );
  * @return string Formatted author's social icons.
  */
 function gently_author_social_icons() {
-	$links = array('facebook','twitter','google-plus','pinterest','linkedin');
+	$links = array('facebook','twitter','google-plus','pinterest','linkedin','tumblr');
 
 	foreach ( $links as $link ) {
 		if( get_the_author_meta( $link ) ) {

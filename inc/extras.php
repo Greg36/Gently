@@ -96,7 +96,7 @@ function gently_user_contact_methods( $user_contact ) {
 	$user_contact['google-plus'] = __( 'Google+' );
 	$user_contact['pinterest'] = __('Pinterest');
 	$user_contact['linkedin'] = __('LinkedIn');
-
+	$user_contact['tumblr'] = __('Tumblr');
 
 	return $user_contact;
 }
