@@ -23,8 +23,18 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+
+			<h1 class="site-title">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<?php
+					if ( kirki_get_option( 'logo_image' ) ) {
+						echo '<img class="site-logo" src="' . kirki_get_option( 'logo_image' ) . '" alt=""/>';
+					} else {
+						bloginfo( 'name' );
+					}
+					?>
+				</a>
+			</h1>
 		</div><!-- .site-branding -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">

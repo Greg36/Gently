@@ -112,3 +112,21 @@ function gently_addtoany_disable_default_sharing_in_single() {
 
 }
 add_filter( 'addtoany_sharing_disabled', 'gently_addtoany_disable_default_sharing_in_single' );
+
+/**
+ * Add sidebar position class to body
+ * @param $classes
+ * @return array
+ */
+function my_class_names( $classes ) {
+	$sidebar_pos = kirki_get_option( 'sidebar_position' );
+
+	if ( $sidebar_pos == 'left' ) {
+		$classes[] = 'sidebar-left';
+	} else {
+		$classes[] = 'sidebar-right';
+	}
+
+	return $classes;
+}
+add_filter( 'body_class', 'my_class_names' );

@@ -6,4 +6,18 @@
 
 ( function( $ ) {
 
+    /* Sidebar position setting */
+    wp.customize('sidebar_position', function (value) {
+        value.bind(function ( newval ) {
+            var pagebody = $( 'body' );
+            console.log(pagebody);
+            if ( newval == 'left' ) {
+                pagebody.removeClass( 'sidebar-right' );
+                pagebody.addClass( 'sidebar-left' );
+            } else {
+                pagebody.addClass( 'sidebar-right' );
+                pagebody.removeClass( 'sidebar-left' );
+            }
+        });
+    });
 } )( jQuery );

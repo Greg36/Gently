@@ -3,8 +3,9 @@ button,
 input,
 select,
 textarea {
-  color: $color__text-main;
-  font-family: $font__main;
+//  color: $color__text-main;
+//  font-family: $font__main;
+  //xdxd
   @include font-size(1);
   line-height: $font__line-height-body;
 }
@@ -24,8 +25,18 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-  font-family: $font__title;
-  color: $color__text-headings;
+//  font-family: $font__title;
+//  color: $color__text-headings;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  a {
+    text-decoration: none;
+    color: inherit !important;
+  }
+  a:visited {
+    color: inherit !important;
+  }
 }
 
 h1 {
