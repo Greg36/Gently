@@ -1,0 +1,32 @@
+.main-sidebar {
+  padding: 20px;
+  border: 1px solid;
+  border-color: inherit;
+}
+
+@media all and (min-width: 1000px) and (max-width: 1249px ) {
+  .main-sidebar {
+    width: 350px;
+    position: absolute;
+    top: 0;
+  }
+  body.sidebar-left .main-sidebar {
+    left: 0;
+  }
+  body.sidebar-right .main-sidebar {
+    right: 0;
+  }
+}
+@media all and (min-width: 1250px) {
+  .main-sidebar {
+    width: 430px;
+    position: absolute;
+    top: 0;
+  }
+  body.sidebar-left .main-sidebar {
+    left: 0;
+  }
+  body.sidebar-right .main-sidebar {
+    right: 0;
+  }
+}
