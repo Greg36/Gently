@@ -22,31 +22,41 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'gently' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-
-			<h1 class="site-title">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<?php
-					if ( kirki_get_option( 'logo_image' ) ) {
-						echo '<img class="site-logo" src="' . kirki_get_option( 'logo_image' ) . '" alt=""/>';
-					} else {
-						bloginfo( 'name' );
-					}
-					?>
-				</a>
-			</h1>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'gently' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-
 		<?php if ( get_header_image() ) : ?>
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
-			</a>
+			<div class="header-image">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+				</a>
+			</div>
 		<?php endif; // End header image check. ?>
+
+		<div class="top-bar">
+			<div class="site-branding">
+				<h1 class="site-title">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<?php
+						if ( kirki_get_option( 'logo_image' ) ) {
+							echo '<img class="site-logo" src="' . kirki_get_option( 'logo_image' ) . '" alt=""/>';
+						} else {
+							bloginfo( 'name' );
+						}
+						?>
+					</a>
+				</h1>
+			</div><!-- .site-branding -->
+
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa fa-bars"></i></button>
+
+			<?php
+			if ( in_array( 'search', kirki_get_option( 'header_features' ) ) ) {
+				echo '<div class="header-search"><i class="btn fa fa-search" tabindex="0"></i>' . get_search_form( false ) . '</div>';
+			}
+			?>
+
+			<nav id="site-navigation" class="main-navigation" role="navigation">
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'walker' => new Gently_Menu_Walker(), ) ); ?>
+			</nav><!-- #site-navigation -->
+		</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

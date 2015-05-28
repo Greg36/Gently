@@ -130,3 +130,19 @@ function my_class_names( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'my_class_names' );
+
+
+/**
+ * Class Gently_Menu_Walker_Mobile
+ * Custom menu walker with added icons that are used to toggle nested levels of navigation in small screen version.
+ */
+class Gently_Menu_Walker extends Walker_Nav_Menu {
+	function start_lvl(&$output, $depth = 0, $args = array()) {
+		$indent = str_repeat("\t", $depth+1);
+		$output .= "\t<span class='nav-sub-icon' tabindex='0'><i class='fa fa-chevron-down'></i></span>\n$indent\t<ul class='sub-menu'>\n";
+	}
+	function end_lvl(&$output, $depth = 0, $args = array()) {
+		$indent = str_repeat("\t", $depth+1);
+		$output .= "$indent\t</ul>\n";
+	}
+}

@@ -68,6 +68,12 @@ function gently_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	add_theme_support( 'custom-header',  array(
+		'default-image'          => '',
+		'width'                  => 1920,
+		'height'                 => 500,
+	) );
 }
 endif; // gently_setup
 add_action( 'after_setup_theme', 'gently_setup' );
@@ -110,7 +116,7 @@ function gently_scripts() {
 
 	wp_enqueue_style( 'gently-style', get_template_directory_uri() . '/css/style.css' );
 
-	wp_enqueue_script( 'gently-app', get_template_directory_uri() . '/js/app.min.js', array(), '', true );
+	wp_enqueue_script( 'gently-app', get_template_directory_uri() . '/js/app.min.js', array( 'jquery' ), '', true );
 
 	wp_enqueue_style( 'font-awesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), '05202015' );
 
@@ -139,3 +145,5 @@ require get_template_directory() . '/inc/customizer.php';
  * Share buttons.
  */
 require get_template_directory() .'/inc/share-buttons.php';
+
+add_filter('show_admin_bar', '__return_false');

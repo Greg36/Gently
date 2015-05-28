@@ -3,7 +3,8 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-a.btn {
+a.btn,
+i.btn {
   border: 1px solid;
   border-color: #ccc #ccc #bbb;
   border-radius: 6px;
@@ -16,16 +17,13 @@ a.btn {
   padding: 0.6em 1em;
   letter-spacing: 0.25px;
 
+  &:active,
+  &:focus,
   &:hover {
     background: $color__link-visited;
     color: #F0FAFF;
   }
 
-  &:active,
-  &:focus {
-    border-color: $color__border-button-focus;
-    color: #F0FAFF;
-  }
 }
 
 

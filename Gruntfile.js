@@ -10,6 +10,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: [
+                    'js/vendor/**/*.js',
                     'js/source/**/*.js'
                 ],
                 tasks: ['uglify']

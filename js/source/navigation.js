@@ -4,21 +4,20 @@
  * Handles toggling the navigation menu for small screens and enables tab
  * support for dropdown menus.
  */
-( function() {
+( function( $ ) {
 	var container, button, menu, links, subMenus;
 
-	container = document.getElementById( 'site-navigation' );
+	container = $( '#site-navigation' )[ 0 ];
 	if ( ! container ) {
 		return;
 	}
 
-	button = container.getElementsByTagName( 'button' )[0];
+	button = $( '.top-bar .menu-toggle' )[ 0 ];
 	if ( 'undefined' === typeof button ) {
 		return;
 	}
 
-	menu = container.getElementsByTagName( 'ul' )[0];
-
+	menu = $( '#primary-menu' )[ 0 ];
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
 		button.style.display = 'none';
@@ -35,10 +34,12 @@
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
+			$( '#site-navigation' ).slideUp();
 		} else {
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
+			$( '#site-navigation' ).slideDown();
 		}
 	};
 
@@ -51,11 +52,32 @@
 		subMenus[i].parentNode.setAttribute( 'aria-haspopup', 'true' );
 	}
 
+	// Sub menu toggle
+	var flag = false;
+	var $subMenu = $('.nav-sub-icon');
+	$subMenu.next().hide();
+	$subMenu.bind('touchstart click keypress', function(){
+		if (!flag) {
+			flag = true;
+			setTimeout(function(){ flag = false; }, 100);
+			$( this ).next().slideToggle( 400 );
+			$( this ).toggleClass('arrow-active');
+		}
+		return false;
+	});
+
 	// Each time a menu link is focused or blurred, toggle focus.
 	for ( i = 0, len = links.length; i < len; i++ ) {
 		links[i].addEventListener( 'focus', toggleFocus, true );
 		links[i].addEventListener( 'blur', toggleFocus, true );
 	}
+
+	// Search toggle
+	$( '.header-search form').hide();
+	$( '.header-search i').bind('touchstart click keypress', ( function(){
+		$( this ).next().fadeToggle().css( 'display', 'inline-block' );
+	} ) );
+
 
 	/**
 	 * Sets or removes .focus class on an element.
@@ -78,4 +100,4 @@
 			self = self.parentElement;
 		}
 	}
-} )();
+} )( jQuery );

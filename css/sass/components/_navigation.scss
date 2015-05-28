@@ -23,12 +23,9 @@ a {
 
 .main-navigation {
   clear: both;
-  display: block;
-  float: left;
-  width: 100%;
+  display: none;
 
   ul {
-    display: none;
     list-style: none;
     margin: 0;
     padding-left: 0;
@@ -47,6 +44,7 @@ a {
       }
 
       li {
+        padding: 5px 0 5px 7px;
         &:hover > ul,
         &.focus > ul {
           left: 100%;
@@ -70,6 +68,11 @@ a {
     li.focus > ul {
       left: auto;
     }
+    & > li {
+      &:not(:last-child) {
+        margin-right: 1.5em;
+      }
+    }
   }
   li {
     float: left;
@@ -80,6 +83,7 @@ a {
     }
   }
   a {
+    color: inherit;
     display: block;
     text-decoration: none;
   }
@@ -90,10 +94,71 @@ a {
   }
 }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
+
+/* Small menu */
+.nav-sub-icon {
+  display: none;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.nav-sub-icon.arrow-active {
+  transform:rotate(90deg);
+}
+.menu-toggle {
+  color: $color__link;
+  font-weight: normal;
+  background: none;
+  border: none;
+  font-size: 28px;
+  padding: 6px 5px;
+  margin: 5px;
+  float: right;
+  display: inline-block;
+}
+
+/* Small navigation */
+@media screen and (max-width: 37.49em) {
+  .main-navigation {
+    ul {
+      li > ul {
+        position: static;
+        box-shadow: none;
+        padding-left: 10px;
+        padding-top: 5px;
+        .nav-sub-icon {
+          margin-right: 15px;
+        }
+        li {
+          width: 100%;
+        }
+        li:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+    li {
+      width: 100%;
+      padding: 5px 10px;
+      border-bottom: 1px solid;
+      border-color: inherit;
+      a {
+        display: inline-block;
+      }
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+  }
+  .menu-item-has-children a {
+    margin-right: 20px;
+  }
+  .nav-sub-icon {
+    display: inline-block;
+    position: absolute;
+    right: 1em;
+    top: 0.3em;
+  }
 }
 
 /* Switching from toggle menu to full display */
@@ -101,11 +166,51 @@ a {
   .menu-toggle {
     display: none;
   }
-  .main-navigation ul {
+  #site-navigation {
     display: block;
+  }
+  // Not accessible with tabindex
+//  .sub-menu {
+//    .nav-sub-icon {
+//      display: block;
+//      position: absolute;
+//      right: 0.3em;
+//      top: 0.3em;
+//    }
+//    li {
+//      &:hover,
+//      &.focus {
+//        .nav-sub-icon {
+//          transform:rotate(-90deg);
+//        }
+//      }
+//    }
+//  }
+  .main-navigation {
+    ul li {
+      &:hover > ul,
+      &.focus > ul {
+        display: block !important;
+      }
+    }
   }
 }
 
+/* Inline navigation for wide displays */
+@media screen and (min-width: 37.5em){
+  .main-navigation {
+    display: inline-block !important;
+    margin-left: 25px;
+    ul {
+      ul {
+        top: 3em;
+      }
+    }
+    ul.nav-menu > li > a {
+      line-height: 43px;
+    }
+  }
+}
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
