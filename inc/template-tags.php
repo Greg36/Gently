@@ -335,22 +335,6 @@ function gently_category_transient_flusher() {
 add_action( 'edit_category', 'gently_category_transient_flusher' );
 add_action( 'save_post',     'gently_category_transient_flusher' );
 
-/**
- * Prints HTML with user's social media icon links.
- * @return string Formatted author's social icons.
- */
-function gently_author_social_icons() {
-	$links = array('facebook','twitter','google-plus','pinterest','linkedin','tumblr');
-
-	foreach ( $links as $link ) {
-		if( get_the_author_meta( $link ) ) {
-			printf( '<a href="%s"><i class="fa fa-%s-square"></i></a>',
-				esc_url( get_the_author_meta( $link ) ),
-				$link
-			);
-		}
-	}
-}
 
 /**
  * Prints related posts based on first tag.

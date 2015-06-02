@@ -425,11 +425,13 @@ function gently_kirki_fields( $fields ) {
 			'search' => __( 'Search', 'kirki' ),
 		),
 	);
+
+	/* Navigation fields */
 	$fields[] = array(
 		'type'        => 'color',
 		'setting'     => 'header_font_color',
 		'label'       => __( 'Navigation color', 'gently' ),
-		'section'     => 'header',
+		'section'     => 'nav',
 		'default'     => '#969696',
 		'priority'    => 13,
 		'transport'   => 'postMessage',
@@ -451,7 +453,7 @@ function gently_kirki_fields( $fields ) {
 		'type'      => 'slider',
 		'setting'   => 'header_font_size',
 		'label'     => __( 'Navigation font size', 'gently' ),
-		'section'   => 'header',
+		'section'   => 'nav',
 		'default'   => 16,
 		'priority'  => 14,
 		'transport' => 'postMessage',
@@ -467,7 +469,10 @@ function gently_kirki_fields( $fields ) {
 		)
 	);
 
-	/* Social media fields */
+	/**
+	 * Social media fields
+	 * @todo Add social icons to header.
+	**/
 	$fields[] = array(
 		'type'        => 'sortable',
 		'setting'     => 'share_buttons',
@@ -491,6 +496,7 @@ function gently_kirki_fields( $fields ) {
 			'pinterest'   => __( 'Pinterest', 'gently' )
 		),
 	);
+
 
 	/* Header image fields */
 	$fields[] = array(

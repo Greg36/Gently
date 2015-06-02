@@ -48,7 +48,7 @@
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa fa-bars"></i></button>
 
 			<?php
-			if ( in_array( 'search', kirki_get_option( 'header_features' ) ) ) {
+			if ( in_array( 'search', (array)kirki_get_option( 'header_features' ) ) ) {
 				echo '<div class="header-search"><i class="btn fa fa-search" tabindex="0"></i>' . get_search_form( false ) . '</div>';
 			}
 			?>

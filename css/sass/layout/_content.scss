@@ -12,6 +12,13 @@
   display: none;
 }
 
+.entry-meta {
+  @include font-size(1);
+  & > span:not(:last-child) {
+    margin-right: 1em;
+  }
+}
+
 .single .byline,
 .group-blog .byline {
   display: inline;
@@ -21,6 +28,18 @@
 .entry-content,
 .entry-summary {
   margin: 1.5em 0 0;
+}
+
+.entry-content {
+  margin-top: 0;
+  p:first-of-type {
+    margin-top: 0;
+  }
+}
+
+.entry-image {
+  max-height: 200px;
+  overflow: hidden;
 }
 
 .page-links {

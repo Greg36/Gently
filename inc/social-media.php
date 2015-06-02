@@ -5,6 +5,9 @@
  * @package Gently
  */
 
+/**
+ * Prints formatted HTML with chooses social share icons.
+ */
 function gently_share_buttons() {
 	$services = array(  //array of services as key => array( title => human readable title, url_structure => share url structure )
 		// %1$s = url to share
@@ -40,4 +43,47 @@ function gently_share_buttons() {
 	}
 }
 
+/**
+ * Prints HTML with user's social media icon links.
+ */
+function gently_author_social_icons() {
+	$links = array('facebook','twitter','google-plus','pinterest','linkedin','tumblr');
 
+	foreach ( $links as $link ) {
+		if( get_the_author_meta( $link ) ) {
+			printf( '<a href="%s"><i class="fa fa-%s-square"></i></a>',
+				esc_url( get_the_author_meta( $link ) ),
+				$link
+			);
+		}
+	}
+}
+
+/**
+ * Prints social icons set in customizer.
+ */
+//function gently_social_icons(){
+//	$icons_string = kirki_get_option( 'social_links' );
+//	$icons = preg_split ( '/$\R?^/m', $icons_string );
+//	$media = array( 'behance', 'codepen', 'digg', 'dribbble', 'facebook', 'flickr', 'github', 'google-plus', 'instagram', 'lastfm', 'linkedin', 'medium', 'pinterest-p', 'reddit', 'soundcloud', 'stumbleupon', 'tumblr', 'twitch', 'twitter', 'vine', 'vine', 'vk', 'whatsapp', 'wordpress', 'yahoo', 'youtube' );
+//	foreach ( $icons as $icon ) {
+//		if ( filter_var( $icon, FILTER_VALIDATE_URL ) == true ) {
+//			$icon = esc_url( $icon );
+//			foreach ( $media as $site ) {
+//				if ( preg_match( '/' . $site . '\.com/', $icon ) ) {
+//					gently_print_social_icon( $icon, $site );
+//					break;
+//				}
+//			}
+//		}
+//	}
+//}
+//
+//function gently_print_social_icon( $link, $media ) {
+//	printf( '<a href="%1$s" rel="nofollow" target="_blank"><i class="fa fa-%2$s"></i></span></a>',
+//		$link,
+//		$media
+//	);
+//}
+//
+//gently_social_icons();

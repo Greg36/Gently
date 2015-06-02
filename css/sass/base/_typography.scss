@@ -121,6 +121,10 @@ h6 + p {
 
 /* COPY */
 
+a {
+  text-decoration: none;
+}
+
 p {
   margin-top: $margin__content;
   margin-bottom: 0;
@@ -130,7 +134,7 @@ dfn, cite, em, i {
   font-style: italic;
 }
 
-blockquote {
+blockquote, p.pullquote {
   margin: $margin__content 0 0 -0.75em;
   padding-left: 0.65em;
   font-style: italic;
