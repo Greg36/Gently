@@ -9,7 +9,7 @@
 
 
 		<div class="entry-meta">
-			<div class="row">
+			<div class="row collapse">
 				<div class="small-8 large-9 columns">
 					<?php echo gently_entry_time(); ?>
 					<?php echo gently_list_categories(); ?>

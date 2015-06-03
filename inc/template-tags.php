@@ -150,7 +150,7 @@ if ( ! function_exists( 'gently_list_categories' ) ) :
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'gently' ) );
 		if ( $categories_list && gently_categorized_blog() ) {
-			return '<span class="cat-links">' . $categories_list . '</span>';
+			return '<i class="fa fa-folder"></i>&nbsp;<span class="cat-links">' . $categories_list . '</span>';
 		}
 		return '';
 	}
@@ -180,15 +180,15 @@ function  gently_featured_image() {
 	if ( has_post_thumbnail() ) {
 		if ( !is_single() ){
 			echo '<div class="entry-image">';
+		} else {
+			echo '<div class="featured-image">';
 		}
-			printf(
-				'<a href="%s" title="%s">' . get_the_post_thumbnail() . '</a>',
-				get_the_permalink(),
-				the_title_attribute( 'echo=0' )
-			);
-		if ( !is_single() ){
-			echo '</div>';
-		}
+		printf(
+			'<a href="%s" title="%s">' . get_the_post_thumbnail() . '</a>',
+			get_the_permalink(),
+			the_title_attribute( 'echo=0' )
+		);
+		echo '</div>';
 	}
 }
 endif;
