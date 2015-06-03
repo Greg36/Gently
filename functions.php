@@ -146,4 +146,4 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() .'/inc/social-media.php';
 
-add_filter('show_admin_bar', '__return_false');
+//add_filter('show_admin_bar', '__return_false');

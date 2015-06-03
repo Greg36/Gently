@@ -3,11 +3,14 @@
 }
 .site-main {
   max-width: 700px !important;
-  margin: 0 auto;
+  margin: 2em auto;
   padding: 0 20px;
 }
 
 @media all and (min-width: 1000px) and (max-width: 1249px ) {
+  .site-main {
+    margin: 3em auto;
+  }
   body.sidebar-left .content-area {
     margin-left: 350px;
   }
@@ -17,6 +20,9 @@
 }
 
 @media all and (min-width: 1250px) {
+  .site-main {
+    margin: 3em auto;
+  }
   body.sidebar-left .content-area {
     margin-left: 430px;
   }

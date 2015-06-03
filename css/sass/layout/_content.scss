@@ -4,7 +4,11 @@
 }
 
 .hentry {
-  margin: 0 0 1.5em;
+  padding-bottom: 2em;
+  margin: 0 0 2em;
+  &:not(:last-child) {
+    border-bottom: 1px solid #eeeeee;
+  }
 }
 
 .byline,
@@ -12,11 +16,41 @@
   display: none;
 }
 
+.byline .avatar {
+  float: left;
+  margin-right: 0.8em;
+}
+
 .entry-meta {
-  @include font-size(1);
+  .author {
+    font-weight: bold;
+  }
+  @include font-size(0.875);
+  margin-bottom: 0.5em;
   & > span:not(:last-child) {
     margin-right: 1em;
   }
+}
+.entry-meta + .entry-image {
+  margin-top: 0.5em;
+}
+
+.posted-on a {
+  font-weight: bold;
+}
+.group-blog .posted-on a {
+  font-weight: normal;
+  color: #aaa;
+  font-size: 0.85em;
+}
+
+.comments-count {
+  float: right;
+}
+
+.entry-title {
+  margin-top: 0em;
+  font-weight: normal;
 }
 
 .single .byline,
@@ -33,13 +67,30 @@
 .entry-content {
   margin-top: 0;
   p:first-of-type {
-    margin-top: 0;
+    margin-top: 1em;
+  }
+  p:last-of-type {
+    margin-bottom:  0.5em;
   }
 }
+
 
 .entry-image {
   max-height: 200px;
   overflow: hidden;
+  margin-bottom: 1em;
+}
+@media all and (min-width: 820px) and (max-width: 999px) {
+  .entry-image {
+    width: 110%;
+    margin-left: -5%;
+  }
+}
+@media all and (min-width: 1160px) {
+  .entry-image {
+    width: 110%;
+    margin-left: -5%;
+  }
 }
 
 .page-links {

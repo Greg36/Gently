@@ -74,13 +74,15 @@ function gently_posted_on() {
 
 	$time_string = gently_entry_time();
 
+	$author_avatar = get_avatar( get_the_author_meta( 'ID' ), '35' );
+
 	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
-	$byline = '<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
+	$byline = '<span class="author vcard">' . $author_avatar . '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
 
 	$comments_count = gently_comments_count();
 
-	echo '<span class="byline"> ' . $byline . '</span><span class="posted-on">' . $posted_on . '</span>' . $comments_count; // WPCS: XSS OK
+	echo '<span class="byline"> ' . $byline . '</span><br><span class="posted-on">' . $posted_on . '</span>' . $comments_count; // WPCS: XSS OK
 }
 endif;
 
@@ -115,7 +117,7 @@ if ( ! function_exists( 'gently_comments_count' ) ) :
 		/* Display comments count only if the are available. */
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			return  sprintf(
-				'<a class="comments-count" href="' . get_comments_link() . '"><span class="screen-reader-text">%s</span><i class="fa fa-comments"></i>' . get_comments_number() . '</a>',
+				'<a class="comments-count" href="' . get_comments_link() . '"><span class="screen-reader-text">%s</span><i class="fa fa-comments"></i>&nbsp;' . get_comments_number() . '</a>',
 				esc_html__( 'Comments count', 'gently' )
 			);
 		}
@@ -125,18 +127,17 @@ endif;
 
 if ( ! function_exists( 'gently_comments_link' ) ) :
 	/**
-	 * Returns HTML with comments link if there are available.
+	 * Prints HTML with comments link if there are available.
 	 * @return string Comments count.
 	 */
 	function gently_comments_link() {
 		/* Display comments count only if the are available. */
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			return sprintf (
+			printf (
 				'<span class="comments-link">%s</span>',
 				comments_popup_link( esc_html__( 'Leave a comment', 'gently' ), esc_html__( '1 Comment', 'gently' ), esc_html__( '% Comments', 'gently' ) )
 			);
 		}
-		return '';
 	}
 endif;
 
@@ -175,14 +176,19 @@ if ( ! function_exists( 'gently_featured_image' ) ) :
  * Prints HTML with post's featured image.
  * @todo Add caption from native attachment or add metabox to back-end post.
  */
-function gently_featured_image() {
+function  gently_featured_image() {
 	if ( has_post_thumbnail() ) {
-		$thumbnail = sprintf(
-			'<a href="%s" title="%s">' . get_the_post_thumbnail() . '</a>',
-			get_the_permalink(),
-			the_title_attribute( 'echo=0' )
-		);
-		echo $thumbnail;
+		if ( !is_single() ){
+			echo '<div class="entry-image">';
+		}
+			printf(
+				'<a href="%s" title="%s">' . get_the_post_thumbnail() . '</a>',
+				get_the_permalink(),
+				the_title_attribute( 'echo=0' )
+			);
+		if ( !is_single() ){
+			echo '</div>';
+		}
 	}
 }
 endif;

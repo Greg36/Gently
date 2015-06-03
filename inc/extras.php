@@ -86,6 +86,14 @@ if ( ! function_exists( 'gently_excerpt_more' ) ) :
 endif;
 
 /**
+ * Custom exceropt lenght.
+ */
+function custom_excerpt_length( $length ) {
+	return 30;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+/**
  * Social media links in user's profile settings.
  */
 function gently_user_contact_methods( $user_contact ) {
