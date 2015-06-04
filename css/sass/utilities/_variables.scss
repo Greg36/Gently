@@ -44,3 +44,6 @@ $size__site-sidebar: 25%;
 /* DETAILS */
 $detail__border-radius: 6px;
 $detail__box-shadow: 1px 1px 1px 0px rgba(0, 0, 40, 0.05);
+
+/* EASING */
+$ease_easeOutCubic: cubic-bezier(0.215, 0.610, 0.355, 1.000); /* easeOutCubic */
