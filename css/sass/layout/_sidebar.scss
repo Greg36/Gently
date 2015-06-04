@@ -17,6 +17,9 @@
 @media all and (min-width: 1000px) and (max-width: 1249px ) {
   .main-sidebar {
     width: 350px;
+    .widget-area {
+      max-width: 310px;
+    }
   }
   body.sidebar-right.sidebar-closed .main-sidebar {
     right: -315px;
@@ -28,6 +31,9 @@
 @media all and (min-width: 1250px) {
   .main-sidebar {
     width: 430px;
+    .widget-area {
+      max-width: 390px;
+    }
   }
   body.sidebar-right.sidebar-closed .main-sidebar {
     right: -395px;
@@ -47,7 +53,6 @@
     display: block;
     position: absolute;
     top: 20px;
-    left: 20px;
     background: none;
     font-size: 22px;
     padding: 0 7px 0 9px;
@@ -67,7 +72,6 @@
     position: relative;
     .toggle-sidebar {
       top: auto;
-      left: 0px;
       bottom: -40px;
     }
     &.stick-sidebar {
@@ -79,7 +83,6 @@
   body.sidebar-closed {
     .toggle-sidebar {
       transform: rotateY( 180deg );
-      left: 7px;
     }
     .widget-area .toggle-sidebar {
       left: -30px;
@@ -91,14 +94,53 @@
       }
     }
   }
-  body.sidebar-left #toggle-sidebar {
-    float: right;
+  body.sidebar-left {
+    .main-sidebar {
+      left: 0;
+    }
+    .widget-area .toggle-sidebar {
+      right: 0;
+    }
+    .toggle-sidebar {
+      right: 20px;
+    }
+    &.sidebar-closed {
+      .widget-area .toggle-sidebar {
+        left: auto;
+        right: -13px;
+        &.sticky-sidebar-toggle {
+          left: 3px;
+          right: auto;
+        }
+      }
+      .toggle-sidebar {
+        right: 4px;
+      }
+    }
   }
-  body.sidebar-right .main-sidebar {
-    right: 0;
-  }
-  body.sidebar-left .main-sidebar {
-    left: 0;
+  body.sidebar-right {
+    .main-sidebar {
+      right: 0;
+    }
+    .widget-area .toggle-sidebar {
+      left: 0;
+    }
+    .toggle-sidebar {
+      left: 20px;
+    }
+    &.sidebar-closed {
+      .widget-area .toggle-sidebar {
+        left: -30px;
+        right: auto;
+        &.sticky-sidebar-toggle {
+          left: auto;
+          right: 3px;
+        }
+      }
+      .toggle-sidebar {
+        left: 7px;
+      }
+    }
   }
   body.sidebar-right.sidebar-closed .main-sidebar {
     padding-left: 35px;

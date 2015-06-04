@@ -32,7 +32,7 @@ jQuery(document).ready(function( $ ) {
 
     $( window ).scroll( function() {
         $bottomSidebarToggle.removeClass( 'sticky-sidebar-toggle' );
-        if ( ( $( window ).scrollTop() + $( window ).height() + 55 ) >= totalSidebarH ) {
+        if ( ( $( window ).scrollTop() + $( window ).height() - 55 ) >= totalSidebarH ) {
             $widget_area.addClass( 'stick-sidebar' );
         } else {
             $widget_area.removeClass( 'stick-sidebar' );
