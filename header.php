@@ -49,7 +49,7 @@
 
 			<?php
 			if ( in_array( 'search', (array)kirki_get_option( 'header_features' ) ) ) {
-				echo '<div class="header-search"><i class="btn fa fa-search" tabindex="0"></i>' . get_search_form( false ) . '</div>';
+				echo '<div class="header-search"><i class="btn fa fa-search" tabindex="0"></i><div>' . get_search_form( false ) . '</div></div>';
 			}
 			?>
 

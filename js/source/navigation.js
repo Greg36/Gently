@@ -73,9 +73,8 @@
 	}
 
 	// Search toggle
-	$( '.header-search form').hide();
 	$( '.header-search i').bind('touchstart click keypress', ( function(){
-		$( this ).next().fadeToggle().css( 'display', 'inline-block' );
+		$( this).parent().toggleClass( 'search-open' );
 	} ) );
 
 
