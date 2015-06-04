@@ -122,11 +122,11 @@ function gently_addtoany_disable_default_sharing_in_single() {
 add_filter( 'addtoany_sharing_disabled', 'gently_addtoany_disable_default_sharing_in_single' );
 
 /**
- * Add sidebar position class to body
+ * Add sidebar position classes to body.
  * @param $classes
  * @return array
  */
-function my_class_names( $classes ) {
+function genlty_sidebar_postion( $classes ) {
 	$sidebar_pos = kirki_get_option( 'sidebar_position' );
 
 	if ( $sidebar_pos == 'left' ) {
@@ -135,9 +135,19 @@ function my_class_names( $classes ) {
 		$classes[] = 'sidebar-right';
 	}
 
+	$sidebar_collapse = explode( ',', kirki_get_option( 'sidebar_collapse' ) );
+
+	if ( is_home() && in_array( 'home', $sidebar_collapse ) ) {
+		$classes[] = 'sidebar-closed';
+	} else if ( is_single() && in_array( 'single', $sidebar_collapse ) ) {
+		$classes[] = 'sidebar-closed';
+	} else if ( is_archive() && in_array( 'archive', $sidebar_collapse ) ) {
+		$classes[] = 'sidebar-closed';
+	}
+
 	return $classes;
 }
-add_filter( 'body_class', 'my_class_names' );
+add_filter( 'body_class', 'genlty_sidebar_postion' );
 
 
 /**

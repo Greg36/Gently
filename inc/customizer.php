@@ -354,6 +354,20 @@ function gently_kirki_fields( $fields ) {
 			'right' => admin_url() . '/images/align-right-2x.png',
 		)
 	);
+	$fields[] = array(
+		'type'        => 'multicheck',
+		'setting'     => 'sidebar_collapse',
+		'label'       => __( 'Collapse sidebar by default', 'gently' ),
+		'description' => __( 'Check on what type of pages sidebar will be collapsed by default.', 'genly' ),
+		'section'     => 'sidebar',
+		'default'     => array('single, home'),
+		'priority'    => 13,
+		'choices'     => array(
+			'home'    => __( 'Home page', 'gently' ),
+			'single'  => __( 'Single post', 'gently' ),
+			'archive' => __( 'Archive', 'gently' ),
+		),
+	);
 
 	/* Top bar fields
 	 * @todo Add js_vars when header is ready.
@@ -421,8 +435,8 @@ function gently_kirki_fields( $fields ) {
 		'default'     => array('social', 'search'),
 		'priority'    => 12,
 		'choices'     => array(
-			'social' => __( 'Social icons', 'kirki' ),
-			'search' => __( 'Search', 'kirki' ),
+			'social' => __( 'Social icons', 'gently' ),
+			'search' => __( 'Search', 'gently' ),
 		),
 	);
 
