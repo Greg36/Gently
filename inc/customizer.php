@@ -57,7 +57,7 @@ add_action( 'customize_register', 'gently_customize_register' );
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function gently_customize_preview_js() {
-	wp_enqueue_script( 'gently_customizer', get_template_directory_uri() . '/js/admin/customizer.js', array( 'customize-preview' ), '', true );
+	wp_enqueue_script( 'gently_customizer', get_template_directory_uri() . '/js/admin/customizer.js', array( 'customize-preview' ), '20150604', true );
 }
 add_action( 'customize_preview_init', 'gently_customize_preview_js' );
 
@@ -439,6 +439,56 @@ function gently_kirki_fields( $fields ) {
 			'search' => __( 'Search', 'gently' ),
 		),
 	);
+	$fields[] = array(
+		'type'      => 'slider',
+		'setting'   => 'header_icon_size',
+		'label'     => __( 'Social icons size', 'gently' ),
+		'section'   => 'header',
+		'default'   => 14,
+		'priority'  => 13,
+		'transport' => 'postMessage',
+		'choices'   => array(
+			'min'   => 8,
+			'max'   => 30,
+			'step'  => 1,
+		),
+		'output'    => array(
+			'element'  => '.top-bar .social-links',
+			'property' => 'font-size',
+			'units'    => 'px',
+		)
+	);
+	$fields[] = array(
+		'type'        => 'color',
+		'setting'     => 'header_icons_color',
+		'label'       => __( 'Social icons color', 'gently' ),
+		'section'     => 'header',
+		'default'     => '#147bb2',
+		'priority'    => 14,
+		'transport'   => 'postMessage',
+		'output'      => array(
+			array(
+				'element'  => '.top-bar .social-links a',
+				'property' => 'color'
+			),
+		),
+		'js_vars'   => array(
+			array(
+				'element'  => '.top-bar .social-links a',
+				'function' => 'css',
+				'property' => 'color',
+			)
+		)
+	);
+	$fields[] = array(
+		'type'        => 'checkbox',
+		'setting'     => 'header_icons_color_original',
+		'label'       => __( 'Use original icons color', 'gently' ),
+		'section'     => 'header',
+		'default'     => false,
+		'priority'    => 15,
+		'transport'   => 'postMessage'
+	);
 
 	/* Navigation fields */
 	$fields[] = array(
@@ -510,7 +560,15 @@ function gently_kirki_fields( $fields ) {
 			'pinterest'   => __( 'Pinterest', 'gently' )
 		),
 	);
-
+	$fields[] = array(
+		'type'        => 'textarea',
+		'setting'     => 'social_links',
+		'label'       => __( 'Header social icons', 'gently' ),
+		'description' => __( 'Enter each link in new line', 'genly' ),
+		'section'     => 'social',
+		'default'     => '',
+		'priority'    => 11,
+	);
 
 	/* Header image fields */
 	$fields[] = array(

@@ -40,6 +40,18 @@
         });
     });
 
+    /* Header social icons size and original color switch */
+    wp.customize( 'header_icon_size', function ( value ) {
+        value.bind(function ( newval ) {
+            $( '.social-links' ).css( 'fontSize', newval+'px' );
+        });
+    });
+    wp.customize( 'header_icons_color_original', function ( value ) {
+        value.bind(function ( newval ) {
+            $( '.social-links .sc-link' ).toggleClass( 'orig-col', newval );
+        });
+    });
+
     /* Custom header image height */
     wp.customize( 'header_image_height', function ( value ) {
         value.bind(function ( newval ) {

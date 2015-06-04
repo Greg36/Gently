@@ -35,3 +35,223 @@
 .share-button-pinterest {
   background-image: url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0D%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2016.0.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0D%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-%2F%2FW3C%2F%2FDTD%20SVG%201.1%2F%2FEN%22%20%22http%3A%2F%2Fwww.w3.org%2FGraphics%2FSVG%2F1.1%2FDTD%2Fsvg11.dtd%22%3E%0D%0A%3Csvg%20version%3D%221.1%22%0D%0A%09%20id%3D%22Layer_1%22%20xmlns%3Acc%3D%22http%3A%2F%2Fcreativecommons.org%2Fns%23%22%20xmlns%3Adc%3D%22http%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%22%20xmlns%3Ainkscape%3D%22http%3A%2F%2Fwww.inkscape.org%2Fnamespaces%2Finkscape%22%20xmlns%3Ardf%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%22%20xmlns%3Asodipodi%3D%22http%3A%2F%2Fsodipodi.sourceforge.net%2FDTD%2Fsodipodi-0.dtd%22%20xmlns%3Asvg%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%0D%0A%09%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%2232px%22%20height%3D%2232px%22%0D%0A%09%20viewBox%3D%22240%20240%2032%2032%22%20enable-background%3D%22new%20240%20240%2032%2032%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cg%3E%0D%0A%09%3Cpath%20fill%3D%22%23CA2127%22%20d%3D%22M244%2C240h24c2.209%2C0%2C4%2C1.791%2C4%2C4v24c0%2C2.209-1.791%2C4-4%2C4h-24c-2.209%2C0-4-1.791-4-4v-24%0D%0A%09%09C240%2C241.79%2C241.791%2C240%2C244%2C240z%22%2F%3E%0D%0A%09%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M256.586%2C243.5c-6.822%2C0-10.263%2C4.892-10.263%2C8.971c0%2C2.469%2C0.935%2C4.666%2C2.94%2C5.484%0D%0A%09%09c0.329%2C0.136%2C0.624%2C0.006%2C0.72-0.359c0.066-0.251%2C0.224-0.887%2C0.293-1.152c0.096-0.36%2C0.058-0.485-0.207-0.8%0D%0A%09%09c-0.578-0.682-0.948-1.564-0.948-2.815c0-3.629%2C2.715-6.878%2C7.07-6.878c3.857%2C0%2C5.975%2C2.357%2C5.975%2C5.502%0D%0A%09%09c0%2C4.141-1.832%2C7.636-4.553%2C7.636c-1.502%2C0-2.625-1.242-2.266-2.766c0.432-1.819%2C1.268-3.782%2C1.268-5.096%0D%0A%09%09c0-1.174-0.632-2.155-1.937-2.155c-1.536%2C0-2.77%2C1.589-2.77%2C3.717c0%2C1.355%2C0.458%2C2.273%2C0.458%2C2.273s-1.572%2C6.659-1.847%2C7.825%0D%0A%09%09c-0.549%2C2.322-0.083%2C5.169-0.043%2C5.455c0.023%2C0.172%2C0.243%2C0.213%2C0.342%2C0.084c0.141-0.185%2C1.971-2.443%2C2.592-4.699%0D%0A%09%09c0.177-0.639%2C1.01-3.947%2C1.01-3.947c0.499%2C0.952%2C1.958%2C1.789%2C3.508%2C1.789c4.615%2C0%2C7.747-4.208%2C7.747-9.84%0D%0A%09%09C265.678%2C247.466%2C262.069%2C243.5%2C256.586%2C243.5z%22%2F%3E%0D%0A%3C%2Fg%3E%0D%0A%3C%2Fsvg%3E%0D%0A');
 }
+
+
+.social-links {
+  float: right;
+  display: inline-block;
+  line-height: 50px;
+  a {
+    margin-right: 0.5em;
+  }
+}
+@media all and (min-width: 1066px) {
+  .social-links {
+    margin-top: 10px;
+  }
+}
+.sc-link[href*="behance"] {
+  &:before {
+    content: "\f1b4";
+  }
+  &.orig-col {
+    color: #1769ff;
+  }
+}
+.sc-link[href*="codepen"] {
+  &:before {
+    content: "\f1cb";
+  }
+  &.orig-col {
+    color: #252527;
+  }
+}
+.sc-link[href*="digg"] {
+  &:before {
+    content: "\f1a6";
+  }
+  &.orig-col {
+    color: #000000;
+  }
+}
+.sc-link[href*="dribbble"] {
+  &:before {
+    content: "\f17d";
+  }
+  &.orig-col {
+    color: #ea4c89;
+  }
+}
+.sc-link[href*="facebook"] {
+  &:before {
+    content: "\f09a";
+  }
+  &.orig-col {
+    color: #3b5998;
+  }
+}
+.sc-link[href*="flickr"] {
+  &:before {
+    content: "\f16e";
+  }
+  &.orig-col {
+    color: #ff0084;
+  }
+}
+.sc-link[href*="github"] {
+  &:before {
+    content: "\f09b";
+  }
+  &.orig-col {
+    color: #333333;
+  }
+}
+.sc-link[href*="plus.google"] {
+  &:before {
+    content: "\f0d5";
+  }
+  &.orig-col {
+    color: #dd4b39;
+  }
+}
+.sc-link[href*="instagram"] {
+  &:before {
+    content: "\f16d";
+  }
+  &.orig-col {
+    color: #3f729b;
+  }
+}
+.sc-link[href*="lastfm"] {
+  &:before {
+    content: "\f202";
+  }
+  &.orig-col {
+    color: #d51007;
+  }
+}
+.sc-link[href*="linkedin"] {
+  &:before {
+    content: "\f0e1";
+  }
+  &.orig-col {
+    color: #0077b5;
+  }
+}
+.sc-link[href*="medium"] {
+  &:before {
+    content: "\f23a";
+  }
+  &.orig-col {
+    color: #333332;
+  }
+}
+.sc-link[href*="pinterest"] {
+  &:before {
+    content: "\f0d2";
+  }
+  &.orig-col {
+    color: #cc2127;
+  }
+}
+.sc-link[href*="reddit"] {
+  &:before {
+    content: "\f1a1";
+  }
+  &.orig-col {
+    color: #5f99cf;
+  }
+}
+.sc-link[href*="soundcloud"] {
+  &:before {
+    content: "\f1be";
+  }
+  &.orig-col {
+    color: #ff8800;
+  }
+}
+.sc-link[href*="stumbleupon"] {
+  &:before {
+    content: "\f1a4";
+  }
+  &.orig-col {
+    color: #eb4924;
+  }
+}
+.sc-link[href*="tumblr"] {
+  &:before {
+    content: "\f173";
+  }
+  &.orig-col {
+    color: #35465c;
+  }
+}
+.sc-link[href*="twitch"] {
+  &:before {
+    content: "\f1e8";
+  }
+  &.orig-col {
+    color: #6441a5;
+  }
+}
+.sc-link[href*="twitter"] {
+  &:before {
+    content: "\f099";
+  }
+  &.orig-col {
+    color: #55acee;
+  }
+}
+.sc-link[href*="vine"] {
+  &:before {
+    content: "\f1ca";
+  }
+  &.orig-col {
+    color: #00b488;
+  }
+}
+.sc-link[href*="vk"] {
+  &:before {
+    content: "\f189";
+  }
+  &.orig-col {
+    color: #2B587A;
+  }
+}
+.sc-link[href*="whatsapp"] {
+  &:before {
+    content: "\f232";
+  }
+  &.orig-col {
+    color: #4dc247;
+  }
+}
+.sc-link[href*="wordpress"] {
+  &:before {
+    content: "\f19a";
+  }
+  &.orig-col {
+    color: #21759b;
+  }
+}
+.sc-link[href*="yahoo"] {
+  &:before {
+    content: "\f19e";
+  }
+  &.orig-col {
+    color: #400191;
+  }
+}
+.sc-link[href*="youtube"] {
+  &:before {
+    content: "\f167";
+  }
+  &.orig-col {
+    color: #cd201f;
+  }
+}
+
+
+
+
+//	$media = array( 'behance', 'codepen', 'digg', 'dribbble', 'facebook', 'flickr', 'github', 'google-plus', 'instagram', 'lastfm', 'linkedin', 'medium', 'pinterest-p', 'reddit', 'soundcloud', 'stumbleupon', 'tumblr', 'twitch', 'twitter', 'vine', 'vine', 'vk', 'whatsapp', 'wordpress', 'yahoo', 'youtube' );

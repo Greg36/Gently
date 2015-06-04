@@ -62,28 +62,24 @@ function gently_author_social_icons() {
 /**
  * Prints social icons set in customizer.
  */
-//function gently_social_icons(){
-//	$icons_string = kirki_get_option( 'social_links' );
-//	$icons = preg_split ( '/$\R?^/m', $icons_string );
-//	$media = array( 'behance', 'codepen', 'digg', 'dribbble', 'facebook', 'flickr', 'github', 'google-plus', 'instagram', 'lastfm', 'linkedin', 'medium', 'pinterest-p', 'reddit', 'soundcloud', 'stumbleupon', 'tumblr', 'twitch', 'twitter', 'vine', 'vine', 'vk', 'whatsapp', 'wordpress', 'yahoo', 'youtube' );
-//	foreach ( $icons as $icon ) {
-//		if ( filter_var( $icon, FILTER_VALIDATE_URL ) == true ) {
-//			$icon = esc_url( $icon );
-//			foreach ( $media as $site ) {
-//				if ( preg_match( '/' . $site . '\.com/', $icon ) ) {
-//					gently_print_social_icon( $icon, $site );
-//					break;
-//				}
-//			}
-//		}
-//	}
-//}
-//
-//function gently_print_social_icon( $link, $media ) {
-//	printf( '<a href="%1$s" rel="nofollow" target="_blank"><i class="fa fa-%2$s"></i></span></a>',
-//		$link,
-//		$media
-//	);
-//}
-//
-//gently_social_icons();
+function gently_social_links(){
+	$links_string = kirki_get_option( 'social_links' );
+	$links = preg_split( '/$\R?^/m', $links_string );
+
+	if ( $links ) {
+		echo '<div class="social-links">';
+	}
+	foreach ( $links as $link ) {
+		if ( filter_var( $link, FILTER_VALIDATE_URL ) == true ) {
+			$link = esc_url( $link );
+			$color = kirki_get_option( 'header_icons_color_original' ) ? 'orig-col' : '';
+			printf( '<a href="%1$s" class="fa sc-link %2$s" target="_blank"></a>',
+				$link,
+				$color
+			);
+		}
+	}
+	if ( $links ) {
+		echo '</div>';
+	}
+}
