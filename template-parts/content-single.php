@@ -9,9 +9,9 @@
 
 
 		<div class="entry-meta">
+			<?php echo gently_entry_time(); ?>
 			<div class="row collapse">
 				<div class="small-8 large-9 columns">
-					<?php echo gently_entry_time(); ?>
 					<?php echo gently_list_categories(); ?>
 				</div>
 				<div class="small-4 large-3 columns">
@@ -37,30 +37,30 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<div class="row">
-			<div class="small-6 columns">
+		<div class="row collapse">
+			<div class="small-12 medium-6 columns">
 				<div class="entry-author">
 					<div class="author-info">
-						<?php the_author(); ?>
+						<?php echo gently_get_author(); ?>
 						<?php gently_author_social_icons(); ?>
 					</div>
 					<div class="author-bio">
-						<?php echo get_avatar( get_the_author_meta( 'ID' ) ); ?>
-						<?php echo get_the_author_meta( 'description' ); ?>
+						<?php echo get_avatar( get_the_author_meta( 'ID' ), 50 ); ?>
+						<p>
+							<?php echo get_the_author_meta( 'description' ); ?>
+						</p>
 					</div>
 				</div>
 				<div class="entry-tags">
 					<?php echo gently_list_tags(); ?>
 				</div>
 			</div>
-			<div class="small-6 columns">
-				<div>
-					<?php echo gently_comments_count(); ?>
+			<div class="small-12 medium-6 columns">
+				<div class="comments-link-cont">
+					<?php echo gently_comments_link(); ?>
 				</div>
-				<div>
-<!--					--><?php //if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
+				<div class="share-buttons">
 					<?php gently_share_buttons(); ?>
-
 				</div>
 			</div>
 		</div>
@@ -69,7 +69,7 @@
 
 <?php
 	the_post_navigation( array(
-		'prev_text' => '<i class="fa fa-chevron-left"></i> %title',
-		'next_text' => '%title <i class="fa fa-chevron-right"></i>'
+		'prev_text'          => '<span>' . esc_html__( 'Previous post', 'gently' ) . '</span>%title',
+		'next_text'          => '<span>' . esc_html__( 'Next post', 'gently' ) . '</span>%title',
 	) );
 ?>

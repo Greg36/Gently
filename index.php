@@ -37,6 +37,11 @@ get_header(); ?>
 
 		<?php endif; ?>
 
+			<?php
+				the_posts_navigation();
+			?>
+
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

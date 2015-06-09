@@ -48,6 +48,10 @@
     top: 0;
     padding-top: 40px;
     transition: all 350ms $ease_easeOutCubic;
+    &.fixed-sidebar {
+      top: 1px;
+      position: fixed;
+    }
   }
   .toggle-sidebar {
     display: block;
@@ -78,6 +82,7 @@
       position: fixed;
       bottom: 55px;
     }
+
   }
 
   body.sidebar-closed {

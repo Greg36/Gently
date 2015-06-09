@@ -20,15 +20,20 @@ function gently_customize_register( $wp_customize ) {
 			'title'    => __( 'Top bar', 'gently' ),
 			'priority' => 91
 		) );
-		$wp_customize->add_section( 'social', array(
-			'title'    => __( 'Social Media', 'gently' ),
-			'priority' => 101,
-			'description' => __( 'Share buttons will be displayed under each single post.', 'gently' ),
-		) );
 		$wp_customize->add_section( 'sidebar', array(
 			'title'    => __( 'Sidebar', 'gently' ),
-			'priority' => 102
+			'priority' => 101
 		) );
+		$wp_customize->add_section( 'footer', array(
+			'title'    => __( 'Footer', 'gently' ),
+			'priority' => 111
+		) );
+		$wp_customize->add_section( 'social', array(
+			'title'    => __( 'Social Media', 'gently' ),
+			'priority' => 112,
+			'description' => __( 'Share buttons will be displayed under each single post.', 'gently' ),
+		) );
+
 
 		// Change settings of default sections
 		$branding_section = $wp_customize->get_section( 'title_tagline' );
@@ -45,6 +50,13 @@ function gently_customize_register( $wp_customize ) {
 		// Change blogname setting transport to post
 		$blogname_setting = $wp_customize->get_setting( 'blogname' );
 		$blogname_setting->transport = 'postMessage';
+
+		// Change Header image section order
+		$header_image_section = $wp_customize->get_section( 'header_image' );
+		$header_image_section->priority = 99;
+
+		// Remove colors panel
+		$wp_customize->remove_panel( 'colors' );
 
 		// Remove tagline field
 		$wp_customize->remove_setting( 'blogdescription' );
@@ -210,7 +222,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'  => 'body_text_font',
 		'label'    => __( 'Body text font', 'gently' ),
 		'section'  => 'typography',
-		'default'  => 'PT Serif',
+		'default'  => 'Open Sans',
 		'priority' => 20,
 		'choices'  => Kirki_Fonts::get_font_choices(),
 		'output' => array(
@@ -223,7 +235,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'     => 'body_text_color',
 		'label'       => __( 'Body text color', 'gently' ),
 		'section'     => 'typography',
-		'default'     => '#404040',
+		'default'     => '#575757',
 		'priority'    => 21,
 		'transport'   => 'postMessage',
 		'output'      => array(
@@ -302,7 +314,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'     => 'sidebar_bg',
 		'label'       => __( 'Sidebar background color', 'gently' ),
 		'section'     => 'sidebar',
-		'default'     => '#F7F8F9',
+		'default'     => '#fdfdfd',
 		'priority'    => 10,
 		'transport'   => 'postMessage',
 		'output'      => array(
@@ -324,7 +336,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'     => 'sidebar_border',
 		'label'       => __( 'Sidebar border color', 'gently' ),
 		'section'     => 'sidebar',
-		'default'     => '#DDE2E6',
+		'default'     => '#f1f2f4',
 		'priority'    => 11,
 		'transport'   => 'postMessage',
 		'output'      => array(
@@ -346,7 +358,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'     => 'sidebar_position',
 		'label'       => __( 'Sidebar position', 'gently' ),
 		'section'     => 'sidebar',
-		'default'     => 'left',
+		'default'     => 'right',
 		'transport'   => 'postMessage',
 		'priority'    => 12,
 		'choices'     => array(
@@ -377,7 +389,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'     => 'header_bg',
 		'label'       => __( 'Top bar background color', 'gently' ),
 		'section'     => 'header',
-		'default'     => '#FFFFFF',
+		'default'     => '#f8f9fa',
 		'priority'    => 10,
 		'transport'   => 'postMessage',
 		'output'      => array(
@@ -399,7 +411,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'     => 'header_border',
 		'label'       => __( 'Top bar border color', 'gently' ),
 		'section'     => 'header',
-		'default'     => '#FFFFFF',
+		'default'     => '#e7e7e7',
 		'priority'    => 11,
 		'transport'   => 'postMessage',
 		'output'      => array(
@@ -496,7 +508,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'     => 'header_font_color',
 		'label'       => __( 'Navigation color', 'gently' ),
 		'section'     => 'nav',
-		'default'     => '#969696',
+		'default'     => '#6d8591',
 		'priority'    => 13,
 		'transport'   => 'postMessage',
 		'output'      => array(
@@ -518,7 +530,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'   => 'header_font_size',
 		'label'     => __( 'Navigation font size', 'gently' ),
 		'section'   => 'nav',
-		'default'   => 16,
+		'default'   => 13,
 		'priority'  => 14,
 		'transport' => 'postMessage',
 		'choices'   => array(
@@ -531,6 +543,60 @@ function gently_kirki_fields( $fields ) {
 			'property' => 'font-size',
 			'units'    => 'px',
 		)
+	);
+
+	/* Footer fields */
+	$fields[] = array(
+		'type'        => 'color',
+		'setting'     => 'footer_bg',
+		'label'       => __( 'Footer background color', 'gently' ),
+		'section'     => 'footer',
+		'default'     => '#ffffff',
+		'priority'    => 10,
+		'transport'   => 'postMessage',
+		'output'      => array(
+			array(
+				'element'  => '.site-footer',
+				'property' => 'background-color'
+			)
+		),
+		'js_vars'   => array(
+			array(
+				'element'  => '.site-footer',
+				'function' => 'css',
+				'property' => 'background-color',
+			)
+		)
+	);
+	$fields[] = array(
+		'type'        => 'color',
+		'setting'     => 'footer_border',
+		'label'       => __( 'Footer border color', 'gently' ),
+		'section'     => 'footer',
+		'default'     => '#ffffff',
+		'priority'    => 11,
+		'transport'   => 'postMessage',
+		'output'      => array(
+			array(
+				'element'  => '.site-footer',
+				'property' => 'border-color'
+			)
+		),
+		'js_vars'   => array(
+			array(
+				'element'  => '.site-footer',
+				'function' => 'css',
+				'property' => 'border-color',
+			)
+		)
+	);
+	$fields[] = array(
+		'type'        => 'textarea',
+		'setting'     => 'footer_text',
+		'label'       => __( 'Footer content', 'gently' ),
+		'section'     => 'social',
+		'default'     => '<a href="http://wordpress.org/">Proudly powered by WordPress</a><span class="sep"> | </span>Theme: Gently by <a href="http://muster-themes.net/" rel="designer">MusterThemes</a>.',
+		'priority'    => 11,
 	);
 
 	/**
@@ -591,7 +657,35 @@ function gently_kirki_fields( $fields ) {
 		)
 	);
 
+	$fields[] = array(
+		'type'        => 'slider',
+		'setting'     => 'slider_demo',
+		'label'       => __( 'This is the label', 'kirki' ),
+		'description' => __( 'This is the control description', 'kirki' ),
+		'help'        => __( 'This is some extra help text.', 'kirki' ),
+		'section'     => 'social',
+		'default'     => 20,
+		'priority'    => 10,
+		'choices'     => array(
+			'min'  => -100,
+			'max'  => 100,
+			'step' => 10
+		),
+	);
+
 	return $fields;
 
 }
 add_filter( 'kirki/fields', 'gently_kirki_fields' );
+
+/**
+ * Check if kirki is installed.
+ */
+function gently_check_kirki() {
+	if ( ! function_exists( 'kirki_get_option' ) ) {
+		function kirki_get_option() {
+			return '';
+		}
+	}
+}
+add_action( 'plugins_loaded', 'gently_check_kirki' );

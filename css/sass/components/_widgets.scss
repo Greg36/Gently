@@ -145,7 +145,7 @@
   }
 }
 
-.widget_pages, .widget_meta, .widget_nav_menu {
+.widget_pages, .widget_meta, .widget_nav_menu, .widget_recent_entries {
   @include font-size(1);
   li a {
 	&:hover, &:focus {
@@ -184,7 +184,7 @@
 .widget_recent_comments {
   @include font-size(0.875);
   a {
-	@include font-size(1.125);
+	@include font-size(1);
   }
 //  .comment-author-link {
 //	display: inline-block;

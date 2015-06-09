@@ -9,10 +9,14 @@
 ?>
 
 		<footer id="colophon" class="site-footer" role="contentinfo">
+			<?php if ( has_nav_menu( 'secondary' ) ) { ?>
+				<nav class="secondary-navigation" role="navigation">
+					<?php wp_nav_menu( array( 'theme_location' => 'secondary', 'menu_id' => 'secondary-menu', 'depth' => 1 ) ); ?>
+				</nav>
+			<?php } ?>
+
 			<div class="site-info">
-				<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'gently' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'gently' ), 'WordPress' ); ?></a>
-				<span class="sep"> | </span>
-				<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'gently' ), 'gently', '<a href="http://automattic.com/" rel="designer">Automattic</a>' ); ?>
+				<?php echo kirki_get_option( 'footer_text' ); ?>
 			</div><!-- .site-info -->
 		</footer><!-- #colophon -->
 

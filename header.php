@@ -69,7 +69,13 @@
 			?>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'walker' => new Gently_Menu_Walker(), ) ); ?>
+				<?php
+					if ( has_nav_menu( 'primary' ) ) {
+						wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'walker' => new Gently_Menu_Walker() ) );
+					} else {
+						wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+					}
+				?>
 			</nav><!-- #site-navigation -->
 
 		</div>

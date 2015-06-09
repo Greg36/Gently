@@ -1,3 +1,35 @@
 .site-footer {
   text-align: center;
+  @include font-size(1);
+  border-top: 1px solid;
+  border-color: #fff;
+}
+.site-info {
+  margin-bottom: 1.5em;
+  @include font-size(0.875);
+}
+
+.secondary-navigation {
+//  max-width: 700px;
+//  margin: 0 auto;
+//  padding: 0 20px;
+  ul {
+    padding: 0;
+    margin: 1.5em 0 1em 0;
+  }
+  li {
+    display: inline-block;
+    height: 8px;
+    line-height: 8px;
+    &:not(:last-child) {
+      border-right: 1px solid #aaa;
+      margin-right: 0.7em;
+      padding-right: 0.7em;
+    }
+    a {
+      color: #aaa;
+      @include font-size(0.75);
+      vertical-align: bottom;
+    }
+  }
 }

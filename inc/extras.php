@@ -122,6 +122,16 @@ function gently_addtoany_disable_default_sharing_in_single() {
 add_filter( 'addtoany_sharing_disabled', 'gently_addtoany_disable_default_sharing_in_single' );
 
 /**
+ * Remove 'You may use these HTML...' from under comments form
+ * @return array
+ */
+function gently_comment_form_defaults( $defaults ) {
+	$defaults['comment_notes_after'] = '';
+	return $defaults;
+}
+add_filter( 'comment_form_defaults', 'gently_comment_form_defaults' );
+
+/**
  * Add sidebar position classes to body.
  * @param $classes
  * @return array
@@ -135,7 +145,7 @@ function genlty_sidebar_postion( $classes ) {
 		$classes[] = 'sidebar-right';
 	}
 
-	$sidebar_collapse = explode( ',', kirki_get_option( 'sidebar_collapse' ) );
+	$sidebar_collapse = explode( ',', kirki_get_option( 'sidebar_collapse' )[0] );
 
 	if ( is_home() && in_array( 'home', $sidebar_collapse ) ) {
 		$classes[] = 'sidebar-closed';
@@ -155,11 +165,11 @@ add_filter( 'body_class', 'genlty_sidebar_postion' );
  * Custom menu walker with added icons that are used to toggle nested levels of navigation in small screen version.
  */
 class Gently_Menu_Walker extends Walker_Nav_Menu {
-	function start_lvl(&$output, $depth = 0, $args = array()) {
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth+1);
 		$output .= "\t<span class='nav-sub-icon' tabindex='0'><i class='fa fa-chevron-down'></i></span>\n$indent\t<ul class='sub-menu'>\n";
 	}
-	function end_lvl(&$output, $depth = 0, $args = array()) {
+	function end_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth+1);
 		$output .= "$indent\t</ul>\n";
 	}

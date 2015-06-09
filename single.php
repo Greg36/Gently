@@ -14,7 +14,9 @@ get_header(); ?>
 
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-			<?php gently_related_posts(); ?>
+			<div class="related-posts">
+				<?php gently_related_posts(); ?>
+			</div>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template

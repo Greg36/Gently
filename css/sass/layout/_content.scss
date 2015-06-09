@@ -74,12 +74,40 @@
   }
 }
 
+.excerpt-read-more {
+  @include font-size(1);
+}
+
+.nav-links {
+  .nav-next a:after, .nav-previous a:before {
+    /* FontAwesome .fa style */
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    @include font-size(0.75);
+    vertical-align: middle;
+  }
+  .nav-previous a:before {
+    content: "\f053";
+    margin-right: 1em;
+  }
+  .nav-next a:after {
+    content: "\f054";
+    margin-left: 1em;
+  }
+}
+
 
 .entry-image {
   max-height: 200px;
   overflow: hidden;
   margin-bottom: 1em;
 }
+
 @media all and (min-width: 820px) and (max-width: 999px) {
   .entry-image {
     width: 110%;
@@ -88,6 +116,18 @@
   .featured-image {
     width: 110%;
     margin-left: -5%;
+  }
+}
+@media all and (min-width: 1000px) and (max-width: 1159px) {
+  body.sidebar-closed {
+    .entry-image {
+      width: 110%;
+      margin-left: -5%;
+    }
+    .featured-image {
+      width: 120%;
+      margin-left: -10%;
+    }
   }
 }
 @media all and (min-width: 1160px) {
@@ -100,6 +140,12 @@
     margin-left: -10%;
   }
 }
+@media all and (min-width: 1450px) {
+  .featured-image {
+    width: 140%;
+    margin-left: -20%;
+  }
+}
 
 .page-links {
   clear: both;
@@ -108,6 +154,162 @@
 
 /* Single Post */
 
+.author-info {
+  font-weight: bold;
+  @include font-size(1);
+  margin-bottom: 0.5em;
+  span {
+    margin-right: 0.5em;
+  }
+  & > a {
+    &:not(:last-child){
+      margin-right: 0.5em;
+    }
+  }
+}
+.author-bio {
+  img {
+    float: left;
+    margin: 0.3em 0.7em 0.2em 0;
+  }
+  p {
+    margin: 0;
+    @include font-size(0.875);
+  }
+}
+
+.related-posts {
+  img {
+    padding: 0.3em 1.5em 1.5em 0;
+  }
+  h3.entry-title {
+    text-align: left;
+    margin-top: 0;
+  }
+  p {
+    @include font-size(0.875);
+  }
+  h4 {
+    font-family: inherit;
+    @include font-size(1);
+    padding-bottom: 0.1em;
+//    font-weight: normal;
+    margin-bottom: 1em;
+    margin-top: 2.5em;
+  }
+}
+
+.single {
+  .hentry {
+    margin-bottom: 1.4em;
+  }
+  .entry-date {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    @include font-size(0.75);
+  }
+  .cat-links {
+    i {
+      color: $color__link;
+    }
+  }
+  .entry-meta {
+    & + .entry-title {
+      margin-top: 0.5em;
+    }
+    & + .featured-image {
+      margin-top: 1em;
+    }
+    .large-3 {
+      text-align: right;
+    }
+  }
+  .entry-title {
+    margin-top: 0.6em;
+    margin-bottom: 0.1em;
+    text-align: center;
+  }
+  .entry-footer {
+    margin-top: 3em;
+    .comments-link {
+      text-align: right;
+      width: 100%;
+      display: block;
+      padding-top: 0.1em;
+      @include font-size(0.875);
+      font-weight: bold;
+    }
+    .comments-link-cont {
+      float: right;
+      padding-top: 5px;
+    }
+    .share-buttons {
+      text-align: left;
+      a:last-of-type {
+        padding-right: 0;
+      }
+      a:first-of-type {
+        padding-left: 0;
+      }
+    }
+    .small-12:last-child {
+      margin-top: 1em;
+    }
+  }
+  .post-navigation {
+    padding-bottom: 1.3em;
+    border-bottom: 1px solid #eee;
+  }
+  .nav-links {
+    span {
+      display: block;
+      font-size: 12px;
+      color: #A0A0A0;
+    }
+    .nav-next a:after, .nav-previous a:before {
+      display: none;
+    }
+    .nav-next span:after, .nav-previous span:before {
+      /* FontAwesome .fa style */
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      @include font-size(0.7);
+      vertical-align: middle;
+    }
+    .nav-previous span:before {
+      content: "\f053";
+      margin-right: 0.7em;
+    }
+    .nav-next span:after {
+      content: "\f054";
+      margin-left: 0.7em;
+    }
+  }
+}
+
+@media only screen and (min-width: 40.063em) {
+  .single .entry-footer {
+    .share-buttons {
+      text-align: right;
+    }
+    .comments-link-cont {
+      float: none;
+      padding-top: 0;
+    }
+    .comments-link {
+      margin-bottom: 0.57em;
+    }
+    .small-12:last-child {
+      margin-top: 1.7em;
+    }
+  }
+}
 
 /* ASIDES - post type */
 

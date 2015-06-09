@@ -70,7 +70,7 @@ if ( ! function_exists( 'gently_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time, author and comments count.
  * @todo Add multiple author option.
  */
-function gently_posted_on() {
+function gently_posted_on( $search = false ) {
 
 	$time_string = gently_entry_time();
 
@@ -81,8 +81,12 @@ function gently_posted_on() {
 	$byline = '<span class="author vcard">' . $author_avatar . '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
 
 	$comments_count = gently_comments_count();
+	if ( $search ) {
+		echo '<span class="posted-on">' . $posted_on . '</span>' . '<span class="byline"> ' . gently_get_author() . '</span>';
+	} else {
+		echo '<span class="byline"> ' . $byline . '</span><br><span class="posted-on">' . $posted_on . '</span>' . $comments_count; // WPCS: XSS OK
 
-	echo '<span class="byline"> ' . $byline . '</span><br><span class="posted-on">' . $posted_on . '</span>' . $comments_count; // WPCS: XSS OK
+	}
 }
 endif;
 
@@ -133,10 +137,9 @@ if ( ! function_exists( 'gently_comments_link' ) ) :
 	function gently_comments_link() {
 		/* Display comments count only if the are available. */
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			printf (
-				'<span class="comments-link">%s</span>',
-				comments_popup_link( esc_html__( 'Leave a comment', 'gently' ), esc_html__( '1 Comment', 'gently' ), esc_html__( '% Comments', 'gently' ) )
-			);
+			echo '<span class="comments-link">';
+				comments_popup_link( esc_html__( 'Leave a comment', 'gently' ), esc_html__( '1 Comment', 'gently' ), esc_html__( '% Comments', 'gently' ) );
+			echo '</span>';
 		}
 	}
 endif;
@@ -150,7 +153,7 @@ if ( ! function_exists( 'gently_list_categories' ) ) :
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'gently' ) );
 		if ( $categories_list && gently_categorized_blog() ) {
-			return '<i class="fa fa-folder"></i>&nbsp;<span class="cat-links">' . $categories_list . '</span>';
+			return '<div class="cat-links"><i class="fa fa-folder"></i>&nbsp;' . $categories_list . '</div>';
 		}
 		return '';
 	}
@@ -176,9 +179,11 @@ if ( ! function_exists( 'gently_featured_image' ) ) :
  * Prints HTML with post's featured image.
  * @todo Add caption from native attachment or add metabox to back-end post.
  */
-function  gently_featured_image() {
+function  gently_featured_image( $skip = false ) {
 	if ( has_post_thumbnail() ) {
-		if ( !is_single() ){
+		if ( $skip ) {
+			echo '<div>';
+		} else if ( !is_single() ){
 			echo '<div class="entry-image">';
 		} else {
 			echo '<div class="featured-image">';
@@ -190,6 +195,19 @@ function  gently_featured_image() {
 		);
 		echo '</div>';
 	}
+}
+endif;
+
+if( ! function_exists( 'gently_get_author' ) ) :
+/**
+ * Returns link to author's posts.
+ * @return string Formatted post author link.
+ */
+function gently_get_author() {
+	return sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		esc_html( get_the_author() )
+	);
 }
 endif;
 
@@ -368,7 +386,7 @@ function gently_related_posts() {
 	$related  = new WP_Query( $args );
 
 	if ( $related->have_posts() ) {
-		sprintf( '<h3>%s</h3>', esc_html__( 'Related posts:' ) );
+		printf( '<h4>%s</h4>', esc_html__( 'Related posts', 'gently' ) );
 		while ( $related->have_posts() ) {
 			$related->the_post();
 			echo gently_related_post();
@@ -384,17 +402,17 @@ function gently_related_posts() {
  */
 function gently_related_post() {
 	?>
-	<div class="row">
+	<div class="row collapse">
 		<?php if ( has_post_thumbnail() ) { ?>
 			<div class="small-12 medium-3 columns">
-				<?php gently_featured_image(); ?>
+				<?php gently_featured_image( true ); ?>
 			</div>
 			<div class="small-12 medium-9 columns">
 		<?php } ?>
 			<?php gently_entry_time(); ?>
 			<?php gently_comments_count(); ?>
-			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
-			<?php echo wp_trim_words( get_the_excerpt() ); ?>
+			<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+			<?php echo '<p>' . wp_trim_words( get_the_excerpt() ) . '</p>'; ?>
 		<?php if ( has_post_thumbnail() ) echo '</div>'; ?>
 	</div>
 	<?php

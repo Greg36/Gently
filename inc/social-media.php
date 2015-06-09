@@ -28,6 +28,10 @@ function gently_share_buttons() {
 	$sb_settings_serialized = get_theme_mod( 'share_buttons', $defaults );
 	$sb_settings = unserialize( $sb_settings_serialized );
 
+	if ( $sb_settings ) {
+		echo '<span class="screen-reader-text">' . __( 'Share buttons', 'gently' ) . '</span>';
+	}
+
 	foreach ( $sb_settings as $media ) {
 		$url = sprintf( $services[$media]['url_structure'],
 			get_the_permalink(),
