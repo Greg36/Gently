@@ -16,7 +16,7 @@
 			<?php } ?>
 
 			<div class="site-info">
-				<?php echo kirki_get_option( 'footer_text' ); ?>
+				<?php echo wp_kses_post( kirki_get_option( 'footer_text' ) ); ?>
 			</div><!-- .site-info -->
 		</footer><!-- #colophon -->
 

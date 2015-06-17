@@ -153,8 +153,8 @@ function gently_archive_title_icons( $title ) {
 	} else if ( is_category() ) {
 		$title = '<i class="fa fa-folder"></i>' . $title;
 		return $title;
-	} else if ( is_author() ) {
-//		$title = '<i class="fa fa-user"></i>' . $title;
+	} else if ( is_date() ) {
+		$title = '<i class="fa fa-calendar-o"></i>' . $title;
 		return $title;
 	}
 	return $title;

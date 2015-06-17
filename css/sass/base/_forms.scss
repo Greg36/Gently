@@ -6,21 +6,23 @@ input[type="submit"],
 a.btn,
 i.btn {
   border: 1px solid;
-  border-color: #ccc #ccc #bbb;
+  /* @todo Correct colors to match customizer settings */
+  border-color: #B8DCEF #B8DCEF #5598BD #5598BD;
   border-radius: 6px;
   color: #fff;
-  background: $color__link;
+  background: #39A9E5;
   text-decoration: none;
   font-weight: bold;
   @include font-size(0.75);
   line-height: 1;
   padding: 0.6em 1em;
   letter-spacing: 0.25px;
+  box-shadow: -1px 1px 0 #B8DCEF;
 
   &:active,
   &:focus,
   &:hover {
-    background: $color__link-visited;
+    background: #2E97CF;
     color: #F0FAFF;
   }
 

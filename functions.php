@@ -127,6 +127,16 @@ function gently_scripts() {
 add_action( 'wp_enqueue_scripts', 'gently_scripts' );
 
 /**
+ * TGM Plugin Activation class
+ */
+require get_template_directory() . '/inc/class-tgm-plugin-activation.php';
+
+/**
+ * TGM Plugin Activation config
+ */
+require get_template_directory() . '/inc/tgm-plugin-activation.php';
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';

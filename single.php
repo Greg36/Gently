@@ -18,6 +18,10 @@ get_header(); ?>
 				<?php gently_related_posts(); ?>
 			</div>
 
+			<?php if( function_exists( 'mc4wp_form' ) ) : ?>
+				<?php mc4wp_form(); ?>
+			<?php endif; ?>
+
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template
 				if ( comments_open() || get_comments_number() ) :

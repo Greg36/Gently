@@ -62,7 +62,7 @@ jQuery(document).ready(function( $ ) {
 
 
     /* Set minimal height of sidebar to fix scrolling problem when main content is to short */
-    $( 'body').css( 'min-height', function () {
+    $( '.site-content').css( 'min-height', function () {
         return $mainSidebar.offset().top + $mainSidebar.height() + 64;
     } );
     $mainSidebar.css( 'min-height', function () {
