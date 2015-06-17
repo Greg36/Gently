@@ -168,7 +168,7 @@ if ( ! function_exists( 'gently_list_tags' ) ) :
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'gently' ) );
 		if ( $tags_list ) {
-			return '<span class="tags-links">' . $tags_list . '</span>';
+			return '<span class="tags-links"><i class="fa fa-tag"></i>' . $tags_list . '</span>';
 		}
 		return '';
 	}
@@ -404,7 +404,7 @@ function gently_related_post() {
 	?>
 	<div class="row collapse">
 		<?php if ( has_post_thumbnail() ) { ?>
-			<div class="small-12 medium-3 columns">
+			<div class="small-12 medium-3 columns related-post-img">
 				<?php gently_featured_image( true ); ?>
 			</div>
 			<div class="small-12 medium-9 columns">

@@ -132,6 +132,17 @@ function gently_comment_form_defaults( $defaults ) {
 add_filter( 'comment_form_defaults', 'gently_comment_form_defaults' );
 
 /**
+ * Adds span tags around taxonomy in archive title
+ * @return string
+ */
+function gently_custom_archive_title( $title ) {
+	$new_title = explode( ':', $title );
+	$title = $new_title[0] . ':<span>' . $new_title[1] . '</span>';
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'gently_custom_archive_title' );
+
+/**
  * Add sidebar position classes to body.
  * @param $classes
  * @return array

@@ -24,11 +24,12 @@ jQuery(document).ready(function( $ ) {
     } );
 
 
-
+    /* @todo: on 404 there is no sidebar */
     var $widget_area = $('.widget-area');
     var totalSidebarH = $widget_area.offset().top + $widget_area.height();
     var $topSidebarToggle = $( '.main-sidebar > .toggle-sidebar' );
     var $bottomSidebarToggle = $widget_area.find( '.toggle-sidebar');
+    var $mainSidebar = $( '.main-sidebar' );
 
     /* Fix sidebar in place when scrolled to it's bottom */
     if ( totalSidebarH > $( document).height() ) {
@@ -49,7 +50,6 @@ jQuery(document).ready(function( $ ) {
         /* Fix sidebar in place when it's shorter than window
          * @todo Bind to window-resize with debounce
         **/
-        var $mainSidebar = $( '.main-sidebar' );
         $bottomSidebarToggle.hide();
         $(window).scroll(function () {
             if ( $( window ).scrollTop() > 71 ) {
@@ -63,10 +63,19 @@ jQuery(document).ready(function( $ ) {
 
     /* Set minimal height of sidebar to fix scrolling problem when main content is to short */
     $( 'body').css( 'min-height', function () {
-        var $sidebar = $( '.main-sidebar' );
-        return $sidebar.offset().top + $sidebar.height() + 63;
+        return $mainSidebar.offset().top + $mainSidebar.height() + 63;
     } );
-    $( '.main-sidebar' ).css( 'min-height', function () {
+    $mainSidebar.css( 'min-height', function () {
         return $( this ).height() + 93;
-    })
+    });
+
+
+    /* Sticky footer */
+    var $siteFooter = $( '.site-footer' );
+    if ( $( window).height() > ( $( '.site-main' ).outerHeight() + $siteFooter.outerHeight() ) ) {
+        $siteFooter.css({
+            position: 'absolute',
+            bottom: 0
+        });
+    }
 });

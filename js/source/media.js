@@ -11,4 +11,12 @@
         }
     });
 
+    $(".related-post-img img").each(function() {
+        sh = $(this).height();
+        if (sh > 100){
+            $(this).css('margin-top', - (sh - 100) / 2 + 'px');
+        }
+    });
+
+
 } )( jQuery );

@@ -34,6 +34,9 @@
 .entry-meta + .entry-image {
   margin-top: 0.5em;
 }
+.featured-image, .entry-image {
+  text-align: center;
+}
 
 .posted-on a {
   font-weight: bold;
@@ -182,6 +185,10 @@
   img {
     padding: 0.3em 1.5em 1.5em 0;
   }
+  .related-post-img div {
+    max-height: 100px;
+    overflow: hidden;
+  }
   h3.entry-title {
     text-align: left;
     margin-top: 0;
@@ -193,9 +200,19 @@
     font-family: inherit;
     @include font-size(1);
     padding-bottom: 0.1em;
-//    font-weight: normal;
     margin-bottom: 1em;
     margin-top: 2.5em;
+  }
+}
+
+.tags-links {
+  display: block;
+  text-align: left;
+  margin-top: 1.5em;
+  @include font-size(0.875);
+  i {
+    margin-right: 0.5em;
+    color: $color__link;
   }
 }
 
@@ -207,10 +224,11 @@
     display: block;
     margin-bottom: 0.5em;
     font-weight: bold;
-    @include font-size(0.75);
+    @include font-size(0.8125);
   }
   .cat-links {
     i {
+      margin-right: 0.3em;
       color: $color__link;
     }
   }

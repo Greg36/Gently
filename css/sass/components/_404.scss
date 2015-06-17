@@ -1,0 +1,19 @@
+.error404 {
+  .content-area, .site-footer {
+    margin: 0 auto !important;
+  }
+  .page-title {
+    font-family: inherit;
+    @include font-size(1.931);
+  }
+  .page-content {
+    &, p {
+      margin-top: 1em;
+    }
+  }
+  .search-form {
+    label, input {
+      display: inline-block;
+    }
+  }
+}

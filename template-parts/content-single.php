@@ -44,15 +44,17 @@
 						<?php echo gently_get_author(); ?>
 						<?php gently_author_social_icons(); ?>
 					</div>
-					<div class="author-bio">
+					<div class="author-bio clear">
 						<?php echo get_avatar( get_the_author_meta( 'ID' ), 50 ); ?>
 						<p>
 							<?php echo get_the_author_meta( 'description' ); ?>
 						</p>
 					</div>
-				</div>
-				<div class="entry-tags">
-					<?php echo gently_list_tags(); ?>
+					<?php if ( gently_list_tags() ) : ?>
+						<div class="entry-tags">
+							<?php echo gently_list_tags(); ?>
+						</div>
+					<?php endif; ?>
 				</div>
 			</div>
 			<div class="small-12 medium-6 columns">
@@ -63,6 +65,7 @@
 					<?php gently_share_buttons(); ?>
 				</div>
 			</div>
+
 		</div>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
