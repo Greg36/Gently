@@ -63,16 +63,17 @@ jQuery(document).ready(function( $ ) {
 
     /* Set minimal height of sidebar to fix scrolling problem when main content is to short */
     $( 'body').css( 'min-height', function () {
-        return $mainSidebar.offset().top + $mainSidebar.height() + 63;
+        return $mainSidebar.offset().top + $mainSidebar.height() + 64;
     } );
     $mainSidebar.css( 'min-height', function () {
-        return $( this ).height() + 93;
+        return $( this ).height() + 94;
     });
 
 
     /* Sticky footer */
-    var $siteFooter = $( '.site-footer' );
-    if ( $( window).height() > ( $( '.site-main' ).outerHeight() + $siteFooter.outerHeight() ) ) {
+    var $siteFooter = $( '.site-footer'),
+        contentHeight = Math.max( $( '.site-main' ).outerHeight(), $mainSidebar.outerHeight() );
+    if ( $( window ).height() > ( contentHeight + $siteFooter.outerHeight() ) ) {
         $siteFooter.css({
             position: 'absolute',
             bottom: 0

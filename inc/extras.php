@@ -143,11 +143,30 @@ function gently_custom_archive_title( $title ) {
 add_filter( 'get_the_archive_title', 'gently_custom_archive_title' );
 
 /**
+ * Adds icons to archive title.
+ * @return string
+ */
+function gently_archive_title_icons( $title ) {
+	if ( is_tag() ) {
+		$title = '<i class="fa fa-tag"></i>' . $title;
+		return $title;
+	} else if ( is_category() ) {
+		$title = '<i class="fa fa-folder"></i>' . $title;
+		return $title;
+	} else if ( is_author() ) {
+//		$title = '<i class="fa fa-user"></i>' . $title;
+		return $title;
+	}
+	return $title;
+}
+add_filter( 'get_the_archive_title', 'gently_archive_title_icons' );
+
+/**
  * Add sidebar position classes to body.
  * @param $classes
  * @return array
  */
-function genlty_sidebar_postion( $classes ) {
+function genlty_sidebar_position( $classes ) {
 	$sidebar_pos = kirki_get_option( 'sidebar_position' );
 
 	if ( $sidebar_pos == 'left' ) {
@@ -168,7 +187,7 @@ function genlty_sidebar_postion( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'genlty_sidebar_postion' );
+add_filter( 'body_class', 'genlty_sidebar_position' );
 
 
 /**

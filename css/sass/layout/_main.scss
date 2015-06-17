@@ -95,6 +95,28 @@
     span {
       font-weight: bold;
     }
+    .author-bio {
+      margin-top: 0.5em;
+      .fa {
+        margin-right: 0.3em;
+      }
+    }
+  }
+  .page-title {
+    .fa {
+      font-size: 0.8em;
+      opacity: 0.3;
+      margin-right: 0.4em;
+    }
+    .fa-search, .fa-user {
+      vertical-align: top;
+    }
+    .fa-search {
+      margin-top: 7px;
+    }
+    .fa-user {
+      margin-top: 8px;
+    }
   }
 }
 

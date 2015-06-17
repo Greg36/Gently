@@ -74,7 +74,11 @@
 
 	// Search toggle
 	$( '.header-search i').bind('touchstart click keypress', ( function(){
-		$( this).parent().toggleClass( 'search-open' );
+		$( this ).parent().toggleClass( 'search-open' );
+
+        if ( $( this ).parent().hasClass( 'search-open' ) ) {
+            $( '.header-search .search-field').focus();
+        }
 	} ) );
 
 
