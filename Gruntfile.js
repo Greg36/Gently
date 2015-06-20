@@ -56,7 +56,9 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'css/style.css' : 'css/sass/style.scss'
+                    'css/style.css' : 'css/sass/style.scss',
+                    'css/custom-editor-style.css' : 'css/sass/custom-editor-style.scss',
+                    'css/customizer-style.css' : 'css/sass/customizer.scss'
                 }
             }
         },

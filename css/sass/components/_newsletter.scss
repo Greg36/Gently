@@ -1,15 +1,15 @@
-.mc4wp-form {
+div.mc4wp-form {
   margin: 2em 0;
   background: #F7F8F9;
   border: 1px solid #DDE2E6;
-  padding: 1.2em;
+  padding: 0 1.2em;
   text-align: center;
   border-radius: 4px;
   h3 {
     font-family: inherit;
     color: #39A9E5;
     font-size: 19px;
-    margin-top: 0;
+    margin-top: 0.8em;
   }
   p {
     @include font-size(0.875);
@@ -29,7 +29,6 @@
       display: inline-block;
       & + p {
         margin-top: 1em;
-        margin-bottom: 0;
       }
     }
     input[type="submit"] {
@@ -40,13 +39,3 @@
     }
   }
 }
-//
-//.mc4wp-form p
-//.mc4wp-form label
-//.mc4wp-form input
-//.mc4wp-form input[type="checkbox"]
-//.mc4wp-form input[type="submit"]
-//.mc4wp-alert
-//.mc4wp-success
-//.mc4wp-error
-

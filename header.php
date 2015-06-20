@@ -13,6 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<link rel="shortcut icon" href="<?php echo kirki_get_option( 'favicon' ); ?>" />
 
 <?php wp_head(); ?>
 </head>
@@ -21,22 +22,25 @@
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'gently' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<?php if ( get_header_image() ) : ?>
-			<div class="header-image">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
-				</a>
-			</div>
-		<?php endif; // End header image check. ?>
+	<?php if ( get_header_image() ) : ?>
+		<div class="header-image">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+				<img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+			</a>
+		</div>
+	<?php endif; // End header image check. ?>
 
+	<header id="masthead" class="site-header" role="banner">
 		<div class="top-bar">
 			<div class="site-branding">
 				<h1 class="site-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<?php
 						if ( kirki_get_option( 'logo_image' ) ) {
-							echo '<img class="site-logo" src="' . kirki_get_option( 'logo_image' ) . '" alt=""/>';
+							printf( '<img class="site-logo" src="%1$s" srcset="%1$s 1x, %2$s 2x" alt="logo"/>',
+								kirki_get_option( 'logo_image' ),
+								kirki_get_option( 'logo_image_retina' )
+							);
 						} else {
 							bloginfo( 'name' );
 						}

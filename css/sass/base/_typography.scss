@@ -32,10 +32,10 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2, h3, h4, h5, h6 {
   a {
     text-decoration: none;
-    color: inherit;
+    color: inherit !important;
   }
   a:visited {
-    color: inherit;
+    color: inherit !important;
   }
 }
 
@@ -137,8 +137,8 @@ dfn, cite, em, i {
 }
 
 blockquote, p.pullquote {
-  margin: $margin__content 0 0 -0.75em;
-  padding-left: 0.65em;
+  margin: $margin__content 0 0 0;
+  padding-left: 1em;
   font-style: italic;
   color: $color__text-quotes;
   border-color: lighten($color__text-quotes, 15%);
@@ -153,6 +153,12 @@ blockquote, p.pullquote {
   }
 }
 
+@media screen and (min-width: 765px) and (max-width: 999px), screen and (min-width: 1150px) {
+  blockquote, p.pullquote {
+    margin-left: -1.25em;
+    padding-left: 2em;
+  }
+}
 
 address {
   margin: 0 0 1.5em;

@@ -1,0 +1,399 @@
+@import "utilities/variables";
+@import "utilities/mixins";
+
+blockquote, q {
+  quotes: "" "";
+
+  &:before,
+  &:after {
+    content: "";
+  }
+}
+
+hr {
+  background-color: $color__background-hr;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em;
+}
+
+img {
+  height: auto; /* Make sure images are scaled correctly. */
+  max-width: 100%; /* Adhere to container width. */
+}
+
+figure {
+  margin: auto;
+}
+
+/* LISTS */
+
+ul, ol {
+  margin: $margin__content 0;
+  line-height: $font__line-height-body * 1.16;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+  margin-top: 0.5em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 ($margin__content * 0.65 ) $margin__content;
+}
+
+/* TABLES */
+
+table {
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+
+th{
+  text-align: left;
+  border-bottom: 1px solid #919191;
+  padding: 0.5em 0.65em;
+  border-right: 1px solid #919191;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+tfoot th {
+  border-bottom: none;
+}
+
+tr:last-child td {
+  border-bottom-color: #919191;
+}
+
+td {
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  padding: 0.5em 0.65em;
+  font-size: 0.9em;
+  &:last-child {
+    border-right: none;
+  }
+}
+
+/* BUTTONS */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+a.btn,
+i.btn {
+  border: 1px solid;
+  /* @todo Correct colors to match customizer settings */
+  border-color: #B8DCEF #B8DCEF #5598BD #5598BD;
+  border-radius: 6px;
+  color: #fff;
+  background: #39A9E5;
+  text-decoration: none;
+  font-weight: bold;
+  @include font-size(0.75);
+  line-height: 1;
+  padding: 0.6em 1em;
+  letter-spacing: 0.25px;
+  box-shadow: -1px 1px 0 #B8DCEF;
+
+  &:active,
+  &:focus,
+  &:hover {
+    background: #2E97CF;
+    color: #F0FAFF;
+  }
+
+}
+
+
+/* FIELDS */
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+select,
+textarea {
+  color: $color__text-input;
+  border: 1px solid $color__border-input;
+  border-radius: 3px;
+  @include font-size(0.8);
+  line-height: 2;
+  padding-left: 0.7em;
+
+  &:focus {
+    color: $color__text-input-focus;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+  padding: 3px;
+  padding-left: 0.7em;
+}
+
+input.is-error {
+  border-color: #E81010;
+  background: #FFF5F5;
+}
+input.is-valid {
+  border-color: #87D549;
+  background: #FCFFFC;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.7em;
+}
+
+select {
+  padding: 4px;
+}
+
+label {
+  display: block;
+  margin-top: 1.125em;
+  margin-bottom: 0.1em;
+  @include font-size(1);
+}
+
+label, legend {
+  abbr[title] {
+    color: $color__input-warning;
+    border: none;
+  }
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 2em 0;
+
+  ul {
+    list-style: none;
+    margin: 1em 0;
+    padding: 0;
+  }
+}
+
+div.wpcf7 {
+  p {
+    @include font-size(1);
+  }
+  margin: 1.5em 0;
+}
+.wpcf7-submit {
+  float: right;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  //  color: $color__text-main;
+  //  font-family: $font__main;
+  //xdxd
+  @include font-size(1);
+  line-height: $font__line-height-body;
+}
+
+/* Bigger text on desktop resolution */
+@media screen and (min-width: 800px) {
+  body,
+  button,
+  input,
+  select,
+  textarea {
+    @include font-size-desktop(1);
+  }
+}
+
+/* HEADINGS */
+
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+  //  font-family: $font__title;
+  //  color: $color__text-headings;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:visited {
+    color: inherit;
+  }
+}
+
+h1 {
+  @include font-size(2.684);
+  line-height: 1.15em;
+  margin-top: 1.277em;
+  margin-bottom: 0.628em;
+}
+
+h2 {
+  @include font-size(1.631);
+  line-height: 1.250em;
+  margin-top: 1.645em;
+  margin-bottom: 0;
+}
+
+h3 {
+  @include font-size(1.158);
+  line-height: 1.377em;
+  margin-top: 1.318em;
+  margin-bottom: 0;
+}
+h3 + p {
+  margin-top: 0.210em;
+}
+
+h4 {
+  @include font-size(0.947);
+  line-height: 1.611em;
+  margin-top: 1.611em;
+  margin-bottom: 0;
+}
+h4 + p {
+  margin-top: 0.052em;
+}
+
+h5 {
+  @include font-size(0.842);
+  margin-top: $margin__content;
+  margin-bottom: 0;
+}
+h5 + p {
+  margin-top: 0;
+}
+
+h6 {
+  @include font-size(0.737);
+  margin-top: $margin__content;
+  margin-bottom: 0;
+}
+h6 + p {
+  margin-top: 0;
+}
+
+/* Bigger headings on desktop resolution */
+@media screen and (min-width: 800px) {
+  h1 {
+    @include font-size-desktop(2.684);
+  }
+
+  h2 {
+    @include font-size-desktop(1.631);
+  }
+
+  h3 {
+    @include font-size-desktop(1.158);
+  }
+
+  h4 {
+    @include font-size-desktop(0.947);
+  }
+
+  h5 {
+    @include font-size-desktop(0.842);
+  }
+
+  h6 {
+    @include font-size-desktop(0.737);
+  }
+}
+
+
+/* COPY */
+
+a {
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+p {
+  margin-top: $margin__content;
+  margin-bottom: 0;
+  word-wrap: break-word;
+}
+
+dfn, cite, em, i {
+  font-style: italic;
+}
+
+blockquote, p.pullquote {
+  margin: $margin__content 0 0 0;
+  padding-left: 1em;
+  font-style: italic;
+  color: $color__text-quotes;
+  border-color: lighten($color__text-quotes, 15%);
+  border-style: solid;
+  border-width: 0 0 0 3px;
+
+  cite {
+    display: block;
+    text-align: right;
+    font-size: 0.85em;
+    margin-top: 0.5em;
+  }
+}
+
+address {
+  margin: 0 0 1.5em;
+}
+
+pre {
+  background: $color__background-pre;
+  font-family: $font__pre;
+  @include font-size(0.947);
+  line-height: $font__line-height-pre;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6em;
+  border-radius: $detail__border-radius;
+}
+
+code, kbd, tt, var {
+  font-family: $font__code;
+  @include font-size(0.947);
+}
+
+abbr, acronym {
+  border-bottom: 1px dotted $color__border-abbr;
+  cursor: help;
+}
+
+mark, ins {
+  background: $color__background-ins;
+  text-decoration: none;
+}
+
+big {
+  font-size: 125%;
+}
+

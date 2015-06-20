@@ -19,14 +19,15 @@
 .byline .avatar {
   float: left;
   margin-right: 0.8em;
+  margin-top: 4px;
 }
 
 .entry-meta {
+  @include font-size(0.875);
+  margin-bottom: 0.7em;
   .author {
     font-weight: bold;
   }
-  @include font-size(0.875);
-  margin-bottom: 0.5em;
   & > span:not(:last-child) {
     margin-right: 1em;
   }
@@ -271,6 +272,9 @@
         padding-left: 0;
       }
     }
+    .small-12:last-child {
+      margin-top: 2em;
+    }
   }
   .post-navigation {
     padding-bottom: 1.3em;
@@ -319,6 +323,9 @@
     }
     .comments-link {
       margin-bottom: 0.57em;
+    }
+    .small-12:last-child {
+      margin-top: 0;
     }
   }
 }

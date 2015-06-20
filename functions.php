@@ -110,7 +110,6 @@ add_action( 'widgets_init', 'gently_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
- * @todo Add superfish.
  */
 function gently_scripts() {
 
@@ -125,6 +124,14 @@ function gently_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'gently_scripts' );
+
+/**
+ * Add editor stylesheet
+ */
+function gently_add_editor_styles() {
+	add_editor_style( get_template_directory_uri() . '/css/custom-editor-style.css' );
+}
+add_action( 'admin_init', 'gently_add_editor_styles' );
 
 /**
  * TGM Plugin Activation class

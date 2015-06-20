@@ -103,3 +103,13 @@ fieldset {
     padding: 0;
   }
 }
+
+div.wpcf7 {
+  p {
+    @include font-size(1);
+  }
+  margin: 1.5em 0;
+}
+.wpcf7-submit {
+  float: right;
+}

@@ -168,29 +168,19 @@ a {
 
 /* Switching from toggle menu to full display */
 @media screen and (min-width: 45.5em) {
+  .nav-menu {
+    display: inline-block;
+    vertical-align: bottom;
+    li a {
+      line-height: 50px;
+    }
+  }
   .menu-toggle {
     display: none;
   }
   #site-navigation {
     display: block;
   }
-  // Not accessible with tabindex
-//  .sub-menu {
-//    .nav-sub-icon {
-//      display: block;
-//      position: absolute;
-//      right: 0.3em;
-//      top: 0.3em;
-//    }
-//    li {
-//      &:hover,
-//      &.focus {
-//        .nav-sub-icon {
-//          transform:rotate(-90deg);
-//        }
-//      }
-//    }
-//  }
   .sub-menu {
     & > li:first-of-type {
       padding-top: 1em;
@@ -211,19 +201,20 @@ a {
   .main-navigation {
     display: inline-block !important;
     margin-left: 25px;
+    vertical-align: top;
     ul {
       ul {
         top: 3em;
       }
     }
-    ul.nav-menu > li > a {
-      line-height: 43px;
-    }
   }
 }
 @media screen and (min-width: 1066px){
+  .main-navigation ul .sub-menu {
+    margin-top: 10px;
+  }
   .main-navigation ul.nav-menu > li > a {
-    line-height: 63px;
+    line-height: 64px;
   }
 }
 .comment-navigation,

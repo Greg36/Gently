@@ -14,7 +14,7 @@ function gently_customize_register( $wp_customize ) {
 	if ( class_exists( 'Kirki' ) ) {
 		$wp_customize->add_section( 'typography', array(
 			'title'    => __( 'Typography', 'gently' ),
-			'priority' => 41
+			'priority' => 81
 		) );
 		$wp_customize->add_section( 'header', array(
 			'title'    => __( 'Top bar', 'gently' ),
@@ -33,12 +33,18 @@ function gently_customize_register( $wp_customize ) {
 			'priority' => 112,
 			'description' => __( 'Share buttons will be displayed under each single post.', 'gently' ),
 		) );
+		if( function_exists( 'mc4wp_form' ) ) {
+			$wp_customize->add_section( 'newsletter', array(
+				'title'    => __( 'Footer', 'gently' ),
+				'priority' => 113
+			) );
+		}
 
 
 		// Change settings of default sections
 		$branding_section = $wp_customize->get_section( 'title_tagline' );
 		$branding_section->title = __( 'Site Branding', 'gently' );
-		$branding_section->description = __( 'Choose logo image or use text version.' );
+//		$branding_section->description = __( 'Choose logo image or use text version.', 'gently' );
 
 		$background_section = $wp_customize->get_section( 'background_image' );
 		$background_section->title = __( 'Background' );
@@ -47,13 +53,21 @@ function gently_customize_register( $wp_customize ) {
 		$background_color_control = $wp_customize->get_control( 'background_color' );
 		$background_color_control->section = 'background_image';
 
-		// Change blogname setting transport to post
+		// Change blogname setting transport to post, description and title
 		$blogname_setting = $wp_customize->get_setting( 'blogname' );
 		$blogname_setting->transport = 'postMessage';
+		$blogname_controll = $wp_customize->get_control( 'blogname' );
+		$blogname_controll->description = __( 'If you want to use text version of logo remove images above.', 'gently' );
+		$blogname_controll->label = __( 'Logo text', 'gently' );
 
 		// Change Header image section order
 		$header_image_section = $wp_customize->get_section( 'header_image' );
 		$header_image_section->priority = 99;
+
+
+		// Remove unused header text and text color controls
+		$wp_customize->remove_control( 'display_header_text' );
+		$wp_customize->remove_control( 'header_textcolor' );
 
 		// Remove colors panel
 		$wp_customize->remove_panel( 'colors' );
@@ -74,8 +88,15 @@ function gently_customize_preview_js() {
 add_action( 'customize_preview_init', 'gently_customize_preview_js' );
 
 /**
+ * Add styles to Theme Customizer controls
+ */
+function gently_customize_preview_style(){
+	wp_enqueue_style( 'gently_customizer_style', get_template_directory_uri() . '/css/customizer-style.css' );
+}
+add_action( 'customize_controls_print_styles', 'gently_customize_preview_style' );
+
+/**
  * Configuration of the Kirki Customizer
- * @todo Add good logo.
  * @todo Change descriptions of options.
  */
 function gently_kirki_configuration() {
@@ -124,7 +145,7 @@ function gently_kirki_configuration() {
 	);
 
 	$args = array(
-		'logo_image'   => get_stylesheet_directory_uri() . '/img/logo.png',
+		'logo_image'   => get_stylesheet_directory_uri() . '/img/logo_white.png',
 		'description'  => __( 'The theme description.', 'gently' ),
 		'color_accent' => '#147bb2',
 		'color_back'   => '#2e2e2e',
@@ -140,9 +161,7 @@ add_filter( 'kirki/config', 'gently_kirki_configuration' );
 
 function gently_kirki_fields( $fields ) {
 
-	/* Branding fields
-	 * @todo Add retina logo as default option.
-	**/
+	/* Branding fields */
 	$fields[] = array(
 		'type'        => 'image',
 		'setting'     => 'logo_image',
@@ -157,9 +176,9 @@ function gently_kirki_fields( $fields ) {
 		'type'        => 'image',
 		'setting'     => 'logo_image_retina',
 		'label'       => __( 'Logo image retina version', 'gently' ),
-		'description' => __( 'Two times bigger than normal for high resolution retina displays.', 'gently' ),
+		'description' => __( '2 times bigger than normal for high resolution retina displays.', 'gently' ),
 		'section'     => 'title_tagline',
-		'default'     => get_stylesheet_directory_uri() . '/img/logo.png',
+		'default'     => get_stylesheet_directory_uri() . '/img/logo2x.png',
 		'priority'    => 9,
 	);
 	$fields[] =  array(
@@ -214,6 +233,15 @@ function gently_kirki_fields( $fields ) {
 				'property' => 'color',
 			)
 		)
+	);
+	$fields[] = array(
+		'type'        => 'image',
+		'setting'     => 'favicon',
+		'label'       => __( 'Favicon', 'gently' ),
+		'description' => __( '32px by 32px', 'gently' ),
+		'section'     => 'title_tagline',
+		'default'     => get_stylesheet_directory_uri() . '/img/favicon.png',
+		'priority'    => 24,
 	);
 
 	/* Typography fields */
@@ -306,9 +334,7 @@ function gently_kirki_fields( $fields ) {
 		)
 	);
 
-	/* Sidebar fields
-	 * @todo Add correct graphics to image select.
-	**/
+	/* Sidebar fields */
 	$fields[] = array(
 		'type'        => 'color',
 		'setting'     => 'sidebar_bg',
@@ -362,8 +388,8 @@ function gently_kirki_fields( $fields ) {
 		'transport'   => 'postMessage',
 		'priority'    => 12,
 		'choices'     => array(
-			'left' => admin_url() . '/images/align-left-2x.png',
-			'right' => admin_url() . '/images/align-right-2x.png',
+			'left'    => get_stylesheet_directory_uri() . '/img/sidebar_left.png',
+			'right'   => get_stylesheet_directory_uri() . '/img/sidebar_right.png',
 		)
 	);
 	$fields[] = array(
@@ -381,9 +407,7 @@ function gently_kirki_fields( $fields ) {
 		),
 	);
 
-	/* Top bar fields
-	 * @todo Add js_vars when header is ready.
-	**/
+	/* Top bar fields */
 	$fields[] = array(
 		'type'        => 'color',
 		'setting'     => 'header_bg',
@@ -594,15 +618,13 @@ function gently_kirki_fields( $fields ) {
 		'type'        => 'textarea',
 		'setting'     => 'footer_text',
 		'label'       => __( 'Footer content', 'gently' ),
-		'section'     => 'social',
+		'section'     => 'footer',
 		'default'     => '<a href="http://wordpress.org/">Proudly powered by WordPress</a><span class="sep"> | </span>Theme: Gently by <a href="http://muster-themes.net/" rel="designer">MusterThemes</a>.',
 		'priority'    => 11,
 	);
 
 	/**
-	 * Social media fields
-	 * @todo Add social icons to header.
-	**/
+	 * Social media fields */
 	$fields[] = array(
 		'type'        => 'sortable',
 		'setting'     => 'share_buttons',
@@ -640,7 +662,7 @@ function gently_kirki_fields( $fields ) {
 	$fields[] = array(
 		'type'      => 'slider',
 		'setting'   => 'header_image_height',
-		'label'     => __( 'Header height', 'gently' ),
+		'label'     => __( 'Header image height', 'gently' ),
 		'section'   => 'header_image',
 		'default'   => 150,
 		'priority'  => 70,
@@ -655,22 +677,6 @@ function gently_kirki_fields( $fields ) {
 			'property' => 'max-height',
 			'units'    => 'px',
 		)
-	);
-
-	$fields[] = array(
-		'type'        => 'slider',
-		'setting'     => 'slider_demo',
-		'label'       => __( 'This is the label', 'kirki' ),
-		'description' => __( 'This is the control description', 'kirki' ),
-		'help'        => __( 'This is some extra help text.', 'kirki' ),
-		'section'     => 'social',
-		'default'     => 20,
-		'priority'    => 10,
-		'choices'     => array(
-			'min'  => -100,
-			'max'  => 100,
-			'step' => 10
-		),
 	);
 
 	return $fields;

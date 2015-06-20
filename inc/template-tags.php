@@ -68,7 +68,7 @@ endif;
 if ( ! function_exists( 'gently_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time, author and comments count.
- * @todo Add multiple author option.
+ * @todo Test multiple author option.
  */
 function gently_posted_on( $search = false ) {
 
@@ -177,7 +177,6 @@ endif;
 if ( ! function_exists( 'gently_featured_image' ) ) :
 /**
  * Prints HTML with post's featured image.
- * @todo Add caption from native attachment or add metabox to back-end post.
  */
 function  gently_featured_image( $skip = false ) {
 	if ( has_post_thumbnail() ) {
@@ -208,16 +207,6 @@ function gently_get_author() {
 		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 		esc_html( get_the_author() )
 	);
-}
-endif;
-
-if ( ! function_exists( 'gently_entry_footer' ) ) :
-/**
- * Prints HTML with meta information.
- * @todo Delete or use as base of single post footer.
- */
-function gently_entry_footer() {
-//	edit_post_link( esc_html__( 'Edit', 'gently' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
@@ -363,7 +352,6 @@ add_action( 'save_post',     'gently_category_transient_flusher' );
 /**
  * Prints related posts based on first tag.
  * @return string Formatted related posts.
- * @todo Test Jetpack related posts for this function.
  */
 function gently_related_posts() {
 	$args = array(
@@ -398,7 +386,6 @@ function gently_related_posts() {
 
 /**
  * Returns formatted post for use in related posts.
- * @todo Remove conditional and add default image?
  */
 function gently_related_post() {
 	?>

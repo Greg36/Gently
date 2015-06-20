@@ -16,11 +16,21 @@ function my_theme_register_required_plugins() {
 			'name'     => 'Mailchimp for WordPress',
 			'slug'     => 'mailchimp-for-wp',
 			'required' => false
-		)
+		),
+	    array(
+		    'name'     => 'RICG Responsive Images',
+		    'slug'     => 'ricg-responsive-images',
+		    'required' => false
+	    ),
+	    array(
+		    'name'     => 'Contact Form 7',
+		    'slug'     => 'contact-form-7',
+		    'required' => false
+	    )
     );
 
     $config = array(
-        'message'      => '<div class="update-nag"><h4 style="color:#ce1714">Kirki is mandatory for theme functionality.</h4><p><strong>All other recommended plugins are tested to use with theme, install that as you need.</strong></p></div>'
+        'message'      => '<div class="update-nag"><h4 style="color:#ce1714">Kirki is mandatory for theme functionality.</h4><p><strong>Other plugins install based on your needs.</strong></p></div>'
     );
 
     tgmpa( $plugins, $config );

@@ -1,28 +1,31 @@
 .site-title {
   margin: 0;
   a {
-    display: block;
-    padding: 13px 0 7px;
-    line-height: 30px;
+    line-height: 50px;
+    display: inline-block;
+    vertical-align: bottom;
   }
 }
 
 .site-logo {
-  max-height: 30px;
+  max-height: 50px;
   display: block;
 }
 
-@media all and (min-width: 1060px) {
+@media all and (min-width: 1066px) {
+  .site-header {
+    min-height: 64px;
+  }
   .site-title {
     a {
-      padding: 20px 0 15px;
+      line-height: 64px;
     }
   }
   .site-logo {
-    max-height: 35px;
+    max-height: 64px;
   }
   .header-search {
-    margin-top: 10px;
+    margin-top: 7px;
   }
 }
 
