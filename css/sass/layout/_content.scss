@@ -70,6 +70,9 @@
 
 .entry-content {
   margin-top: 0;
+  h3 + p:first-of-type {
+    margin-top: 0.210em;
+  }
   p:first-of-type {
     margin-top: 1em;
   }
@@ -203,6 +206,9 @@
     padding-bottom: 0.1em;
     margin-bottom: 1em;
     margin-top: 2.5em;
+  }
+  .row {
+    margin-bottom: 1em;
   }
 }
 

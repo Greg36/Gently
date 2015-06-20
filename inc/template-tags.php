@@ -70,7 +70,7 @@ if ( ! function_exists( 'gently_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time, author and comments count.
  * @todo Test multiple author option.
  */
-function gently_posted_on( $search = false ) {
+function gently_posted_on( $location = '' ) {
 
 	$time_string = gently_entry_time();
 
@@ -81,8 +81,11 @@ function gently_posted_on( $search = false ) {
 	$byline = '<span class="author vcard">' . $author_avatar . '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
 
 	$comments_count = gently_comments_count();
-	if ( $search ) {
+
+	if ( $location == 'search' ) {
 		echo '<span class="posted-on">' . $posted_on . '</span>' . '<span class="byline"> ' . gently_get_author() . '</span>';
+	} else if ( $location == 'archive' ){
+		echo '<span class="byline"> ' . gently_get_author() . '</span>' . '<span class="posted-on">' . $posted_on . '</span>';
 	} else {
 		echo '<span class="byline"> ' . $byline . '</span><br><span class="posted-on">' . $posted_on . '</span>' . $comments_count; // WPCS: XSS OK
 
@@ -399,7 +402,7 @@ function gently_related_post() {
 			<?php gently_entry_time(); ?>
 			<?php gently_comments_count(); ?>
 			<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
-			<?php echo '<p>' . wp_trim_words( get_the_excerpt() ) . '</p>'; ?>
+			<?php echo '<p>' . wp_trim_words( get_the_excerpt(), 27 ) . '</p>'; ?>
 		<?php if ( has_post_thumbnail() ) echo '</div>'; ?>
 	</div>
 	<?php

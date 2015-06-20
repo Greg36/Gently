@@ -32,7 +32,7 @@ jQuery(document).ready(function( $ ) {
     var $mainSidebar = $( '.main-sidebar' );
 
     /* Fix sidebar in place when scrolled to it's bottom */
-    if ( totalSidebarH > $( document).height() ) {
+    if ( totalSidebarH > $( window ).height() ) {
         $(window).scroll(function () {
             $bottomSidebarToggle.removeClass('sticky-sidebar-toggle');
             if (( $(window).scrollTop() + $(window).height() - 55 ) >= totalSidebarH) {

@@ -27,7 +27,7 @@
 		 }
 		 a {
 		   &:hover {
-			 color: $color__link;
+//			 color: $color__link;
 		   }
 		 }
 	   }
@@ -54,9 +54,10 @@
   color: inherit;
   font-weight: bold;
   margin: 10px 5px;
-  &:hover {
-	color: $color__link;
+  &:visited {
+    color: inherit;
   }
+
 }
 
 .widget_archive ul li {
@@ -70,6 +71,9 @@
   background: #fff;
   a {
 	color: inherit;
+    &:visited {
+      color: inherit;
+    }
   }
 }
 
@@ -103,6 +107,9 @@
   }
   a {
 	color: inherit;
+    &:visited {
+      color: inherit;
+    }
   }
   li {
 	padding: 0;
@@ -150,7 +157,7 @@
   li a {
 	&:hover, &:focus {
 	  &:before {
-		transform: rotateY(180deg) translateX(-5px);
+		transform: rotateY(180deg) translateX(-2px);
 		opacity: 0.8;
 	  }
 	}

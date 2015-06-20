@@ -18,7 +18,7 @@
 			if ( is_author() ){
 				echo '<span class="posted-on"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . gently_entry_time() . '</a></span>' . gently_list_categories();
 			} else {
-				gently_posted_on( true );
+				gently_posted_on( 'archive' );
 			}
 			?>
 		</div><!-- .entry-meta -->

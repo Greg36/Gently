@@ -93,6 +93,10 @@ li .comment-respond {
   padding: 0 1em 1em;
 }
 
+.logged-in-as {
+  @include font-size(1);
+}
+
 .comments-title {
   font-family: inherit;
   font-weight: normal;

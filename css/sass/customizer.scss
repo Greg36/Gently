@@ -42,12 +42,17 @@
   font-weight: bold;
 }
 
-#customize-control-header_icons_color_original {
+#customize-control-header_icons_color_original,
+#customize-control-newsletter_use {
   margin-top: -1em;
   font-weight: bold;
   input {
     margin-right: 5px;
   }
+}
+
+#customize-control-newsletter_use {
+  margin-top: 1em;
 }
 
 .description {

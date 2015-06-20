@@ -6,6 +6,27 @@
 
 ( function( $ ) {
 
+    /* Helper function to adjust color brightness */
+    function ColorLuminance(hex, lum) {
+
+        // validate hex string
+        hex = String(hex).replace(/[^0-9a-f]/gi, '');
+        if (hex.length < 6) {
+            hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+        }
+        lum = lum || 0;
+
+        // convert to decimal and change luminosity
+        var rgb = "#", c, i;
+        for (i = 0; i < 3; i++) {
+            c = parseInt(hex.substr(i*2,2), 16);
+            c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+            rgb += ("00"+c).substr(c.length);
+        }
+
+        return rgb;
+    }
+
     /* Sidebar position setting */
     wp.customize( 'sidebar_position', function ( value ) {
         value.bind(function ( newval ) {
@@ -65,6 +86,45 @@
             if ( $( '.site-title a:not(:has(img))') ) {
                 $( '.site-title a' ).text( newval );
             }
+        });
+    });
+    
+    /* All meta colored elements */
+    wp.customize('meta_color', function (value) {
+        value.bind(function (newval) {
+            $( '.group-blog .posted-on a,' +
+            ' .search-results .page-title .fa,' +
+            ' .archive .page-title .fa,' +
+            ' .rss-date' ).css( 'color', newval );
+
+            $( '.single .nav-links span' ).css( 'border-colo', newval );
+        });
+    });
+
+    /* All details colored elements */
+    wp.customize('details_color', function (value) {
+        value.bind(function (newval) {
+            $( 'td,' +
+            ' .single .post-navigation,' +
+            ' .hentry:not(:last-child),' +
+            ' .comment-body,' +
+            ' .comment-body:before,' +
+            ' .widget_archive ul li,' +
+            ' input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], select, textarea,' +
+            ' .widget_categories > ul > li,' +
+            ' .widget-title' ).css( 'border-color', newval );
+
+            $( '.main-navigation .sub-menu' ).css( 'border-top-color', newval );
+        });
+    });
+
+    /* Blockquote text and border color */
+    wp.customize('body_text_color', function (value) {
+        value.bind(function (newval) {
+            $( 'blockquote, p.pullquote' ).css({
+                'border-color' : ColorLuminance( newval, 0.15 ),
+                'color' : ColorLuminance( newval, 0.1 )
+            });
         });
     });
 

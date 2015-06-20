@@ -133,6 +133,7 @@ function gently_add_editor_styles() {
 }
 add_action( 'admin_init', 'gently_add_editor_styles' );
 
+
 /**
  * TGM Plugin Activation class
  */
@@ -159,8 +160,13 @@ require get_template_directory() . '/inc/extras.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * Generating dynamic sytles.
+ */
+require get_template_directory() . '/inc/dynamic-styles.php';
+
+/**
  * Share buttons.
  */
 require get_template_directory() .'/inc/social-media.php';
 
-//add_filter('show_admin_bar', '__return_false');
+add_filter('show_admin_bar', '__return_false');

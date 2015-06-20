@@ -8,9 +8,10 @@ function my_theme_register_required_plugins() {
     $plugins = array(
         //
         array(
-            'name'     => 'Kirki customizer',
-            'slug'     => 'kirki',
-            'required' => true,
+            'name'             => 'Kirki customizer',
+            'slug'             => 'kirki',
+            'required'         => true,
+	        'force_activation' => true
         ),
 		array(
 			'name'     => 'Mailchimp for WordPress',

@@ -12,9 +12,13 @@
  */
 function gently_customize_register( $wp_customize ) {
 	if ( class_exists( 'Kirki' ) ) {
+		$wp_customize->add_section( 'color', array(
+			'title'    => __( 'Color', 'gently' ),
+			'priority' => 81
+		) );
 		$wp_customize->add_section( 'typography', array(
 			'title'    => __( 'Typography', 'gently' ),
-			'priority' => 81
+			'priority' => 82
 		) );
 		$wp_customize->add_section( 'header', array(
 			'title'    => __( 'Top bar', 'gently' ),
@@ -35,7 +39,7 @@ function gently_customize_register( $wp_customize ) {
 		) );
 		if( function_exists( 'mc4wp_form' ) ) {
 			$wp_customize->add_section( 'newsletter', array(
-				'title'    => __( 'Footer', 'gently' ),
+				'title'    => __( 'Newsletter', 'gently' ),
 				'priority' => 113
 			) );
 		}
@@ -44,7 +48,6 @@ function gently_customize_register( $wp_customize ) {
 		// Change settings of default sections
 		$branding_section = $wp_customize->get_section( 'title_tagline' );
 		$branding_section->title = __( 'Site Branding', 'gently' );
-//		$branding_section->description = __( 'Choose logo image or use text version.', 'gently' );
 
 		$background_section = $wp_customize->get_section( 'background_image' );
 		$background_section->title = __( 'Background' );
@@ -98,6 +101,7 @@ add_action( 'customize_controls_print_styles', 'gently_customize_preview_style' 
 /**
  * Configuration of the Kirki Customizer
  * @todo Change descriptions of options.
+ * @todo Check it there are some unused strings to delete from list.
  */
 function gently_kirki_configuration() {
 
@@ -311,27 +315,33 @@ function gently_kirki_fields( $fields ) {
 			)
 		)
 	);
+
+	/* Color fields */
 	$fields[] = array(
 		'type'        => 'color',
 		'setting'     => 'accent_color',
 		'label'       => __( 'Links and accent color', 'gently' ),
-		'section'     => 'typography',
+		'section'     => 'color',
 		'default'     => '#147BB2',
-		'priority'    => 24,
-		'transport'   => 'postMessage',
-		'output'      => array(
-			array(
-				'element'  => '.variable-top-border',
-				'property' => 'color'
-			),
-		),
-		'js_vars'   => array(
-			array(
-				'element'  => 'a',
-				'function' => 'css',
-				'property' => 'color',
-			)
-		)
+		'priority'    => 11
+	);
+	$fields[] = array(
+		'type'        => 'color',
+		'setting'     => 'meta_color',
+		'label'       => __( 'Metadata color', 'gently' ),
+		'section'     => 'color',
+		'default'     => '#AAAAAA',
+		'priority'    => 12,
+		'transport'   => 'postMessage'
+	);
+	$fields[] = array(
+		'type'        => 'color',
+		'setting'     => 'details_color',
+		'label'       => __( 'Details color', 'gently' ),
+		'section'     => 'color',
+		'default'     => '#eeeeee',
+		'priority'    => 13,
+		'transport'   => 'postMessage'
 	);
 
 	/* Sidebar fields */
@@ -498,6 +508,7 @@ function gently_kirki_fields( $fields ) {
 		'type'        => 'color',
 		'setting'     => 'header_icons_color',
 		'label'       => __( 'Social icons color', 'gently' ),
+		'description' => __( 'You can set icons in Social Media section below.', 'gently' ),
 		'section'     => 'header',
 		'default'     => '#147bb2',
 		'priority'    => 14,
@@ -651,7 +662,7 @@ function gently_kirki_fields( $fields ) {
 	$fields[] = array(
 		'type'        => 'textarea',
 		'setting'     => 'social_links',
-		'label'       => __( 'Header social icons', 'gently' ),
+		'label'       => __( 'Top bar social icons', 'gently' ),
 		'description' => __( 'Enter each link in new line', 'genly' ),
 		'section'     => 'social',
 		'default'     => '',
@@ -676,6 +687,56 @@ function gently_kirki_fields( $fields ) {
 			'element'  => '.header-image',
 			'property' => 'max-height',
 			'units'    => 'px',
+		)
+	);
+
+	/* Newsletter fields */
+	$fields[] = array(
+		'type'        => 'checkbox',
+		'setting'     => 'newsletter_use',
+		'label'       => __( 'Display newsletter under each post', 'gently' ),
+		'section'     => 'newsletter',
+		'default'     => true,
+		'priority'    => 10
+	);
+	$fields[] = array(
+		'type'        => 'color',
+		'setting'     => 'newsletter_bg',
+		'label'       => __( 'Newsletter background color', 'gently' ),
+		'section'     => 'newsletter',
+		'default'     => '#F7F8F9',
+		'priority'    => 20,
+		'transport'   => 'postMessage',
+		'output'      => array(
+			'element'  => 'div.mc4wp-form',
+			'property' => 'background-color'
+		),
+		'js_vars'   => array(
+			array(
+				'element'  => 'div.mc4wp-form',
+				'function' => 'css',
+				'property' => 'background-color',
+			)
+		)
+	);
+	$fields[] = array(
+		'type'        => 'color',
+		'setting'     => 'newsletter_border',
+		'label'       => __( 'Newsletter border color', 'gently' ),
+		'section'     => 'newsletter',
+		'default'     => '#DDE2E6',
+		'priority'    => 21,
+		'transport'   => 'postMessage',
+		'output'      => array(
+			'element'  => 'div.mc4wp-form',
+			'property' => 'border-color'
+		),
+		'js_vars'   => array(
+			array(
+				'element'  => 'div.mc4wp-form',
+				'function' => 'css',
+				'property' => 'border-color',
+			)
 		)
 	);
 

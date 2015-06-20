@@ -19,7 +19,7 @@ get_header(); ?>
 			</div>
 
 			<?php
-			if( function_exists( 'mc4wp_form' ) ) {
+			if( function_exists( 'mc4wp_form' ) && kirki_get_option( 'newsletter_use' ) ) {
 				mc4wp_form();
 			}
 			?>
