@@ -78,6 +78,15 @@
   }
 }
 
+.comment-navigation {
+  .nav-previous {
+
+  }
+  .nav-next {
+
+  }
+}
+
 #cancel-comment-reply-link {
   font-size: 12px;
   border: 1px solid;
@@ -102,6 +111,11 @@ li .comment-respond {
     font-weight: bold;
     color: $color__link;
   }
+}
+
+.comment-awaiting-moderation {
+  color: #60D24D;
+  margin-top: 0.5em;
 }
 
 @media only screen and (min-width: 40.063em) {

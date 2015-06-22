@@ -184,7 +184,7 @@ function  gently_featured_image( $skip = false ) {
 	if ( has_post_thumbnail() ) {
 		if ( $skip ) {
 			echo '<div>';
-		} else if ( !is_single() ){
+		} else if ( !is_single() && !is_page() ){
 			echo '<div class="entry-image">';
 		} else {
 			echo '<div class="featured-image">';

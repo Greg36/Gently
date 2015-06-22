@@ -3,7 +3,7 @@
 /**
  * Register the required plugins for this theme.
  */
-function my_theme_register_required_plugins() {
+function gently_register_required_plugins() {
 
     $plugins = array(
         //
@@ -33,4 +33,4 @@ function my_theme_register_required_plugins() {
     tgmpa( $plugins );
 
 }
-add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
+add_action( 'tgmpa_register', 'gently_register_required_plugins' );

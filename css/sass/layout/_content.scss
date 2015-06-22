@@ -85,6 +85,12 @@
   }
 }
 
+.page {
+  .entry-content {
+    p:first-child
+  }
+}
+
 .excerpt-read-more {
   @include font-size(1);
 }
@@ -163,8 +169,14 @@
     margin-left: -5%;
   }
   .featured-image {
-    width: 120%;
-    margin-left: -10%;
+    width: 110%;
+    margin-left: -5%;
+  }
+  .sidebar-closed {
+    .featured-image {
+      width: 120%;
+      margin-left: -10%;
+    }
   }
 }
 @media all and (min-width: 1450px) {

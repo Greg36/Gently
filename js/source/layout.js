@@ -2,7 +2,7 @@
  * Layout related scripts.
  */
 
-jQuery(document).ready(function( $ ) {
+( function( $ ) {
 
     $.extend( $.easing, {
             easeInCubic: function (x, t, b, c, d) {
@@ -69,4 +69,4 @@ jQuery(document).ready(function( $ ) {
         });
     }
 
-});
+} )( jQuery );

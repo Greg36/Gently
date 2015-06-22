@@ -1,4 +1,4 @@
-div.mc4wp-form {
+.mc4wp-form {
   margin: 2em 0;
   background: #F7F8F9;
   border: 1px solid #DDE2E6;
@@ -27,7 +27,7 @@ div.mc4wp-form {
 }
 
 @media all and (min-width: 40.063em) {
-  div.mc4wp-form {
+  .content-area .mc4wp-form {
     form {
       input[type="text"] {
         width: 30%;

@@ -523,7 +523,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'     => 'header_font_color',
 		'label'       => __( 'Navigation color', 'gently' ),
 		'section'     => 'nav',
-		'default'     => '#6d8591',
+		'default'     => '#909699',
 		'priority'    => 13,
 		'transport'   => 'postMessage',
 		'output'      => array(
