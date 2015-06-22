@@ -6,6 +6,21 @@
  */
 
 /**
+ * Kirki is mandatory for theme functionality. If it's not installed kill WordPress.
+ */
+function gently_check_if_kirki_installed() {
+	if ( !class_exists( 'Kirki' ) && !is_admin() ) {
+		if ( current_user_can( 'activate_plugins' ) ) {
+			wp_die( '<h2>' . __( 'Please install Kirki customizer plugin, it is mandatory for theme functionality.', 'gently' ) . '</h2><a href="' . admin_url( 'themes.php?page=tgmpa-install-plugins' ) . '">Install here</a>' );
+		} else {
+			wp_die( '<h2>' . __( 'Site will be back soon', 'gently' ) . '</h2>' );
+		}
+		exit;
+	}
+}
+add_action( 'init', 'gently_check_if_kirki_installed' );
+
+/**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
