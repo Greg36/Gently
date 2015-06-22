@@ -117,7 +117,7 @@ function gently_scripts() {
 
 	wp_enqueue_script( 'gently-app', get_template_directory_uri() . '/js/app.min.js', array( 'jquery' ), '', true );
 
-	wp_enqueue_style( 'font-awesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array(), '05202015' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/vendor/font-awesome.min.css', array(), '05202015' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

@@ -50,7 +50,7 @@ function gently_customize_register( $wp_customize ) {
 		$branding_section->title = __( 'Site Branding', 'gently' );
 
 		$background_section = $wp_customize->get_section( 'background_image' );
-		$background_section->title = __( 'Background' );
+		$background_section->title = __( 'Background', 'gently' );
 
 		// Move background color to custom section
 		$background_color_control = $wp_customize->get_control( 'background_color' );

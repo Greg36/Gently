@@ -99,12 +99,12 @@ add_filter( 'excerpt_length', 'gently_custom_excerpt_length', 999 );
 function gently_user_contact_methods( $user_contact ) {
 
 	// Add user contact methods
-	$user_contact['facebook']   = __( 'Facebook'   );
-	$user_contact['twitter'] = __( 'Twitter' );
-	$user_contact['google-plus'] = __( 'Google+' );
-	$user_contact['pinterest'] = __('Pinterest');
-	$user_contact['linkedin'] = __('LinkedIn');
-	$user_contact['tumblr'] = __('Tumblr');
+	$user_contact['facebook']   = __( 'Facebook', 'gently' );
+	$user_contact['twitter'] = __( 'Twitter', 'gently' );
+	$user_contact['google-plus'] = __( 'Google+', 'gently' );
+	$user_contact['pinterest'] = __('Pinterest', 'gently' );
+	$user_contact['linkedin'] = __('LinkedIn', 'gently' );
+	$user_contact['tumblr'] = __('Tumblr', 'gently' );
 
 	return $user_contact;
 }
