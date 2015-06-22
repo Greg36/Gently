@@ -72,6 +72,7 @@ function gently_social_links(){
 
 	if ( $links ) {
 		echo '<div class="social-links">';
+		echo '<span class="screen-reader-text">' . __( 'Social media links', 'gently' ) . '</span>';
 	}
 	foreach ( $links as $link ) {
 		if ( filter_var( $link, FILTER_VALIDATE_URL ) == true ) {

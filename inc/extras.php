@@ -175,7 +175,8 @@ function genlty_sidebar_position( $classes ) {
 		$classes[] = 'sidebar-right';
 	}
 
-	$sidebar_collapse = explode( ',', kirki_get_option( 'sidebar_collapse' )[0] );
+	$sidebar_collapse = kirki_get_option( 'sidebar_collapse' );
+	$sidebar_collapse = explode( ',', $sidebar_collapse[0] );
 
 	if ( is_home() && in_array( 'home', $sidebar_collapse ) ) {
 		$classes[] = 'sidebar-closed';

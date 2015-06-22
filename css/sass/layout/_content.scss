@@ -1,7 +1,4 @@
 /* POSTS AND PAGES */
-.sticky {
-  display: block;
-}
 
 .hentry {
   padding-bottom: 2em;
@@ -80,6 +77,12 @@
   p:last-of-type {
     margin-bottom:  0.5em;
   }
+  .page-links {
+    font-weight: bold;
+    a {
+      font-weight: normal;
+    }
+  }
 }
 
 .excerpt-read-more {
@@ -120,6 +123,9 @@
     text-align: center;
     label, input {
       display: inline-block;
+    }
+    input[type="submit"] {
+      margin-top: 0.5em;
     }
   }
 }
@@ -203,6 +209,9 @@
   img {
     padding: 0.3em 1.5em 1.5em 0;
   }
+  .related-post-img {
+    margin-bottom: 0.5em;
+  }
   .related-post-img div {
     max-height: 100px;
     overflow: hidden;
@@ -237,6 +246,11 @@
   }
 }
 
+.sticky {
+  border: 1px solid;
+  padding: 1em;
+}
+
 .single {
   .hentry {
     margin-bottom: 1.4em;
@@ -260,7 +274,7 @@
     & + .featured-image {
       margin-top: 1em;
     }
-    .large-3 {
+    .row div:nth-child(2) {
       text-align: right;
     }
   }
@@ -281,7 +295,7 @@
     }
     .comments-link-cont {
       float: right;
-      padding-top: 5px;
+      padding-top: 12px;
     }
     .share-buttons {
       text-align: left;
@@ -345,6 +359,16 @@
       margin-bottom: 0.57em;
     }
     .small-12:last-child {
+      margin-top: 0;
+    }
+  }
+  .related-posts {
+    .row {
+      margin-bottom: 0.5em;
+    }
+  }
+  .post-password-form {
+    input[type="submit"] {
       margin-top: 0;
     }
   }

@@ -376,7 +376,7 @@ function gently_related_posts() {
 	$related  = new WP_Query( $args );
 
 	if ( $related->have_posts() ) {
-		printf( '<h4>%s</h4>', esc_html__( 'Related posts', 'gently' ) );
+		printf( '<h4>%s</h4>', esc_html__( 'Related posts:', 'gently' ) );
 		while ( $related->have_posts() ) {
 			$related->the_post();
 			echo gently_related_post();

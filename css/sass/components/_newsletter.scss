@@ -11,31 +11,45 @@ div.mc4wp-form {
     font-size: 19px;
     margin-top: 0.8em;
   }
+  label {
+    display: inline-block;
+  }
   p {
     @include font-size(0.875);
     margin-top: 0.5em;
     margin-bottom: 1em;
   }
-  form {
-    input[type="text"] {
-      width: 30%;
-      display: inline-block;
-      &:nth-of-type(2) {
-        margin-bottom: 1em;
-      }
+  input {
+    &:not(:last-child) {
+      margin-bottom: 1em;
     }
-    input[type="email"] {
-      width: 50%;
-      display: inline-block;
-      & + p {
-        margin-top: 1em;
+  }
+}
+
+@media all and (min-width: 40.063em) {
+  div.mc4wp-form {
+    form {
+      input[type="text"] {
+        width: 30%;
+        display: inline-block;
+        &:nth-of-type(2) {
+          margin-bottom: 1em;
+        }
       }
-    }
-    input[type="submit"] {
-      width: 16%;
-      margin-left: 2%;
-      display: inline-block;
-      vertical-align: middle;
+      input[type="email"] {
+        width: 49%;
+        margin-left: 1%;
+        display: inline-block;
+        & + p {
+          margin-top: 1em;
+        }
+      }
+      input[type="submit"] {
+        width: 16%;
+        margin-left: 2%;
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
   }
 }

@@ -67,7 +67,7 @@
 
 // Reset javascript inline style in smaller viewport
 @media all and (max-width: 999px) {
-  body, .main-sidebar {
+  .site-content {
     min-height: initial !important;
   }
 }
@@ -96,7 +96,7 @@
     .author-bio {
       margin-top: 0.5em;
       .fa {
-        margin-right: 0.3em;
+        margin-right: 0.5em;
       }
     }
   }

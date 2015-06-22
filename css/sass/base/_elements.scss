@@ -65,6 +65,7 @@ a {
 
 ul, ol {
   margin: $margin__content 0;
+  padding-left: 1.5em;
   line-height: $font__line-height-body * 1.16;
 }
 
@@ -79,7 +80,7 @@ ol {
 li > ul,
 li > ol {
   margin-bottom: 0;
-  margin-left: 1.5em;
+//  margin-left: 1.5em;
   margin-top: 0.5em;
 }
 

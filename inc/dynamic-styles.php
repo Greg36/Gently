@@ -29,6 +29,8 @@ function gently_dynamic_styles() {
 		gently_adjust_brightness( $accent_color, 30 ),
 		gently_adjust_brightness( $accent_color, -30 )
 	);
+	$css['.bypostauthor .comment-body']['border-color'] = $accent_color;
+	$css['.bypostauthor .comment-body:before']['border-color'] = 'transparent ' . $accent_color . ' transparent transparent';
 
 	/* Metadata color */
 	$meta_color = kirki_get_option( 'meta_color' );
@@ -50,6 +52,7 @@ function gently_dynamic_styles() {
 	$css['.widget_categories > ul > li']['border-color'] = $details_color;
 	$css['.widget-title']['border-color'] = $details_color;
 	$css['.main-navigation .sub-menu']['border-top-color'] = $details_color;
+	$css['.comment-list .children .depth-2']['border-color'] = $details_color;
 
 	/* Body text color */
 	$body_text_color = kirki_get_option( 'body_text_color' );
@@ -59,6 +62,7 @@ function gently_dynamic_styles() {
 	/* Page background color */
 	$css['.comment-body']['background'] = gently_adjust_brightness( get_theme_mod( 'background_color', '#fff' ), -1 );
 	$css['.comment-list .children .comment-body']['background'] = gently_adjust_brightness( get_theme_mod( 'background_color', '#fff' ), -2 );
+	$css['.sticky']['background'] = gently_adjust_brightness( get_theme_mod( 'background_color', '#fff' ), -2 );
 
 	/* Sidebar border color */
 	$css['body.sidebar-right .main-sidebar, body.sidebar-left .main-sidebar']['border-color'] = kirki_get_option( 'sidebar_border' );

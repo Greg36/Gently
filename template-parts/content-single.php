@@ -9,23 +9,34 @@
 
 
 		<div class="entry-meta">
-			<?php
-				if ( gently_list_categories() ) {
-					echo gently_entry_time();
-				}
-			?>
 			<div class="row collapse">
-				<div class="small-8 large-9 columns">
-					<?php
-					echo gently_list_categories();
-					if ( ! gently_list_categories() ) {
-						echo gently_entry_time();
-					}
-					?>
-				</div>
-				<div class="small-4 large-3 columns">
-					<?php echo gently_comments_link(); ?>
-				</div>
+
+				<?php
+				?>
+
+				<?php if ( gently_list_categories() ) : ?>
+
+					<div class="small-6 medium-12 columns">
+						<?php echo gently_entry_time(); ?>
+					</div>
+					<div class="small-6 medium-push-6 columns">
+						<?php echo gently_comments_link(); ?>
+					</div>
+					<div class="small-12 medium-6 medium-pull-6 columns">
+						<?php echo gently_list_categories(); ?>
+					</div>
+
+				<?php else: ?>
+
+					<div class="small-6 columns">
+						<?php echo gently_entry_time(); ?>
+					</div>
+					<div class="small-6 columns">
+						<?php echo gently_comments_link(); ?>
+					</div>
+
+				<?php endif; ?>
+
 			</div>
 		</div><!-- .entry-meta -->
 

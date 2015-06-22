@@ -14,13 +14,15 @@
   list-style: none;
   padding: 0;
   .avatar {
-    position: absolute;
-    left: -50px;
-    top: 0px;
+    margin-right: 0.4em;
   }
   .children {
     list-style: none;
     padding-left: 0;
+    .depth-2 {
+      border-left: 1px solid #eee;
+      padding-left: 1.5em;
+    }
     .comment-body {
       background-color: #fcfcfc;
     }
@@ -28,33 +30,22 @@
 }
 
 .comment-body {
-  margin-left: 50px;
   margin-bottom: 2em;
   padding: 0.7em 1em;
   border: 1px solid #eee;
   position: relative;
   border-radius: 3px;
   background-color: #fefefe;
-  &:before {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 10px 12px 10px 0;
-    border-color: transparent #eee transparent transparent;
-    content: "";
-    position: absolute;
-    left: -12px;
-    top: 7px;
-  }
 }
+
 .comment-metadata {
   @include font-size(0.75);
   position: absolute;
   top: 1em;
-  left: 1.5em;
+  left: 5em;
 }
 .comment-author {
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 .says {
   @include font-size(0.875);
@@ -64,9 +55,9 @@
   font-weight: bold;
 }
 .comment-content {
+  @include font-size(0.875);
   p:first-of-type {
     margin-top: 0.2em;
-    @include font-size(0.875);
   }
 }
 .comment-form-comment, .logged-in-as {
@@ -88,7 +79,6 @@
 }
 
 #cancel-comment-reply-link {
-  color: #e24147;
   font-size: 12px;
   border: 1px solid;
   border-radius: 5px;
@@ -111,5 +101,43 @@ li .comment-respond {
   span {
     font-weight: bold;
     color: $color__link;
+  }
+}
+
+@media only screen and (min-width: 40.063em) {
+  .comment-list {
+    .avatar {
+      position: absolute;
+      left: -50px;
+      top: 0;
+      margin-right: 0;
+    }
+  }
+  .comment-metadata {
+    left: 1.5em;
+  }
+  .comment-body {
+    margin-left: 50px;
+    &:before {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 12px 10px 0;
+      border-color: transparent #eee transparent transparent;
+      content: "";
+      position: absolute;
+      left: -12px;
+      top: 7px;
+    }
+  }
+  .comment-author {
+    margin-top: 1.2em;
+  }
+  .comment-list {
+    padding-left: 1em;
+    .depth-2 {
+      padding-left: 0;
+      border: none;
+    }
   }
 }

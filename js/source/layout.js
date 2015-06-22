@@ -69,14 +69,4 @@ jQuery(document).ready(function( $ ) {
         });
     }
 
-
-    /* Sticky footer */
-    //var $siteFooter = $( '.site-footer'),
-    //    contentHeight = Math.max( $( '.site-main' ).outerHeight(), $mainSidebar.outerHeight() );
-    //if ( $( window ).height() > ( contentHeight + $siteFooter.outerHeight() ) ) {
-    //    $siteFooter.css({
-    //        position: 'absolute',
-    //        bottom: 0
-    //    });
-    //}
 });

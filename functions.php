@@ -168,5 +168,3 @@ require get_template_directory() . '/inc/dynamic-styles.php';
  * Share buttons.
  */
 require get_template_directory() .'/inc/social-media.php';
-
-add_filter('show_admin_bar', '__return_false');
