@@ -1,5 +1,11 @@
-.comment-content a {
-  word-wrap: break-word;
+.comment-content {
+  a {
+    word-wrap: break-word;
+  }
+  blockquote, p.pullquote {
+    margin-left: 0;
+    padding-left: 1em;
+  }
 }
 .bypostauthor {
   display: block;

@@ -55,6 +55,7 @@
 .entry-title {
   margin-top: 0em;
   font-weight: normal;
+  word-wrap: break-word;
 }
 
 .single .byline,
@@ -108,11 +109,24 @@
   }
 }
 
-
 .entry-image {
   max-height: 200px;
   overflow: hidden;
   margin-bottom: 1em;
+}
+
+.post-password-form {
+  p:last-child {
+    text-align: center;
+    label, input {
+      display: inline-block;
+    }
+  }
+}
+
+.gallery-caption {
+  @include font-size(0.875);
+  margin-bottom: 2em;
 }
 
 @media all and (min-width: 820px) and (max-width: 999px) {

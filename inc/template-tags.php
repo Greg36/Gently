@@ -68,7 +68,6 @@ endif;
 if ( ! function_exists( 'gently_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time, author and comments count.
- * @todo Test multiple author option.
  */
 function gently_posted_on( $location = '' ) {
 

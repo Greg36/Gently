@@ -52,22 +52,19 @@
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa fa-bars"></i></button>
 
 			<?php
-			/* Kirki weirdly saves multicheck options, if there is a single check it's string if more, array. */
-			if ( is_array( kirki_get_option( 'header_features' ) ) ){
-				$header_social = in_array( 'social', kirki_get_option( 'header_features' ) );
-				$header_search = in_array( 'search', kirki_get_option( 'header_features' ) );
-			} else {
-				$header_social = kirki_get_option( 'header_features' ) == 'social' ? true : false;
-				$header_search = kirki_get_option( 'header_features' ) == 'search' ? true : false;
+
+			$header_features = kirki_get_option( 'header_features' );
+			if ( is_string( $header_features ) || strpos( $header_features[0], ',' ) ){
+				$header_features = explode( ',', $header_features );
 			}
 
 			/* Search form */
-			if ( $header_search ) {
+			if ( in_array( 'search', $header_features ) ) {
 				echo '<div class="header-search"><i class="btn fa fa-search" tabindex="0"></i><div>' . get_search_form( false ) . '</div></div>';
 			}
 
 			/* Social icons */
-			if ( $header_social ){
+			if ( in_array( 'social', $header_features ) ){
 				gently_social_links();
 			}
 			?>

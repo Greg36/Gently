@@ -69,7 +69,7 @@
     });
     wp.customize( 'header_icons_color_original', function ( value ) {
         value.bind(function ( newval ) {
-            $( '.social-links .sc-link' ).toggleClass( 'orig-col', newval );
+            $( '.social-links .sc-link' ).toggleClass( 'orig-col', newval).attr( 'style', '' );
         });
     });
 
@@ -95,7 +95,8 @@
             $( '.group-blog .posted-on a,' +
             ' .search-results .page-title .fa,' +
             ' .archive .page-title .fa,' +
-            ' .rss-date' ).css( 'color', newval );
+            ' .rss-date,' +
+            ' .secondary-navigation li a' ).css( 'color', newval );
 
             $( '.single .nav-links span' ).css( 'border-colo', newval );
         });

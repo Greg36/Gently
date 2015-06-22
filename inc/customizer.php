@@ -100,8 +100,6 @@ add_action( 'customize_controls_print_styles', 'gently_customize_preview_style' 
 
 /**
  * Configuration of the Kirki Customizer
- * @todo Change descriptions of options.
- * @todo Check it there are some unused strings to delete from list.
  */
 function gently_kirki_configuration() {
 
@@ -134,18 +132,6 @@ function gently_kirki_configuration() {
 		'ON' => __( 'ON', 'gently' ),
 		'OFF' => __( 'OFF', 'gently' ),
 		'all' => __( 'All', 'gently' ),
-		'cyrillic' => __( 'Cyrillic', 'gently' ),
-		'cyrillic-ext' => __( 'Cyrillic Extended', 'gently' ),
-		'devanagari' => __( 'Devanagari', 'gently' ),
-		'greek' => __( 'Greek', 'gently' ),
-		'greek-ext' => __( 'Greek Extended', 'gently' ),
-		'khmer' => __( 'Khmer', 'gently' ),
-		'latin' => __( 'Latin', 'gently' ),
-		'latin-ext' => __( 'Latin Extended', 'gently' ),
-		'vietnamese' => __( 'Vietnamese', 'gently' ),
-		'serif' => _x( 'Serif', 'font style', 'gently' ),
-		'sans-serif' => _x( 'Sans Serif', 'font style', 'gently' ),
-		'monospace' => _x( 'Monospace', 'font style', 'gently' ),
 	);
 
 	$args = array(
@@ -180,7 +166,7 @@ function gently_kirki_fields( $fields ) {
 		'type'        => 'image',
 		'setting'     => 'logo_image_retina',
 		'label'       => __( 'Logo image retina version', 'gently' ),
-		'description' => __( '2 times bigger than normal for high resolution retina displays.', 'gently' ),
+		'description' => __( '2 times bigger image for high resolution retina displays.', 'gently' ),
 		'section'     => 'title_tagline',
 		'default'     => get_stylesheet_directory_uri() . '/img/logo2x.png',
 		'priority'    => 9,
@@ -375,15 +361,9 @@ function gently_kirki_fields( $fields ) {
 		'default'     => '#f1f2f4',
 		'priority'    => 11,
 		'transport'   => 'postMessage',
-		'output'      => array(
-			array(
-				'element'  => '.site-content',
-				'property' => 'border-color'
-			)
-		),
 		'js_vars'   => array(
 			array(
-				'element'  => '.site-content',
+				'element'  => '.main-sidebar',
 				'function' => 'css',
 				'property' => 'border-color',
 			)
@@ -489,6 +469,7 @@ function gently_kirki_fields( $fields ) {
 		'type'      => 'slider',
 		'setting'   => 'header_icon_size',
 		'label'     => __( 'Social icons size', 'gently' ),
+		'description' => __( 'You can set with icons to display in Social Media section below.', 'gently' ),
 		'section'   => 'header',
 		'default'   => 14,
 		'priority'  => 13,
@@ -508,7 +489,6 @@ function gently_kirki_fields( $fields ) {
 		'type'        => 'color',
 		'setting'     => 'header_icons_color',
 		'label'       => __( 'Social icons color', 'gently' ),
-		'description' => __( 'You can set icons in Social Media section below.', 'gently' ),
 		'section'     => 'header',
 		'default'     => '#147bb2',
 		'priority'    => 14,

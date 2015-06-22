@@ -9,10 +9,19 @@
 
 
 		<div class="entry-meta">
-			<?php echo gently_entry_time(); ?>
+			<?php
+				if ( gently_list_categories() ) {
+					echo gently_entry_time();
+				}
+			?>
 			<div class="row collapse">
 				<div class="small-8 large-9 columns">
-					<?php echo gently_list_categories(); ?>
+					<?php
+					echo gently_list_categories();
+					if ( ! gently_list_categories() ) {
+						echo gently_entry_time();
+					}
+					?>
 				</div>
 				<div class="small-4 large-3 columns">
 					<?php echo gently_comments_link(); ?>

@@ -5,6 +5,16 @@
  * support for dropdown menus.
  */
 ( function( $ ) {
+
+    // Search toggle
+    $( '.header-search i' ).bind('touchstart click keypress', ( function(){
+        $( this ).parent().toggleClass( 'search-open' );
+
+        if ( $( this ).parent().hasClass( 'search-open' ) ) {
+            $( '.header-search .search-field').focus();
+        }
+    } ) );
+
 	var container, button, menu, links, subMenus;
 
 	container = $( '#site-navigation' )[ 0 ];
@@ -71,15 +81,6 @@
 		links[i].addEventListener( 'focus', toggleFocus, true );
 		links[i].addEventListener( 'blur', toggleFocus, true );
 	}
-
-	// Search toggle
-	$( '.header-search i').bind('touchstart click keypress', ( function(){
-		$( this ).parent().toggleClass( 'search-open' );
-
-        if ( $( this ).parent().hasClass( 'search-open' ) ) {
-            $( '.header-search .search-field').focus();
-        }
-	} ) );
 
 
 	/**

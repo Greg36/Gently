@@ -36,6 +36,7 @@ function gently_dynamic_styles() {
 	$css['.search-results .page-title .fa, .archive .page-title .fa']['color'] = $meta_color;
 	$css['.single .nav-links span']['border-color'] = $meta_color;
 	$css['.rss-date']['color'] = $meta_color;
+	$css['.secondary-navigation li a']['color'] = $meta_color;
 
 	/* Details color */
 	$details_color = kirki_get_option( 'details_color' );
@@ -58,6 +59,9 @@ function gently_dynamic_styles() {
 	/* Page background color */
 	$css['.comment-body']['background'] = gently_adjust_brightness( get_theme_mod( 'background_color', '#fff' ), -1 );
 	$css['.comment-list .children .comment-body']['background'] = gently_adjust_brightness( get_theme_mod( 'background_color', '#fff' ), -2 );
+
+	/* Sidebar border color */
+	$css['body.sidebar-right .main-sidebar, body.sidebar-left .main-sidebar']['border-color'] = kirki_get_option( 'sidebar_border' );
 
 
 	// Parse array to CSS syntax string

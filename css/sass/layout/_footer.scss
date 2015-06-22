@@ -3,16 +3,14 @@
   @include font-size(1);
   border-top: 1px solid;
   border-color: #fff;
+  padding: 0 20px;
 }
 .site-info {
-  margin-bottom: 1.5em;
+  margin: 1.5em 0;
   @include font-size(0.875);
 }
 
 .secondary-navigation {
-//  max-width: 700px;
-//  margin: 0 auto;
-//  padding: 0 20px;
   ul {
     padding: 0;
     margin: 1.5em 0 1em 0;

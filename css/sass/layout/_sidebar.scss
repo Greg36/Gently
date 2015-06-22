@@ -1,8 +1,7 @@
 .main-sidebar {
   padding: 20px;
-  border: 1px solid;
   border-color: inherit;
-  margin-top: -1px;
+  border-top: 1px solid;
   min-height: 100%;
   .widget-area {
     max-width: 700px;
@@ -45,6 +44,7 @@
 @media all and (min-width: 1000px) {
   .main-sidebar {
     position: absolute;
+    border-top: none;
     top: 0;
     padding-top: 40px;
     transition: all 350ms $ease_easeOutCubic;
@@ -101,6 +101,7 @@
   }
   body.sidebar-left {
     .main-sidebar {
+      border-right: 1px solid;
       left: 0;
     }
     .widget-area .toggle-sidebar {
@@ -125,6 +126,7 @@
   }
   body.sidebar-right {
     .main-sidebar {
+      border-left: 1px solid;
       right: 0;
     }
     .widget-area .toggle-sidebar {

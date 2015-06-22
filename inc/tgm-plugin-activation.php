@@ -30,11 +30,7 @@ function my_theme_register_required_plugins() {
 	    )
     );
 
-    $config = array(
-        'message'      => '<div class="update-nag"><h4 style="color:#ce1714">Kirki is mandatory for theme functionality.</h4><p><strong>Other plugins install based on your needs.</strong></p></div>'
-    );
-
-    tgmpa( $plugins, $config );
+    tgmpa( $plugins );
 
 }
 add_action( 'tgmpa_register', 'my_theme_register_required_plugins' );
