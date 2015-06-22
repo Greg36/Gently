@@ -56,12 +56,9 @@ function gently_setup() {
 	) );
 
 	/*
-	 * Enable support for Post Formats.
-	 * See http://codex.wordpress.org/Post_Formats
+	 * Set content width if it's not set already
 	 */
-//	add_theme_support( 'post-formats', array(
-//		'aside', 'image', 'video', 'quote', 'link',
-//	) );
+	if ( ! isset( $content_width ) ) $content_width = 700;
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'gently_custom_background_args', array(
