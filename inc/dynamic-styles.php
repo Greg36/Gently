@@ -8,6 +8,29 @@
  */
 function gently_dynamic_styles() {
 
+	/* Logo font */
+	$css['.site-title']['font-family'] = kirki_get_option( 'logo_font_family' );
+
+	/* Logo font size */
+	$css['.site-title']['font-size'] = kirki_get_option( 'logo_font_size' ) . 'px';
+
+	/* Logo font color */
+	$css['.site-title']['color'] = kirki_get_option( 'logo_font_color' );
+
+	/* Body text font */
+	$css['body, button, input, select, textarea']['font-family'] = kirki_get_option( 'body_text_font' );
+
+	/* Body text color */
+	$body_text_color = kirki_get_option( 'body_text_color' );
+	$css['body, button, input, select, textarea']['color'] = $body_text_color;
+	$css['blockquote, p.pullquote']['border-color'] = gently_adjust_brightness( $body_text_color, 35 );
+	$css['blockquote, p.pullquote']['color'] = gently_adjust_brightness( $body_text_color, 20 );
+
+	/* Headings font */
+	$css['h1, h2, h3, h4, h5, h6']['font-family'] = kirki_get_option( 'headings_font' );
+
+	/* Headings color */
+	$css['h1, h2, h3, h4, h5, h6']['color'] = kirki_get_option( 'headings_color' );
 
 	/* Accent color */
 	$accent_color = kirki_get_option( 'accent_color' );
@@ -54,18 +77,49 @@ function gently_dynamic_styles() {
 	$css['.main-navigation .sub-menu']['border-top-color'] = $details_color;
 	$css['.comment-list .children .depth-2']['border-color'] = $details_color;
 
-	/* Body text color */
-	$body_text_color = kirki_get_option( 'body_text_color' );
-	$css['blockquote, p.pullquote']['border-color'] = gently_adjust_brightness( $body_text_color, 35 );
-	$css['blockquote, p.pullquote']['color'] = gently_adjust_brightness( $body_text_color, 20 );
+	/* Sidebar bg color */
+	$css['.main-sidebar']['background-color'] = kirki_get_option( 'sidebar_bg' );
+
+	/* Sidebar border color */
+	$css['body.sidebar-right .main-sidebar, body.sidebar-left .main-sidebar']['border-color'] = kirki_get_option( 'sidebar_border' );
 
 	/* Page background color */
 	$css['.comment-body']['background'] = gently_adjust_brightness( get_theme_mod( 'background_color', '#fff' ), -1 );
 	$css['.comment-list .children .comment-body']['background'] = gently_adjust_brightness( get_theme_mod( 'background_color', '#fff' ), -2 );
 	$css['.sticky']['background'] = gently_adjust_brightness( get_theme_mod( 'background_color', '#fff' ), -2 );
 
-	/* Sidebar border color */
-	$css['body.sidebar-right .main-sidebar, body.sidebar-left .main-sidebar']['border-color'] = kirki_get_option( 'sidebar_border' );
+	/* Header bg color */
+	$css['.site-header, .main-navigation .sub-menu']['background-color'] = kirki_get_option( 'header_bg' );
+
+	/* Header border color */
+	$css['.site .site-header, #site-navigation ul, .main-navigation .sub-menu']['border-color'] = kirki_get_option( 'header_border' );
+
+	/* Header social icons size */
+	$css['.top-bar .social-links']['font-size'] = kirki_get_option( 'header_icon_size' ) . 'px';
+
+	/* Header social icons color */
+	$css['.top-bar .social-links a']['color'] = kirki_get_option( 'header_icons_color' );
+
+	/* Navigation font color */
+	$css['#primary-menu']['color'] = kirki_get_option( 'header_font_color' );
+
+	/* Navigation font size */
+	$css['#primary-menu']['font-size'] = kirki_get_option( 'header_font_size' ) . 'px';
+
+	/* Footer bg color */
+	$css['.site-footer']['background-color'] = kirki_get_option( 'footer_bg' );
+
+	/* Footer border color */
+	$css['.site-footer']['border-color'] = kirki_get_option( 'footer_border' );
+
+	/* Header image height */
+	$css['.header-image']['max-height'] = kirki_get_option( 'header_image_height' );
+
+	/* Newsletter bg color */
+	$css['div.mc4wp-form']['background-color'] = kirki_get_option( 'newsletter_bg' );
+
+	/* Newsletter border color */
+	$css['div.mc4wp-form']['border-color'] = kirki_get_option( 'newsletter_border' );
 
 
 	// Parse array to CSS syntax string
