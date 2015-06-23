@@ -58,7 +58,7 @@ function gently_is_kirki_installed() {
 		add_action( 'wp_enqueue_scripts', 'gently_get_default_fonts' );
 	}
 }
-add_action( 'after_theme_setup', 'gently_is_kirki_installed' );
+add_action( 'init', 'gently_is_kirki_installed' );
 add_action( 'customize_preview_init', 'gently_is_kirki_installed' );
 
 /**
@@ -100,7 +100,6 @@ function gently_customize_register( $wp_customize ) {
 			) );
 		}
 
-
 		// Change settings of default sections
 		$branding_section = $wp_customize->get_section( 'title_tagline' );
 		$branding_section->title = __( 'Site Branding', 'gently' );
@@ -134,6 +133,38 @@ function gently_customize_register( $wp_customize ) {
 		// Remove tagline field
 		$wp_customize->remove_setting( 'blogdescription' );
 		$wp_customize->remove_control( 'blogdescription' );
+
+	} else {
+
+		// Convert default section to a notice that inform user about more options in customzier when they install Kirki plugin.
+		$wp_customize->add_section( 'notice', array(
+			'title'    => __( 'Install Kirki for more options.', 'gently' ),
+			'priority' => 1,
+			'description' => __( 'This theme uses free plugin from wordpress.org - Kirki. Install it to use many customizer options that comes with this theme.', 'gently' ),
+		) );
+		$wp_customize->add_setting(
+			'install_notice',
+			array(
+				'default' => '',
+				'transport' => ''
+			)
+		);
+		$wp_customize->add_control(
+		    'install_notice',
+		    array(
+		        'section' => 'notice',
+		        'label' => '',
+		        'type' => ''
+		    )
+		);
+
+		$wp_customize->remove_section( 'title_tagline' );
+		$wp_customize->remove_section('colors');
+		$wp_customize->remove_section('header_image');
+		$wp_customize->remove_section('background_image');
+		$wp_customize->remove_section('static_front_page');
+		$wp_customize->remove_panel('widgets');
+
 	}
 }
 add_action( 'customize_register', 'gently_customize_register' );
