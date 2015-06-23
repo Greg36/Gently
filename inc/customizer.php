@@ -53,12 +53,14 @@ function gently_is_kirki_installed() {
 
 		/* Get 2 default Google fonts */
 		function gently_get_default_fonts() {
-			wp_enqueue_style( 'default-google-fonts', 'http://fonts.googleapis.com/css?family=Playfair+Display:400,700|Open+Sans' );
+			wp_enqueue_style( 'default-google-fonts', 'http://fonts.googleapis.com/css?family=Playfair+Display:400,700|Open+Sans:400' );
 		}
 		add_action( 'wp_enqueue_scripts', 'gently_get_default_fonts' );
 	}
 }
-add_action( 'init', 'gently_is_kirki_installed' );
+if ( !is_admin() ){
+	add_action( 'init', 'gently_is_kirki_installed' );
+}
 add_action( 'customize_preview_init', 'gently_is_kirki_installed' );
 
 /**
@@ -146,7 +148,7 @@ function gently_customize_register( $wp_customize ) {
 			'install_notice',
 			array(
 				'default' => '',
-				'transport' => ''
+				'sanitize_callback' => 'esc_url_raw'
 			)
 		);
 		$wp_customize->add_control(
@@ -266,7 +268,11 @@ function gently_kirki_fields( $fields ) {
 		'default'  => 'Playfair Display',
 		'priority' => 21,
 		'transport' => 'postMessage',
-		'choices'  => Kirki_Fonts::get_font_choices()
+		'choices'  => Kirki_Fonts::get_font_choices(),
+		'output' => array(
+			'element'  => '.site-title',
+			'property' => 'font-family',
+		)
 	);
 	$fields[] = array(
 		'type'      => 'slider',
@@ -317,6 +323,10 @@ function gently_kirki_fields( $fields ) {
 		'default'  => 'Open Sans',
 		'priority' => 20,
 		'choices'  => Kirki_Fonts::get_font_choices(),
+		'output' => array(
+			'element'  => 'body, button, input, select, textarea',
+			'property' => 'font-family',
+		),
 	);
 	$fields[] = array(
 		'type'        => 'color',
@@ -342,6 +352,10 @@ function gently_kirki_fields( $fields ) {
 		'default'  => 'Playfair Display',
 		'priority' => 22,
 		'choices'  => Kirki_Fonts::get_font_choices(),
+		'output' => array(
+			'element'  => 'h1, h2, h3, h4, h5, h6',
+			'property' => 'font-family',
+		),
 	);
 	$fields[] = array(
 		'type'        => 'color',

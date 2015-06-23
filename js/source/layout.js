@@ -19,9 +19,17 @@
     );
 
     /* Toggle class for sidebar show/hide */
-    $( '.toggle-sidebar').click( function() {
+    var $sidebar_switch = $( '.toggle-sidebar');
+    $sidebar_switch.click( function () {
         $( 'body' ).toggleClass( 'sidebar-closed' );
     } );
+
+    /* Open sidebar when button is focused */
+    $sidebar_switch.focus(function () {
+        if ( $( 'body' ).hasClass( 'sidebar-closed' ) ) {
+            $( 'body' ).removeClass( 'sidebar-closed' );
+        }
+    });
 
 
 

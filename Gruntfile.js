@@ -73,7 +73,7 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 files: {
-                    'css/style.css': ['css/vendor/*.css', 'css/style.css']
+                    'css/style.css': ['css/style.css']
                 }
             }
         },

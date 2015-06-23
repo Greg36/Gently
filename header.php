@@ -49,7 +49,10 @@
 				</h1>
 			</div><!-- .site-branding -->
 
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="fa fa-bars"></i></button>
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+				<i class="fa fa-bars"></i>
+				<span class="screen-reader-text"><?php esc_html_e( 'Main menu', 'gently' ); ?></span>
+			</button>
 
 			<?php
 

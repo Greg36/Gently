@@ -198,7 +198,7 @@ add_filter( 'body_class', 'genlty_sidebar_position' );
 class Gently_Menu_Walker extends Walker_Nav_Menu {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth+1);
-		$output .= "\t<span class='nav-sub-icon' tabindex='0'><i class='fa fa-chevron-down'></i></span>\n$indent\t<ul class='sub-menu'>\n";
+		$output .= "\t<span class='nav-sub-icon' tabindex='0'><i class='fa fa-chevron-down'></i><span class='screen-reader-text'>" . __( "Open sub menu", "gently" ) . "</span></span>\n$indent\t<ul class='sub-menu'>\n";
 	}
 	function end_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat("\t", $depth+1);

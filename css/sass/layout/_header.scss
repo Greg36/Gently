@@ -10,6 +10,7 @@
 .site-logo {
   max-height: 50px;
   display: block;
+  width: auto;
 }
 
 @media all and (min-width: 1066px) {
@@ -73,29 +74,29 @@
     display: inline-block;
     float: left;
     overflow: hidden;
-    width: 0;
+    width: 1px;
     visibility: hidden;
     margin: 0 1px 0 0;
     height: 50px;
     transition: width 250ms ease-out;
   }
   form {
-    width: 250px;
+    width: 270px;
     input[type="submit"], label {
       display: inline-block;
+    }
+    input[type="search"] {
+      height: 24px;
     }
     label {
       margin-top: 8px;
       margin-right: 4px;
     }
-    input[type="submit"] {
-
-    }
   }
   &.search-open {
     & > div {
       visibility: visible;
-      width: 250px;
+      width: 270px;
     }
   }
 }

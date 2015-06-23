@@ -110,6 +110,7 @@
         box-shadow: none;
         padding-left: 10px;
         padding-top: 5px;
+        width: 100%;
         .nav-sub-icon {
           margin-right: 15px;
         }
@@ -127,7 +128,9 @@
       border-bottom: 1px solid;
       border-color: inherit;
       a {
-        display: inline-block;
+        width: 100%;
+//        display: inline-block
+//;
       }
     }
     li:last-child {

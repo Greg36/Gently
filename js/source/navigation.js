@@ -66,7 +66,7 @@
 	var flag = false;
 	var $subMenu = $('.nav-sub-icon');
 	$subMenu.next().hide();
-	$subMenu.bind('touchstart click keypress', function(){
+	$subMenu.bind('touchstart click focus', function(){
 		if (!flag) {
 			flag = true;
 			setTimeout(function(){ flag = false; }, 100);

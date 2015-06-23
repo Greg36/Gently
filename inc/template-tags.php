@@ -155,7 +155,7 @@ if ( ! function_exists( 'gently_list_categories' ) ) :
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'gently' ) );
 		if ( $categories_list && gently_categorized_blog() ) {
-			return '<div class="cat-links"><i class="fa fa-folder"></i>&nbsp;' . $categories_list . '</div>';
+			return '<div class="cat-links"><i class="fa fa-folder"></i><span class="screen-reader-text">' . __( 'Post categories', 'gently' ) . '</span>&nbsp;' . $categories_list . '</div>';
 		}
 		return '';
 	}
@@ -170,7 +170,7 @@ if ( ! function_exists( 'gently_list_tags' ) ) :
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'gently' ) );
 		if ( $tags_list ) {
-			return '<span class="tags-links"><i class="fa fa-tag"></i>' . $tags_list . '</span>';
+			return '<span class="tags-links"><i class="fa fa-tag"></i><span class="screen-reader-text">' . __( 'Post tags', 'gently' ) . '</span>' . $tags_list . '</span>';
 		}
 		return '';
 	}

@@ -11,9 +11,15 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 
 <div id="secondary" class="main-sidebar" role="complementary">
-	<button class="toggle-sidebar"><i class="fa fa-caret-right"></i></button>
+	<button class="toggle-sidebar">
+		<i class="fa fa-caret-right"></i>
+		<span class="screen-reader-text"><?php esc_html_e( 'Toggle sidebar' ); ?></span>
+	</button>
 	<div class="widget-area">
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
-		<button class="toggle-sidebar"><i class="fa fa-caret-right"></i></button>
+		<button class="toggle-sidebar">
+			<i class="fa fa-caret-right"></i>
+			<span class="screen-reader-text"><?php esc_html_e( 'Toggle sidebar' ); ?></span>
+		</button>
 	</div>
 </div><!-- #secondary -->
