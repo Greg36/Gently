@@ -87,21 +87,21 @@
 	 * Sets or removes .focus class on an element.
 	 */
 	function toggleFocus() {
-		var self = this;
+		var eleFocus = this;
 
 		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while ( -1 === self.className.indexOf( 'nav-menu' ) ) {
+		while ( -1 === eleFocus.className.indexOf( 'nav-menu' ) ) {
 
 			// On li elements toggle the class .focus.
-			if ( 'li' === self.tagName.toLowerCase() ) {
-				if ( -1 !== self.className.indexOf( 'focus' ) ) {
-					self.className = self.className.replace( ' focus', '' );
+			if ( 'li' === eleFocus.tagName.toLowerCase() ) {
+				if ( -1 !== eleFocus.className.indexOf( 'focus' ) ) {
+					eleFocus.className = eleFocus.className.replace( ' focus', '' );
 				} else {
-					self.className += ' focus';
+					eleFocus.className += ' focus';
 				}
 			}
 
-			self = self.parentElement;
+			eleFocus = eleFocus.parentElement;
 		}
 	}
 } )( jQuery );

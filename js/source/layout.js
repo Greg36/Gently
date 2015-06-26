@@ -12,22 +12,26 @@
                 return c*((t=t/d-1)*t*t + 1) + b;
             },
             easeInOutCubic: function (x, t, b, c, d) {
-                if ((t/=d/2) < 1) return c/2*t*t*t + b;
+                if ((t/=d/2) < 1) {
+                    return c/2*t*t*t + b;
+                }
                 return c/2*((t-=2)*t*t + 2) + b;
             }
         }
     );
 
+    var $body = $( 'body' );
+
     /* Toggle class for sidebar show/hide */
     var $sidebar_switch = $( '.toggle-sidebar');
     $sidebar_switch.click( function () {
-        $( 'body' ).toggleClass( 'sidebar-closed' );
+        $body.toggleClass( 'sidebar-closed' );
     } );
 
     /* Open sidebar when button is focused */
     $sidebar_switch.focus(function () {
-        if ( $( 'body' ).hasClass( 'sidebar-closed' ) ) {
-            $( 'body' ).removeClass( 'sidebar-closed' );
+        if ( $body.hasClass( 'sidebar-closed' ) ) {
+            $body.removeClass( 'sidebar-closed' );
         }
     });
 

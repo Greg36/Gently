@@ -3,9 +3,6 @@ button,
 input,
 select,
 textarea {
-//  color: $color__text-main;
-//  font-family: $font__main;
-  //xdxd
   @include font-size(1);
   line-height: $font__line-height-body;
 }
@@ -25,8 +22,6 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   clear: both;
-//  font-family: $font__title;
-//  color: $color__text-headings;
 }
 
 h1, h2, h3, h4, h5, h6 {

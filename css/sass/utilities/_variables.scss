@@ -1,8 +1,7 @@
-/* COLORS */
+// COLORS
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
-$color__background-button: #e6e6e6;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
@@ -13,37 +12,24 @@ $color__input-warning: #E81010;
 $color__link: #147bb2;
 $color__link-visited: #147BB2;
 $color__link-hover: lighten(#147BB2, 20%);
-$color__text-main: #404040;
-$color__text-headings: #2e2e2e;
 $color__text-quotes: #606060;
 
-$color__border-button: #D7D7D7;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ddd;
 $color__border-abbr: #666;
 
 
-/* TYPOGRAPHY */
-$font__main: "PT Sans", Georgia, sans-serif;
-$font__title: "Playfair Display", Georgia, serif;
+// TYPOGRAPHY
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.6;
 $font__line-height-pre: 1.6;
 
-/* MARGINS */
+// MARGINS
 $margin__content: $font__line-height-body * 1em;
 
-
-/* STRUCTURE */
-$size__site-main: 100%;
-$size__site-sidebar: 25%;
-
-
-/* DETAILS */
+// DETAILS
 $detail__border-radius: 6px;
 $detail__box-shadow: 1px 1px 1px 0px rgba(0, 0, 40, 0.05);
 
-/* EASING */
-$ease_easeOutCubic: cubic-bezier(0.215, 0.610, 0.355, 1.000); /* easeOutCubic */
+// EASING
+$ease_easeOutCubic: cubic-bezier(0.215, 0.610, 0.355, 1.000); // easeOutCubic

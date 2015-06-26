@@ -50,7 +50,7 @@
 }
 
 .entry-title {
-  margin-top: 0em;
+  margin-top: 0;
   font-weight: normal;
   word-wrap: break-word;
 }
@@ -85,19 +85,13 @@
   }
 }
 
-.page {
-  .entry-content {
-    p:first-child
-  }
-}
-
 .excerpt-read-more {
   @include font-size(1);
 }
 
 .nav-links {
   .nav-next a:after, .nav-previous a:before {
-    /* FontAwesome .fa style */
+    // FontAwesome .fa style
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
@@ -336,7 +330,7 @@
       display: none;
     }
     .nav-next span:after, .nav-previous span:before {
-      /* FontAwesome .fa style */
+      // FontAwesome .fa style
       display: inline-block;
       font: normal normal normal 14px/1 FontAwesome;
       font-size: inherit;

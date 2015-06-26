@@ -1,7 +1,6 @@
 .widget {
 	margin: 0 0 1.5em;
 
-	/* Make sure select elements fit in widgets. */
 	select {
 	  max-width: 100%;
 	  font-size: 14px;
@@ -26,9 +25,6 @@
 		   padding: 0 0 0 1em;
 		 }
 		 a {
-		   &:hover {
-//			 color: $color__link;
-		   }
 		 }
 	   }
 	}
@@ -193,21 +189,4 @@
   a {
 	@include font-size(1);
   }
-//  .comment-author-link {
-//	display: inline-block;
-//	font: normal normal normal 16px/1 FontAwesome;
-//	font-size: 18px;
-//	text-rendering: auto;
-//	-webkit-font-smoothing: antialiased;
-//	-moz-osx-font-smoothing: grayscale;
-//	transform: translate(0, 0);
-//	vertical-align: middle;
-//	&:before {
-//	  content: "\f075";
-//	  font-size: 12px;
-//	  line-height: 18px;
-//	  color: #dadada;
-//	  padding-right: 0.5em;
-//	}
-//  }
 }
