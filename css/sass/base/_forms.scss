@@ -26,7 +26,6 @@ i.btn {
 
 }
 
-
 /* FIELDS */
 
 input[type="text"],
@@ -61,6 +60,7 @@ input.is-error {
   border-color: #E81010;
   background: #FFF5F5;
 }
+
 input.is-valid {
   border-color: #87D549;
   background: #FCFFFC;
@@ -107,6 +107,7 @@ div.wpcf7 {
   }
   margin: 1.5em 0;
 }
+
 .wpcf7-submit {
   float: right;
 }

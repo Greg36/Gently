@@ -5,7 +5,8 @@ html {
 
 *,
 *:before,
-*:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
   box-sizing: inherit;
 }
 
@@ -20,7 +21,7 @@ blockquote, q {
 
   &:before,
   &:after {
-	content: "";
+    content: "";
   }
 }
 
@@ -80,7 +81,6 @@ ol {
 li > ul,
 li > ol {
   margin-bottom: 0;
-//  margin-left: 1.5em;
   margin-top: 0.5em;
 }
 
@@ -89,7 +89,7 @@ dt {
 }
 
 dd {
-  margin: 0 ($margin__content * 0.65 ) $margin__content;
+  margin: 0 ($margin__content * 0.65) $margin__content;
 }
 
 /* TABLES */
@@ -99,20 +99,20 @@ table {
   width: 100%;
 }
 
-th{
+th {
   text-align: left;
   border-bottom: 1px solid;
   padding: 0.5em 0.65em;
   border-right: 1px solid;
 
   &:last-child {
-	border-right: none;
+    border-right: none;
   }
 }
+
 tfoot th {
   border-bottom: none;
 }
-
 
 td {
   border-right: 1px solid #bbb;
@@ -120,6 +120,6 @@ td {
   padding: 0.5em 0.65em;
   font-size: 0.9em;
   &:last-child {
-	border-right: none;
+    border-right: none;
   }
 }

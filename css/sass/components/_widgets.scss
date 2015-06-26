@@ -1,38 +1,38 @@
 .widget {
-	margin: 0 0 1.5em;
+  margin: 0 0 1.5em;
 
-	select {
-	  max-width: 100%;
-	  font-size: 14px;
-	  padding: 5px 10px;
-	  border-radius: 3px;
-	  box-shadow: $detail__box-shadow;
-	}
-  	input[type='search'] {
-	  font-size: 14px;
-	  padding: 5px 10px;
-	  border-radius: 3px;
-	  box-shadow: $detail__box-shadow;
-	}
+  select {
+    max-width: 100%;
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    box-shadow: $detail__box-shadow;
+  }
+  input[type='search'] {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    box-shadow: $detail__box-shadow;
+  }
 
-	ul {
-	   max-width: 100%;
-	   margin: 0;
-	   padding: 0;
-	   li {
-	 	 list-style: none;
-	 	 ul li {
-		   padding: 0 0 0 1em;
-		 }
-		 a {
-		 }
-	   }
-	}
+  ul {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    li {
+      list-style: none;
+      ul li {
+        padding: 0 0 0 1em;
+      }
+      a {
+      }
+    }
+  }
 }
 
 /* Search widget. */
 .widget_search .search-submit {
-	display: none;
+  display: none;
 }
 
 .widget-title {
@@ -44,7 +44,6 @@
   font-family: inherit;
   text-transform: uppercase;
 }
-
 
 .tagcloud a {
   color: inherit;
@@ -66,7 +65,7 @@
   border: 1px solid #eee;
   background: #fff;
   a {
-	color: inherit;
+    color: inherit;
     &:visited {
       color: inherit;
     }
@@ -75,118 +74,118 @@
 
 .widget_rss {
   li {
-	@include font-size(0.875);
-	&:not(:last-child){
-	  margin-bottom: 1em;
-	}
+    @include font-size(0.875);
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
   }
   .rssSummary {
-	@include font-size(0.75);
+    @include font-size(0.75);
   }
 }
 
 .widget_categories {
   ul {
-	ul li {
-		padding-top: 0;
-		padding-left: 1em;
-	}
+    ul li {
+      padding-top: 0;
+      padding-left: 1em;
+    }
   }
   & > ul > li {
-	box-shadow: $detail__box-shadow;
-	border: 1px solid #eee;
-	background: #fff;
-	padding: 5px 10px;
-	display: inline-block;
-	margin: 0 7px 9px 0;
-	vertical-align: middle;
+    box-shadow: $detail__box-shadow;
+    border: 1px solid #eee;
+    background: #fff;
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 0 7px 9px 0;
+    vertical-align: middle;
   }
   a {
-	color: inherit;
+    color: inherit;
     &:visited {
       color: inherit;
     }
   }
   li {
-	padding: 0;
-	@include font-size(0.75);
-	a {
-	  @include font-size(0.875);
-	}
+    padding: 0;
+    @include font-size(0.75);
+    a {
+      @include font-size(0.875);
+    }
   }
 }
 
 .widget_calendar {
   th {
-	text-align: center;
-	padding-bottom: 0;
-	border: none;
+    text-align: center;
+    padding-bottom: 0;
+    border: none;
   }
   td {
-	padding: 0.3em 0.7em;
-	font-size: 0.9em;
-	text-align: center;
+    padding: 0.3em 0.7em;
+    font-size: 0.9em;
+    text-align: center;
   }
   table {
-	width: auto;
-	margin: 0 auto;
+    width: auto;
+    margin: 0 auto;
   }
   tfoot {
-	td:first-child {
-	  text-align: left;
-	}
-	td:last-child {
-	  text-align: right;
-	}
+    td:first-child {
+      text-align: left;
+    }
+    td:last-child {
+      text-align: right;
+    }
   }
 
   tfoot tr, tfoot td {
-	border: none;
+    border: none;
   }
   tr:last-child td {
-	border-bottom: none;
+    border-bottom: none;
   }
 }
 
 .widget_pages, .widget_meta, .widget_nav_menu, .widget_recent_entries {
   @include font-size(1);
   li a {
-	&:hover, &:focus {
-	  &:before {
-		transform: rotateY(180deg) translateX(-2px);
-		opacity: 0.8;
-	  }
-	}
-	&:before {
-	  content: "";
-	  display: table;
-	  float: left;
-	  vertical-align: middle;
-	  margin-top: 8px;
-	  margin-right: 6px;
-	  width: 0;
-	  height: 0;
-	  opacity: 0.1;
-	  border-style: solid;
-	  border-width: 6px 8px 6px 0;
-	  border-color: transparent $color__link transparent transparent;
-	  transition: all 200ms ease-out;
-	}
+    &:hover, &:focus {
+      &:before {
+        transform: rotateY(180deg) translateX(-2px);
+        opacity: 0.8;
+      }
+    }
+    &:before {
+      content: "";
+      display: table;
+      float: left;
+      vertical-align: middle;
+      margin-top: 8px;
+      margin-right: 6px;
+      width: 0;
+      height: 0;
+      opacity: 0.1;
+      border-style: solid;
+      border-width: 6px 8px 6px 0;
+      border-color: transparent $color__link transparent transparent;
+      transition: all 200ms ease-out;
+    }
   }
 }
 
 .widget_nav_menu {
   & > ul > li {
-	margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
   }
   .sub-menu li {
-	padding-top: 0;
+    padding-top: 0;
   }
 }
 
 .widget_recent_comments {
   @include font-size(0.875);
   a {
-	@include font-size(1);
+    @include font-size(1);
   }
 }

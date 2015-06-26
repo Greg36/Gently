@@ -2,45 +2,44 @@
  * Layout related scripts.
  */
 
-( function( $ ) {
+(function ($) {
 
-    $.extend( $.easing, {
+    $.extend($.easing, {
             easeInCubic: function (x, t, b, c, d) {
-            return c*(t/=d)*t*t + b;
+                return c * (t /= d) * t * t + b;
             },
             easeOutCubic: function (x, t, b, c, d) {
-                return c*((t=t/d-1)*t*t + 1) + b;
+                return c * ((t = t / d - 1) * t * t + 1) + b;
             },
             easeInOutCubic: function (x, t, b, c, d) {
-                if ((t/=d/2) < 1) {
-                    return c/2*t*t*t + b;
+                if ((t /= d / 2) < 1) {
+                    return c / 2 * t * t * t + b;
                 }
-                return c/2*((t-=2)*t*t + 2) + b;
+                return c / 2 * ((t -= 2) * t * t + 2) + b;
             }
         }
     );
 
-    var $body = $( 'body' );
+    var $body = $('body');
 
     /* Toggle class for sidebar show/hide */
-    var $sidebar_switch = $( '.toggle-sidebar');
-    $sidebar_switch.click( function () {
-        $body.toggleClass( 'sidebar-closed' );
-    } );
+    var $sidebar_switch = $('.toggle-sidebar');
+    $sidebar_switch.click(function () {
+        $body.toggleClass('sidebar-closed');
+    });
 
     /* Open sidebar when button is focused */
     $sidebar_switch.focus(function () {
-        if ( $body.hasClass( 'sidebar-closed' ) ) {
-            $body.removeClass( 'sidebar-closed' );
+        if ($body.hasClass('sidebar-closed')) {
+            $body.removeClass('sidebar-closed');
         }
     });
-
 
 
     var $widget_area = $('.widget-area');
 
     /* Check if there is sidebar on the page */
-    if ( $widget_area.length ) {
+    if ($widget_area.length) {
 
         var totalSidebarH = $widget_area.offset().top + $widget_area.height();
         var $topSidebarToggle = $('.main-sidebar > .toggle-sidebar');
@@ -81,4 +80,4 @@
         });
     }
 
-} )( jQuery );
+})(jQuery);

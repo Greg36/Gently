@@ -2,21 +2,21 @@
  * All image and video related scripts.
  */
 
-( function( $ ) {
+(function ($) {
 
-    $(".entry-image img").each(function() {
+    $(".entry-image img").each(function () {
         var sh = $(this).outerHeight();
-        if (sh > 200){
-            $(this).css('margin-top', - (sh - 200) / 2 + 'px');
+        if (sh > 200) {
+            $(this).css('margin-top', -(sh - 200) / 2 + 'px');
         }
     });
 
-    $(".related-post-img img").each(function() {
+    $(".related-post-img img").each(function () {
         var sh = $(this).height();
-        if (sh > 100){
-            $(this).css('margin-top', - (sh - 100) / 2 + 'px');
+        if (sh > 100) {
+            $(this).css('margin-top', -(sh - 100) / 2 + 'px');
         }
     });
 
 
-} )( jQuery );
+})(jQuery);

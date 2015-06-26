@@ -11,9 +11,6 @@
 		<div class="entry-meta">
 			<div class="row collapse">
 
-				<?php
-				?>
-
 				<?php if ( gently_list_categories() ) : ?>
 
 					<div class="small-6 medium-12 columns">
@@ -38,23 +35,26 @@
 				<?php endif; ?>
 
 			</div>
-		</div><!-- .entry-meta -->
+		</div>
+		<!-- .entry-meta -->
 
 		<?php gently_featured_image(); ?>
 
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-	</header><!-- .entry-header -->
+	</header>
+	<!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'gently' ),
-				'after'  => '</div>',
-			) );
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'gently' ),
+			'after'  => '</div>',
+		) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
+	<!-- .entry-content -->
 
 	<footer class="entry-footer">
 		<div class="row collapse">
@@ -87,12 +87,13 @@
 			</div>
 
 		</div>
-	</footer><!-- .entry-footer -->
+	</footer>
+	<!-- .entry-footer -->
 </article><!-- #post-## -->
 
 <?php
-	the_post_navigation( array(
-		'prev_text'          => '<span>' . esc_html__( 'Previous post', 'gently' ) . '</span>%title',
-		'next_text'          => '<span>' . esc_html__( 'Next post', 'gently' ) . '</span>%title',
-	) );
+the_post_navigation( array(
+	'prev_text' => '<span>' . esc_html__( 'Previous post', 'gently' ) . '</span>%title',
+	'next_text' => '<span>' . esc_html__( 'Next post', 'gently' ) . '</span>%title',
+) );
 ?>

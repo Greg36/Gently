@@ -9,12 +9,12 @@
     margin: 0 auto;
   }
 }
+
 .toggle-sidebar {
   display: none;
 }
 
-
-@media all and (min-width: 1000px) and (max-width: 1249px ) {
+@media all and (min-width: 1000px) and (max-width: 1249px) {
   .main-sidebar {
     width: 350px;
     .widget-area {
@@ -28,6 +28,7 @@
     left: -315px;
   }
 }
+
 @media all and (min-width: 1250px) {
   .main-sidebar {
     width: 430px;
@@ -42,6 +43,7 @@
     left: -395px;
   }
 }
+
 @media all and (min-width: 1000px) {
   .main-sidebar {
     position: absolute;
@@ -88,7 +90,7 @@
 
   body.sidebar-closed {
     .toggle-sidebar {
-      transform: rotateY( 180deg );
+      transform: rotateY(180deg);
     }
     .widget-area .toggle-sidebar {
       left: -30px;

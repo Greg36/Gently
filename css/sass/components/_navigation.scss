@@ -77,7 +77,6 @@
   }
 }
 
-
 /* Small menu */
 .nav-sub-icon {
   display: none;
@@ -85,9 +84,11 @@
   cursor: pointer;
   transition: all 0.2s ease-out;
 }
+
 .nav-sub-icon.arrow-active {
-  transform:rotate(90deg);
+  transform: rotate(90deg);
 }
+
 .menu-toggle {
   color: $color__link;
   font-weight: normal;
@@ -186,7 +187,7 @@
 }
 
 /* Inline navigation for wide displays */
-@media screen and (min-width: 45.5em){
+@media screen and (min-width: 45.5em) {
   .main-navigation {
     display: inline-block !important;
     margin-left: 25px;
@@ -198,7 +199,8 @@
     }
   }
 }
-@media screen and (min-width: 1066px){
+
+@media screen and (min-width: 1066px) {
   .main-navigation ul .sub-menu {
     margin-top: 10px;
   }
@@ -209,6 +211,7 @@
     line-height: 64px;
   }
 }
+
 .comment-navigation,
 .posts-navigation,
 .post-navigation {

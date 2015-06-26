@@ -54,6 +54,7 @@ h3 {
   margin-top: 1.318em;
   margin-bottom: 0;
 }
+
 h3 + p {
   margin-top: 0.410em;
 }
@@ -64,6 +65,7 @@ h4 {
   margin-top: 1.611em;
   margin-bottom: 0;
 }
+
 h4 + p {
   margin-top: 0.252em;
 }
@@ -73,6 +75,7 @@ h5 {
   margin-top: $margin__content;
   margin-bottom: 0;
 }
+
 h5 + p {
   margin-top: 0;
 }
@@ -82,6 +85,7 @@ h6 {
   margin-top: $margin__content;
   margin-bottom: 0;
 }
+
 h6 + p {
   margin-top: 0;
 }
@@ -112,7 +116,6 @@ h6 + p {
     @include font-size-desktop(0.737);
   }
 }
-
 
 /* COPY */
 

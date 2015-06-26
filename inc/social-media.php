@@ -33,7 +33,7 @@ function gently_share_buttons() {
 	}
 
 	foreach ( $sb_settings as $media ) {
-		$url = sprintf( $services[$media]['url_structure'],
+		$url = sprintf( $services[ $media ]['url_structure'],
 			get_the_permalink(),
 			get_the_title()
 		);
@@ -41,8 +41,8 @@ function gently_share_buttons() {
 
 		printf( '<a class="share-button" href="%1$s" title="%2$s" rel="nofollow" target="_blank"><span class="share-button-%3$s"></span></a>',
 			$url,
-			$services[$media]['title'],
-			$services[$media]['id']
+			$services[ $media ]['title'],
+			$services[ $media ]['id']
 		);
 	}
 }
@@ -51,10 +51,10 @@ function gently_share_buttons() {
  * Prints HTML with user's social media icon links.
  */
 function gently_author_social_icons() {
-	$links = array('facebook','twitter','google-plus','pinterest','linkedin','tumblr');
+	$links = array( 'facebook', 'twitter', 'google-plus', 'pinterest', 'linkedin', 'tumblr' );
 
 	foreach ( $links as $link ) {
-		if( get_the_author_meta( $link ) ) {
+		if ( get_the_author_meta( $link ) ) {
 			printf( '<a href="%s"><i class="fa fa-%s-square"></i></a>',
 				esc_url( get_the_author_meta( $link ) ),
 				$link
@@ -66,7 +66,7 @@ function gently_author_social_icons() {
 /**
  * Prints social icons set in customizer.
  */
-function gently_social_links(){
+function gently_social_links() {
 	$links_string = kirki_get_option( 'social_links' );
 	$links = preg_split( '/$\R?^/m', $links_string );
 
@@ -76,7 +76,7 @@ function gently_social_links(){
 	}
 	foreach ( $links as $link ) {
 		if ( filter_var( $link, FILTER_VALIDATE_URL ) == true ) {
-			$link = esc_url( $link );
+			$link  = esc_url( $link );
 			$color = kirki_get_option( 'header_icons_color_original' ) ? 'orig-col' : '';
 			printf( '<a href="%1$s" class="fa sc-link %2$s" target="_blank"></a>',
 				$link,

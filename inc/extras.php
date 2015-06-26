@@ -11,6 +11,7 @@
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
+ *
  * @return array
  */
 function gently_body_classes( $classes ) {
@@ -21,6 +22,7 @@ function gently_body_classes( $classes ) {
 
 	return $classes;
 }
+
 add_filter( 'body_class', 'gently_body_classes' );
 
 if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
@@ -29,6 +31,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	 *
 	 * @param string $title Default title text for current view.
 	 * @param string $sep Optional separator.
+	 *
 	 * @return string The filtered title.
 	 */
 	function gently_wp_title( $title, $sep ) {
@@ -54,6 +57,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 
 		return $title;
 	}
+
 	add_filter( 'wp_title', 'gently_wp_title', 10, 2 );
 
 	/**
@@ -65,8 +69,9 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	function gently_render_title() {
 		?>
 		<title><?php wp_title( '|', true, 'right' ); ?></title>
-		<?php
+	<?php
 	}
+
 	add_action( 'wp_head', 'gently_render_title' );
 endif;
 
@@ -82,6 +87,7 @@ if ( ! function_exists( 'gently_excerpt_more' ) ) :
 			__( 'Continue reading', 'gently' )
 		);
 	}
+
 	add_filter( 'excerpt_more', 'gently_excerpt_more' );
 endif;
 
@@ -91,6 +97,7 @@ endif;
 function gently_custom_excerpt_length( $length ) {
 	return 30;
 }
+
 add_filter( 'excerpt_length', 'gently_custom_excerpt_length', 999 );
 
 /**
@@ -99,15 +106,16 @@ add_filter( 'excerpt_length', 'gently_custom_excerpt_length', 999 );
 function gently_user_contact_methods( $user_contact ) {
 
 	// Add user contact methods
-	$user_contact['facebook']   = __( 'Facebook', 'gently' );
-	$user_contact['twitter'] = __( 'Twitter', 'gently' );
+	$user_contact['facebook']    = __( 'Facebook', 'gently' );
+	$user_contact['twitter']     = __( 'Twitter', 'gently' );
 	$user_contact['google-plus'] = __( 'Google+', 'gently' );
-	$user_contact['pinterest'] = __('Pinterest', 'gently' );
-	$user_contact['linkedin'] = __('LinkedIn', 'gently' );
-	$user_contact['tumblr'] = __('Tumblr', 'gently' );
+	$user_contact['pinterest']   = __( 'Pinterest', 'gently' );
+	$user_contact['linkedin']    = __( 'LinkedIn', 'gently' );
+	$user_contact['tumblr']      = __( 'Tumblr', 'gently' );
 
 	return $user_contact;
 }
+
 add_filter( 'user_contactmethods', 'gently_user_contact_methods' );
 
 /**
@@ -115,10 +123,12 @@ add_filter( 'user_contactmethods', 'gently_user_contact_methods' );
  * @return bool
  */
 function gently_addtoany_disable_default_sharing_in_single() {
-		if ( is_single() )
-			return true;
+	if ( is_single() ) {
+		return true;
+	}
 
 }
+
 add_filter( 'addtoany_sharing_disabled', 'gently_addtoany_disable_default_sharing_in_single' );
 
 /**
@@ -127,8 +137,10 @@ add_filter( 'addtoany_sharing_disabled', 'gently_addtoany_disable_default_sharin
  */
 function gently_comment_form_defaults( $defaults ) {
 	$defaults['comment_notes_after'] = '';
+
 	return $defaults;
 }
+
 add_filter( 'comment_form_defaults', 'gently_comment_form_defaults' );
 
 /**
@@ -137,9 +149,11 @@ add_filter( 'comment_form_defaults', 'gently_comment_form_defaults' );
  */
 function gently_custom_archive_title( $title ) {
 	$new_title = explode( ':', $title );
-	$title = $new_title[0] . ':<span>' . $new_title[1] . '</span>';
+	$title     = $new_title[0] . ':<span>' . $new_title[1] . '</span>';
+
 	return $title;
 }
+
 add_filter( 'get_the_archive_title', 'gently_custom_archive_title' );
 
 /**
@@ -149,21 +163,28 @@ add_filter( 'get_the_archive_title', 'gently_custom_archive_title' );
 function gently_archive_title_icons( $title ) {
 	if ( is_tag() ) {
 		$title = '<i class="fa fa-tag"></i>' . $title;
+
 		return $title;
 	} else if ( is_category() ) {
 		$title = '<i class="fa fa-folder"></i>' . $title;
+
 		return $title;
 	} else if ( is_date() ) {
 		$title = '<i class="fa fa-calendar-o"></i>' . $title;
+
 		return $title;
 	}
+
 	return $title;
 }
+
 add_filter( 'get_the_archive_title', 'gently_archive_title_icons' );
 
 /**
  * Add sidebar position classes to body.
+ *
  * @param $classes
+ *
  * @return array
  */
 function genlty_sidebar_position( $classes ) {
@@ -188,6 +209,7 @@ function genlty_sidebar_position( $classes ) {
 
 	return $classes;
 }
+
 add_filter( 'body_class', 'genlty_sidebar_position' );
 
 
@@ -197,11 +219,12 @@ add_filter( 'body_class', 'genlty_sidebar_position' );
  */
 class Gently_Menu_Walker extends Walker_Nav_Menu {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
-		$indent = str_repeat("\t", $depth+1);
+		$indent = str_repeat( "\t", $depth + 1 );
 		$output .= "\t<span class='nav-sub-icon' tabindex='0'><i class='fa fa-chevron-down'></i><span class='screen-reader-text'>" . __( "Open sub menu", "gently" ) . "</span></span>\n$indent\t<ul class='sub-menu'>\n";
 	}
+
 	function end_lvl( &$output, $depth = 0, $args = array() ) {
-		$indent = str_repeat("\t", $depth+1);
+		$indent = str_repeat( "\t", $depth + 1 );
 		$output .= "$indent\t</ul>\n";
 	}
 }

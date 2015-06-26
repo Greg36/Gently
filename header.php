@@ -9,13 +9,13 @@
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-<link rel="shortcut icon" href="<?php echo kirki_get_option( 'favicon' ); ?>" />
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link rel="shortcut icon" href="<?php echo kirki_get_option( 'favicon' ); ?>"/>
 
-<?php wp_head(); ?>
+	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -47,7 +47,8 @@
 						?>
 					</a>
 				</h1>
-			</div><!-- .site-branding -->
+			</div>
+			<!-- .site-branding -->
 
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 				<i class="fa fa-bars"></i>
@@ -57,7 +58,7 @@
 			<?php
 
 			$header_features = kirki_get_option( 'header_features' );
-			if ( is_string( $header_features ) || strpos( $header_features[0], ',' ) ){
+			if ( is_string( $header_features ) || strpos( $header_features[0], ',' ) ) {
 				$header_features = explode( ',', $header_features );
 			}
 
@@ -67,22 +68,24 @@
 			}
 
 			/* Social icons */
-			if ( in_array( 'social', $header_features ) ){
+			if ( in_array( 'social', $header_features ) ) {
 				gently_social_links();
 			}
 			?>
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<?php
-					if ( has_nav_menu( 'primary' ) ) {
-						wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'walker' => new Gently_Menu_Walker() ) );
-					} else {
-						wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
-					}
+				if ( has_nav_menu( 'primary' ) ) {
+					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'walker' => new Gently_Menu_Walker() ) );
+				} else {
+					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+				}
 				?>
-			</nav><!-- #site-navigation -->
+			</nav>
+			<!-- #site-navigation -->
 
 		</div>
-	</header><!-- #masthead -->
+	</header>
+	<!-- #masthead -->
 
 	<div id="content" class="site-content">

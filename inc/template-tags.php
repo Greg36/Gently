@@ -8,88 +8,92 @@
  */
 
 if ( ! function_exists( 'the_posts_navigation' ) ) :
-/**
- * Display navigation to next/previous set of posts when applicable.
- *
- * @todo Remove this function when WordPress 4.3 is released.
- */
-function the_posts_navigation() {
-	// Don't print empty markup if there's only one page.
-	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
-		return;
-	}
-	?>
-	<nav class="navigation posts-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'gently' ); ?></h2>
-		<div class="nav-links">
+	/**
+	 * Display navigation to next/previous set of posts when applicable.
+	 *
+	 * @todo Remove this function when WordPress 4.3 is released.
+	 */
+	function the_posts_navigation() {
+		// Don't print empty markup if there's only one page.
+		if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+			return;
+		}
+		?>
+		<nav class="navigation posts-navigation" role="navigation">
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Posts navigation', 'gently' ); ?></h2>
 
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( esc_html__( 'Older posts', 'gently' ) ); ?></div>
-			<?php endif; ?>
+			<div class="nav-links">
 
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( esc_html__( 'Newer posts', 'gently' ) ); ?></div>
-			<?php endif; ?>
+				<?php if ( get_next_posts_link() ) : ?>
+					<div class="nav-previous"><?php next_posts_link( esc_html__( 'Older posts', 'gently' ) ); ?></div>
+				<?php endif; ?>
 
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
+				<?php if ( get_previous_posts_link() ) : ?>
+					<div class="nav-next"><?php previous_posts_link( esc_html__( 'Newer posts', 'gently' ) ); ?></div>
+				<?php endif; ?>
+
+			</div>
+			<!-- .nav-links -->
+		</nav><!-- .navigation -->
 	<?php
-}
+	}
 endif;
 
 if ( ! function_exists( 'the_post_navigation' ) ) :
-/**
- * Display navigation to next/previous post when applicable.
- *
- * @todo Remove this function when WordPress 4.3 is released.
- */
-function the_post_navigation() {
-	// Don't print empty markup if there's nowhere to navigate.
-	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
-	$next     = get_adjacent_post( false, '', false );
+	/**
+	 * Display navigation to next/previous post when applicable.
+	 *
+	 * @todo Remove this function when WordPress 4.3 is released.
+	 */
+	function the_post_navigation() {
+		// Don't print empty markup if there's nowhere to navigate.
+		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
+		$next     = get_adjacent_post( false, '', false );
 
-	if ( ! $next && ! $previous ) {
-		return;
-	}
-	?>
-	<nav class="navigation post-navigation" role="navigation">
-		<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'gently' ); ?></h2>
-		<div class="nav-links">
-			<?php
+		if ( ! $next && ! $previous ) {
+			return;
+		}
+		?>
+		<nav class="navigation post-navigation" role="navigation">
+			<h2 class="screen-reader-text"><?php esc_html_e( 'Post navigation', 'gently' ); ?></h2>
+
+			<div class="nav-links">
+				<?php
 				previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
 				next_post_link( '<div class="nav-next">%link</div>', '%title' );
-			?>
-		</div><!-- .nav-links -->
-	</nav><!-- .navigation -->
+				?>
+			</div>
+			<!-- .nav-links -->
+		</nav><!-- .navigation -->
 	<?php
-}
+	}
 endif;
 
 if ( ! function_exists( 'gently_posted_on' ) ) :
-/**
- * Prints HTML with meta information for the current post-date/time, author and comments count.
- */
-function gently_posted_on( $location = '' ) {
+	/**
+	 * Prints HTML with meta information for the current post-date/time, author and comments count.
+	 */
+	function gently_posted_on( $location = '' ) {
 
-	$time_string = gently_entry_time();
+		$time_string = gently_entry_time();
 
-	$author_avatar = get_avatar( get_the_author_meta( 'ID' ), '35' );
+		$author_avatar = get_avatar( get_the_author_meta( 'ID' ), '35' );
 
-	$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
+		$posted_on = '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
-	$byline = '<span class="author vcard">' . $author_avatar . '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
+		$byline = '<span class="author vcard">' . $author_avatar . '<a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>';
 
-	$comments_count = gently_comments_count();
+		$comments_count = gently_comments_count();
 
-	if ( $location == 'search' ) {
-		echo '<span class="posted-on">' . $posted_on . '</span>' . '<span class="byline"> ' . gently_get_author() . '</span>';
-	} else if ( $location == 'archive' ){
-		echo '<span class="byline"> ' . gently_get_author() . '</span>' . '<span class="posted-on">' . $posted_on . '</span>';
-	} else {
-		echo '<span class="byline"> ' . $byline . '</span><br><span class="posted-on">' . $posted_on . '</span>' . $comments_count; // WPCS: XSS OK
+		if ( $location == 'search' ) {
+			echo '<span class="posted-on">' . $posted_on . '</span>' . '<span class="byline"> ' . gently_get_author() . '</span>';
+		} else if ( $location == 'archive' ) {
+			echo '<span class="byline"> ' . gently_get_author() . '</span>' . '<span class="posted-on">' . $posted_on . '</span>';
+		} else {
+			echo '<span class="byline"> ' . $byline . '</span><br><span class="posted-on">' . $posted_on . '</span>' . $comments_count; // WPCS: XSS OK
 
+		}
 	}
-}
 endif;
 
 if ( ! function_exists( 'gently_entry_time' ) ) :
@@ -122,11 +126,12 @@ if ( ! function_exists( 'gently_comments_count' ) ) :
 	function gently_comments_count() {
 		/* Display comments count only if the are available. */
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			return  sprintf(
+			return sprintf(
 				'<a class="comments-count" href="' . get_comments_link() . '"><span class="screen-reader-text">%s</span><i class="fa fa-comments"></i>&nbsp;' . get_comments_number() . '</a>',
 				esc_html__( 'Comments count', 'gently' )
 			);
 		}
+
 		return '';
 	}
 endif;
@@ -140,7 +145,7 @@ if ( ! function_exists( 'gently_comments_link' ) ) :
 		/* Display comments count only if the are available. */
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
-				comments_popup_link( esc_html__( 'Leave a comment', 'gently' ), esc_html__( '1 Comment', 'gently' ), esc_html__( '% Comments', 'gently' ) );
+			comments_popup_link( esc_html__( 'Leave a comment', 'gently' ), esc_html__( '1 Comment', 'gently' ), esc_html__( '% Comments', 'gently' ) );
 			echo '</span>';
 		}
 	}
@@ -157,6 +162,7 @@ if ( ! function_exists( 'gently_list_categories' ) ) :
 		if ( $categories_list && gently_categorized_blog() ) {
 			return '<div class="cat-links"><i class="fa fa-folder"></i><span class="screen-reader-text">' . __( 'Post categories', 'gently' ) . '</span>&nbsp;' . $categories_list . '</div>';
 		}
+
 		return '';
 	}
 endif;
@@ -172,138 +178,139 @@ if ( ! function_exists( 'gently_list_tags' ) ) :
 		if ( $tags_list ) {
 			return '<span class="tags-links"><i class="fa fa-tag"></i><span class="screen-reader-text">' . __( 'Post tags', 'gently' ) . '</span>' . $tags_list . '</span>';
 		}
+
 		return '';
 	}
 endif;
 
 if ( ! function_exists( 'gently_featured_image' ) ) :
-/**
- * Prints HTML with post's featured image.
- */
-function  gently_featured_image( $skip = false ) {
-	if ( has_post_thumbnail() ) {
-		if ( $skip ) {
-			echo '<div>';
-		} else if ( !is_single() && !is_page() ){
-			echo '<div class="entry-image">';
-		} else {
-			echo '<div class="featured-image">';
+	/**
+	 * Prints HTML with post's featured image.
+	 */
+	function  gently_featured_image( $skip = false ) {
+		if ( has_post_thumbnail() ) {
+			if ( $skip ) {
+				echo '<div>';
+			} else if ( ! is_single() && ! is_page() ) {
+				echo '<div class="entry-image">';
+			} else {
+				echo '<div class="featured-image">';
+			}
+			printf(
+				'<a href="%s" title="%s">' . get_the_post_thumbnail() . '</a>',
+				get_the_permalink(),
+				the_title_attribute( 'echo=0' )
+			);
+			echo '</div>';
 		}
-		printf(
-			'<a href="%s" title="%s">' . get_the_post_thumbnail() . '</a>',
-			get_the_permalink(),
-			the_title_attribute( 'echo=0' )
-		);
-		echo '</div>';
 	}
-}
 endif;
 
-if( ! function_exists( 'gently_get_author' ) ) :
-/**
- * Returns link to author's posts.
- * @return string Formatted post author link.
- */
-function gently_get_author() {
-	return sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_html( get_the_author() )
-	);
-}
+if ( ! function_exists( 'gently_get_author' ) ) :
+	/**
+	 * Returns link to author's posts.
+	 * @return string Formatted post author link.
+	 */
+	function gently_get_author() {
+		return sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			esc_html( get_the_author() )
+		);
+	}
 endif;
 
 if ( ! function_exists( 'the_archive_title' ) ) :
-/**
- * Shim for `the_archive_title()`.
- *
- * Display the archive title based on the queried object.
- *
- * @todo Remove this function when WordPress 4.3 is released.
- *
- * @param string $before Optional. Content to prepend to the title. Default empty.
- * @param string $after  Optional. Content to append to the title. Default empty.
- */
-function the_archive_title( $before = '', $after = '' ) {
-	if ( is_category() ) {
-		$title = sprintf( esc_html__( 'Category: %s', 'gently' ), single_cat_title( '', false ) );
-	} elseif ( is_tag() ) {
-		$title = sprintf( esc_html__( 'Tag: %s', 'gently' ), single_tag_title( '', false ) );
-	} elseif ( is_author() ) {
-		$title = sprintf( esc_html__( 'Author: %s', 'gently' ), '<span class="vcard">' . get_the_author() . '</span>' );
-	} elseif ( is_year() ) {
-		$title = sprintf( esc_html__( 'Year: %s', 'gently' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'gently' ) ) );
-	} elseif ( is_month() ) {
-		$title = sprintf( esc_html__( 'Month: %s', 'gently' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'gently' ) ) );
-	} elseif ( is_day() ) {
-		$title = sprintf( esc_html__( 'Day: %s', 'gently' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'gently' ) ) );
-	} elseif ( is_tax( 'post_format' ) ) {
-		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
-			$title = esc_html_x( 'Asides', 'post format archive title', 'gently' );
-		} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
-			$title = esc_html_x( 'Galleries', 'post format archive title', 'gently' );
-		} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
-			$title = esc_html_x( 'Images', 'post format archive title', 'gently' );
-		} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
-			$title = esc_html_x( 'Videos', 'post format archive title', 'gently' );
-		} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
-			$title = esc_html_x( 'Quotes', 'post format archive title', 'gently' );
-		} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
-			$title = esc_html_x( 'Links', 'post format archive title', 'gently' );
-		} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
-			$title = esc_html_x( 'Statuses', 'post format archive title', 'gently' );
-		} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
-			$title = esc_html_x( 'Audio', 'post format archive title', 'gently' );
-		} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
-			$title = esc_html_x( 'Chats', 'post format archive title', 'gently' );
-		}
-	} elseif ( is_post_type_archive() ) {
-		$title = sprintf( esc_html__( 'Archives: %s', 'gently' ), post_type_archive_title( '', false ) );
-	} elseif ( is_tax() ) {
-		$tax = get_taxonomy( get_queried_object()->taxonomy );
-		/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
-		$title = sprintf( esc_html__( '%1$s: %2$s', 'gently' ), $tax->labels->singular_name, single_term_title( '', false ) );
-	} else {
-		$title = esc_html__( 'Archives', 'gently' );
-	}
-
 	/**
-	 * Filter the archive title.
+	 * Shim for `the_archive_title()`.
 	 *
-	 * @param string $title Archive title to be displayed.
+	 * Display the archive title based on the queried object.
+	 *
+	 * @todo Remove this function when WordPress 4.3 is released.
+	 *
+	 * @param string $before Optional. Content to prepend to the title. Default empty.
+	 * @param string $after Optional. Content to append to the title. Default empty.
 	 */
-	$title = apply_filters( 'get_the_archive_title', $title );
+	function the_archive_title( $before = '', $after = '' ) {
+		if ( is_category() ) {
+			$title = sprintf( esc_html__( 'Category: %s', 'gently' ), single_cat_title( '', false ) );
+		} elseif ( is_tag() ) {
+			$title = sprintf( esc_html__( 'Tag: %s', 'gently' ), single_tag_title( '', false ) );
+		} elseif ( is_author() ) {
+			$title = sprintf( esc_html__( 'Author: %s', 'gently' ), '<span class="vcard">' . get_the_author() . '</span>' );
+		} elseif ( is_year() ) {
+			$title = sprintf( esc_html__( 'Year: %s', 'gently' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'gently' ) ) );
+		} elseif ( is_month() ) {
+			$title = sprintf( esc_html__( 'Month: %s', 'gently' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'gently' ) ) );
+		} elseif ( is_day() ) {
+			$title = sprintf( esc_html__( 'Day: %s', 'gently' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'gently' ) ) );
+		} elseif ( is_tax( 'post_format' ) ) {
+			if ( is_tax( 'post_format', 'post-format-aside' ) ) {
+				$title = esc_html_x( 'Asides', 'post format archive title', 'gently' );
+			} elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) {
+				$title = esc_html_x( 'Galleries', 'post format archive title', 'gently' );
+			} elseif ( is_tax( 'post_format', 'post-format-image' ) ) {
+				$title = esc_html_x( 'Images', 'post format archive title', 'gently' );
+			} elseif ( is_tax( 'post_format', 'post-format-video' ) ) {
+				$title = esc_html_x( 'Videos', 'post format archive title', 'gently' );
+			} elseif ( is_tax( 'post_format', 'post-format-quote' ) ) {
+				$title = esc_html_x( 'Quotes', 'post format archive title', 'gently' );
+			} elseif ( is_tax( 'post_format', 'post-format-link' ) ) {
+				$title = esc_html_x( 'Links', 'post format archive title', 'gently' );
+			} elseif ( is_tax( 'post_format', 'post-format-status' ) ) {
+				$title = esc_html_x( 'Statuses', 'post format archive title', 'gently' );
+			} elseif ( is_tax( 'post_format', 'post-format-audio' ) ) {
+				$title = esc_html_x( 'Audio', 'post format archive title', 'gently' );
+			} elseif ( is_tax( 'post_format', 'post-format-chat' ) ) {
+				$title = esc_html_x( 'Chats', 'post format archive title', 'gently' );
+			}
+		} elseif ( is_post_type_archive() ) {
+			$title = sprintf( esc_html__( 'Archives: %s', 'gently' ), post_type_archive_title( '', false ) );
+		} elseif ( is_tax() ) {
+			$tax = get_taxonomy( get_queried_object()->taxonomy );
+			/* translators: 1: Taxonomy singular name, 2: Current taxonomy term */
+			$title = sprintf( esc_html__( '%1$s: %2$s', 'gently' ), $tax->labels->singular_name, single_term_title( '', false ) );
+		} else {
+			$title = esc_html__( 'Archives', 'gently' );
+		}
 
-	if ( ! empty( $title ) ) {
-		echo $before . $title . $after;  // WPCS: XSS OK
+		/**
+		 * Filter the archive title.
+		 *
+		 * @param string $title Archive title to be displayed.
+		 */
+		$title = apply_filters( 'get_the_archive_title', $title );
+
+		if ( ! empty( $title ) ) {
+			echo $before . $title . $after;  // WPCS: XSS OK
+		}
 	}
-}
 endif;
 
 if ( ! function_exists( 'the_archive_description' ) ) :
-/**
- * Shim for `the_archive_description()`.
- *
- * Display category, tag, or term description.
- *
- * @todo Remove this function when WordPress 4.3 is released.
- *
- * @param string $before Optional. Content to prepend to the description. Default empty.
- * @param string $after  Optional. Content to append to the description. Default empty.
- */
-function the_archive_description( $before = '', $after = '' ) {
-	$description = apply_filters( 'get_the_archive_description', term_description() );
+	/**
+	 * Shim for `the_archive_description()`.
+	 *
+	 * Display category, tag, or term description.
+	 *
+	 * @todo Remove this function when WordPress 4.3 is released.
+	 *
+	 * @param string $before Optional. Content to prepend to the description. Default empty.
+	 * @param string $after Optional. Content to append to the description. Default empty.
+	 */
+	function the_archive_description( $before = '', $after = '' ) {
+		$description = apply_filters( 'get_the_archive_description', term_description() );
 
-	if ( ! empty( $description ) ) {
-		/**
-		 * Filter the archive description.
-		 *
-		 * @see term_description()
-		 *
-		 * @param string $description Archive description to be displayed.
-		 */
-		echo $before . $description . $after;  // WPCS: XSS OK
+		if ( ! empty( $description ) ) {
+			/**
+			 * Filter the archive description.
+			 *
+			 * @see term_description()
+			 *
+			 * @param string $description Archive description to be displayed.
+			 */
+			echo $before . $description . $after;  // WPCS: XSS OK
+		}
 	}
-}
 endif;
 
 /**
@@ -317,7 +324,6 @@ function gently_categorized_blog() {
 		$all_the_cool_cats = get_categories( array(
 			'fields'     => 'ids',
 			'hide_empty' => 1,
-
 			// We only need to know if there is more than one category.
 			'number'     => 2,
 		) );
@@ -347,8 +353,9 @@ function gently_category_transient_flusher() {
 	// Like, beat it. Dig?
 	delete_transient( 'gently_categories' );
 }
+
 add_action( 'edit_category', 'gently_category_transient_flusher' );
-add_action( 'save_post',     'gently_category_transient_flusher' );
+add_action( 'save_post', 'gently_category_transient_flusher' );
 
 
 /**
@@ -356,12 +363,12 @@ add_action( 'save_post',     'gently_category_transient_flusher' );
  * @return string Formatted related posts.
  */
 function gently_related_posts() {
-	$args = array(
-		'post__not_in'     => array( get_the_ID() ),
-		'posts_per_page'   => 3,
+	$args       = array(
+		'post__not_in'        => array( get_the_ID() ),
+		'posts_per_page'      => 3,
 		'ignore_sticky_posts' => 1
 	);
-	$tags = wp_get_post_tags( get_the_ID() );
+	$tags       = wp_get_post_tags( get_the_ID() );
 	$categories = wp_get_post_categories( get_the_ID() );
 
 	if ( $tags ) {
@@ -373,7 +380,7 @@ function gently_related_posts() {
 	}
 
 	/* Query posts */
-	$related  = new WP_Query( $args );
+	$related = new WP_Query( $args );
 
 	if ( $related->have_posts() ) {
 		printf( '<h4>%s</h4>', esc_html__( 'Related posts:', 'gently' ) );
@@ -392,17 +399,19 @@ function gently_related_posts() {
 function gently_related_post() {
 	?>
 	<div class="row collapse">
-		<?php if ( has_post_thumbnail() ) { ?>
-			<div class="small-12 medium-3 columns related-post-img">
-				<?php gently_featured_image( true ); ?>
-			</div>
-			<div class="small-12 medium-9 columns">
-		<?php } ?>
-			<?php gently_entry_time(); ?>
-			<?php gently_comments_count(); ?>
-			<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
-			<?php echo '<p>' . wp_trim_words( get_the_excerpt(), 27 ) . '</p>'; ?>
-		<?php if ( has_post_thumbnail() ) echo '</div>'; ?>
+	<?php if ( has_post_thumbnail() ) { ?>
+	<div class="small-12 medium-3 columns related-post-img">
+		<?php gently_featured_image( true ); ?>
 	</div>
-	<?php
+	<div class="small-12 medium-9 columns">
+<?php } ?>
+	<?php gently_entry_time(); ?>
+	<?php gently_comments_count(); ?>
+	<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
+	<?php echo '<p>' . wp_trim_words( get_the_excerpt(), 27 ) . '</p>'; ?>
+	<?php if ( has_post_thumbnail() ) {
+		echo '</div>';
+	} ?>
+	</div>
+<?php
 }
