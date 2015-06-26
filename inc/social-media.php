@@ -1,15 +1,16 @@
 <?php
 /**
- * Simple share buttons.
+ * Simple share buttons and social icons.
  *
  * @package Gently
  */
 
 /**
- * Prints formatted HTML with chooses social share icons.
+ * Display social share icons chosen in customizer.
  */
 function gently_share_buttons() {
-	$services = array(  //array of services as key => array( title => human readable title, url_structure => share url structure )
+	$services = array(
+		// array of services as key => array( title => human readable title, url_structure => share url structure )
 		// %1$s = url to share
 		// %2$s = share title
 		'facebook'    => array( 'id' => 'facebook', 'title' => 'Facebook', 'url_structure' => 'https://www.facebook.com/sharer.php?u=%1$s', ),
@@ -48,7 +49,27 @@ function gently_share_buttons() {
 }
 
 /**
- * Prints HTML with user's social media icon links.
+ * Add fields for social media services to users profiles.
+ *
+ * @return array
+ */
+function gently_user_contact_methods( $user_contact ) {
+
+	// Add fields to user's contact methods
+	$user_contact['facebook']    = __( 'Facebook', 'gently' );
+	$user_contact['twitter']     = __( 'Twitter', 'gently' );
+	$user_contact['google-plus'] = __( 'Google+', 'gently' );
+	$user_contact['pinterest']   = __( 'Pinterest', 'gently' );
+	$user_contact['linkedin']    = __( 'LinkedIn', 'gently' );
+	$user_contact['tumblr']      = __( 'Tumblr', 'gently' );
+
+	return $user_contact;
+}
+
+add_filter( 'user_contactmethods', 'gently_user_contact_methods' );
+
+/**
+ * Display user specific social media icon links.
  */
 function gently_author_social_icons() {
 	$links = array( 'facebook', 'twitter', 'google-plus', 'pinterest', 'linkedin', 'tumblr' );
@@ -64,7 +85,7 @@ function gently_author_social_icons() {
 }
 
 /**
- * Prints social icons set in customizer.
+ * Display social icons with are set in customizer.
  */
 function gently_social_links() {
 	$links_string = kirki_get_option( 'social_links' );
@@ -78,6 +99,7 @@ function gently_social_links() {
 		if ( filter_var( $link, FILTER_VALIDATE_URL ) == true ) {
 			$link  = esc_url( $link );
 			$color = kirki_get_option( 'header_icons_color_original' ) ? 'orig-col' : '';
+
 			printf( '<a href="%1$s" class="fa sc-link %2$s" target="_blank"></a>',
 				$link,
 				$color

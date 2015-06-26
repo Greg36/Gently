@@ -60,7 +60,6 @@ function gently_is_kirki_installed() {
 		add_action( 'wp_enqueue_scripts', 'gently_get_default_fonts' );
 	}
 }
-
 if ( ! is_admin() ) {
 	add_action( 'init', 'gently_is_kirki_installed' );
 }
@@ -141,7 +140,6 @@ function gently_customize_register( $wp_customize ) {
 		$wp_customize->remove_control( 'blogdescription' );
 
 	} else {
-
 		// Convert default section to a notice that inform user about more options in customzier when they install Kirki plugin.
 		$wp_customize->add_section( 'notice', array(
 			'title'       => __( 'Install Kirki for more options.', 'gently' ),
@@ -245,7 +243,9 @@ function gently_kirki_configuration() {
 
 add_filter( 'kirki/config', 'gently_kirki_configuration' );
 
-
+/**
+ * Define all settings that will be used with Kirki in customizer
+ */
 function gently_kirki_fields( $fields ) {
 
 	/* Branding fields */
@@ -642,8 +642,7 @@ function gently_kirki_fields( $fields ) {
 		'priority' => 11,
 	);
 
-	/**
-	 * Social media fields */
+	/* Social media fields */
 	$fields[] = array(
 		'type'        => 'sortable',
 		'setting'     => 'share_buttons',
@@ -740,16 +739,3 @@ function gently_kirki_fields( $fields ) {
 }
 
 add_filter( 'kirki/fields', 'gently_kirki_fields' );
-
-/**
- * Check if kirki is installed.
- */
-function gently_check_kirki() {
-	if ( ! function_exists( 'kirki_get_option' ) ) {
-		function kirki_get_option() {
-			return '';
-		}
-	}
-}
-
-add_action( 'plugins_loaded', 'gently_check_kirki' );

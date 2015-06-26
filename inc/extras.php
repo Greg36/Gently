@@ -1,8 +1,6 @@
 <?php
 /**
- * Custom functions that act independently of the theme templates
- *
- * Eventually, some of the functionality here could be replaced by core features
+ * Custom functions that act independently of the theme templates.
  *
  * @package Gently
  */
@@ -24,6 +22,38 @@ function gently_body_classes( $classes ) {
 }
 
 add_filter( 'body_class', 'gently_body_classes' );
+
+/**
+ * Add sidebar position classes to body.
+ *
+ * @param array $classes Classes for the body element.
+ *
+ * @return array
+ */
+function genlty_sidebar_position( $classes ) {
+	$sidebar_pos = kirki_get_option( 'sidebar_position' );
+
+	if ( $sidebar_pos == 'left' ) {
+		$classes[] = 'sidebar-left';
+	} else {
+		$classes[] = 'sidebar-right';
+	}
+
+	$sidebar_collapse = kirki_get_option( 'sidebar_collapse' );
+	$sidebar_collapse = explode( ',', $sidebar_collapse[0] );
+
+	if ( is_home() && in_array( 'home', $sidebar_collapse ) ) {
+		$classes[] = 'sidebar-closed';
+	} else if ( is_single() && in_array( 'single', $sidebar_collapse ) ) {
+		$classes[] = 'sidebar-closed';
+	} else if ( is_archive() && in_array( 'archive', $sidebar_collapse ) ) {
+		$classes[] = 'sidebar-closed';
+	}
+
+	return $classes;
+}
+
+add_filter( 'body_class', 'genlty_sidebar_position' );
 
 if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	/**
@@ -75,10 +105,12 @@ if ( version_compare( $GLOBALS['wp_version'], '4.1', '<' ) ) :
 	add_action( 'wp_head', 'gently_render_title' );
 endif;
 
-/**
- * Custom excerpt 'read more'.
- */
 if ( ! function_exists( 'gently_excerpt_more' ) ) :
+	/**
+	 * Set custom excerpt 'read more' link
+	 *
+	 * @return string
+	 */
 	function gently_excerpt_more( $more ) {
 		return sprintf(
 			'... <div class="excerpt-read-more"><a href="%s" title="%s">%s</a></div>',
@@ -92,7 +124,9 @@ if ( ! function_exists( 'gently_excerpt_more' ) ) :
 endif;
 
 /**
- * Custom exceropt lenght.
+ * Set custom excerpt length.
+ *
+ * @return int New excerpt length
  */
 function gently_custom_excerpt_length( $length ) {
 	return 30;
@@ -101,38 +135,8 @@ function gently_custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'gently_custom_excerpt_length', 999 );
 
 /**
- * Social media links in user's profile settings.
- */
-function gently_user_contact_methods( $user_contact ) {
-
-	// Add user contact methods
-	$user_contact['facebook']    = __( 'Facebook', 'gently' );
-	$user_contact['twitter']     = __( 'Twitter', 'gently' );
-	$user_contact['google-plus'] = __( 'Google+', 'gently' );
-	$user_contact['pinterest']   = __( 'Pinterest', 'gently' );
-	$user_contact['linkedin']    = __( 'LinkedIn', 'gently' );
-	$user_contact['tumblr']      = __( 'Tumblr', 'gently' );
-
-	return $user_contact;
-}
-
-add_filter( 'user_contactmethods', 'gently_user_contact_methods' );
-
-/**
- * Disable AddToAny plugin from displaying button in default position.
- * @return bool
- */
-function gently_addtoany_disable_default_sharing_in_single() {
-	if ( is_single() ) {
-		return true;
-	}
-
-}
-
-add_filter( 'addtoany_sharing_disabled', 'gently_addtoany_disable_default_sharing_in_single' );
-
-/**
- * Remove 'You may use these HTML...' from under comments form
+ * Remove 'You may use these HTML tags...' from under comments form
+ *
  * @return array
  */
 function gently_comment_form_defaults( $defaults ) {
@@ -144,7 +148,8 @@ function gently_comment_form_defaults( $defaults ) {
 add_filter( 'comment_form_defaults', 'gently_comment_form_defaults' );
 
 /**
- * Adds span tags around taxonomy in archive title
+ * Adds span tag around taxonomies in archive title
+ *
  * @return string
  */
 function gently_custom_archive_title( $title ) {
@@ -158,20 +163,20 @@ add_filter( 'get_the_archive_title', 'gently_custom_archive_title' );
 
 /**
  * Adds icons to archive title.
+ *
  * @return string
  */
 function gently_archive_title_icons( $title ) {
 	if ( is_tag() ) {
 		$title = '<i class="fa fa-tag"></i>' . $title;
-
 		return $title;
+
 	} else if ( is_category() ) {
 		$title = '<i class="fa fa-folder"></i>' . $title;
-
 		return $title;
+
 	} else if ( is_date() ) {
 		$title = '<i class="fa fa-calendar-o"></i>' . $title;
-
 		return $title;
 	}
 
@@ -181,40 +186,47 @@ function gently_archive_title_icons( $title ) {
 add_filter( 'get_the_archive_title', 'gently_archive_title_icons' );
 
 /**
- * Add sidebar position classes to body.
+ * Display related posts.
  *
- * @param $classes
- *
- * @return array
+ * @return string Formatted related posts.
  */
-function genlty_sidebar_position( $classes ) {
-	$sidebar_pos = kirki_get_option( 'sidebar_position' );
+function gently_related_posts() {
+	$args = array(
+		'post__not_in'        => array( get_the_ID() ),
+		'posts_per_page'      => 3,
+		'ignore_sticky_posts' => 1
+	);
+	$tags = wp_get_post_tags( get_the_ID() );
+	$categories = wp_get_post_categories( get_the_ID() );
 
-	if ( $sidebar_pos == 'left' ) {
-		$classes[] = 'sidebar-left';
+	/* Prior search with tags, if tere aren't any use categories */
+	if ( $tags ) {
+		$args['tag__in'] = $tags[0]->term_id;
+	} elseif ( $categories ) {
+		$args['category__in'] = $categories[0];
 	} else {
-		$classes[] = 'sidebar-right';
+		return;
 	}
 
-	$sidebar_collapse = kirki_get_option( 'sidebar_collapse' );
-	$sidebar_collapse = explode( ',', $sidebar_collapse[0] );
+	/* Query posts */
+	$related = new WP_Query( $args );
 
-	if ( is_home() && in_array( 'home', $sidebar_collapse ) ) {
-		$classes[] = 'sidebar-closed';
-	} else if ( is_single() && in_array( 'single', $sidebar_collapse ) ) {
-		$classes[] = 'sidebar-closed';
-	} else if ( is_archive() && in_array( 'archive', $sidebar_collapse ) ) {
-		$classes[] = 'sidebar-closed';
+	if ( $related->have_posts() ) {
+		printf( '<h4>%s</h4>', esc_html__( 'Related posts:', 'gently' ) );
+		while ( $related->have_posts() ) {
+			$related->the_post();
+
+			/* Display related post */
+			get_template_part( 'template-parts/post', 'related' );
+		}
 	}
 
-	return $classes;
+	wp_reset_postdata();
 }
-
-add_filter( 'body_class', 'genlty_sidebar_position' );
-
 
 /**
  * Class Gently_Menu_Walker_Mobile
+ *
  * Custom menu walker with added icons that are used to toggle nested levels of navigation in small screen version.
  */
 class Gently_Menu_Walker extends Walker_Nav_Menu {

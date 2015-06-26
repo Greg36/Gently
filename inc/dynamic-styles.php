@@ -48,16 +48,17 @@ function gently_dynamic_styles() {
 	$css['.single .cat-links i']['color'] = $accent_color;
 	$css['.archive .cat-links i']['color'] =
 	$css['.tags-links i']['color'] = $accent_color;
+	$css['.bypostauthor .comment-body']['border-color'] = $accent_color;
+	$css['.bypostauthor .comment-body:before']['border-color'] = 'transparent ' . $accent_color . ' transparent transparent';
 	$css['.widget_pages li a:before, .widget_meta li a:before, .widget_nav_menu li a:before, .widget_recent_entries li a:before']['border-color'] = 'transparent ' . $accent_color . ' transparent transparent';
 	$css['button, input[type="button"], input[type="reset"], input[type="submit"], a.btn, i.btn']['border-color'] = sprintf( '%1$s %1$s %2$s %2$s',
 		gently_adjust_brightness( $accent_color, 30 ),
 		gently_adjust_brightness( $accent_color, -30 )
 	);
-	$css['.bypostauthor .comment-body']['border-color'] = $accent_color;
-	$css['.bypostauthor .comment-body:before']['border-color'] = 'transparent ' . $accent_color . ' transparent transparent';
 
 	/* Metadata color */
 	$meta_color = kirki_get_option( 'meta_color' );
+
 	$css['.group-blog .posted-on a']['color'] = $meta_color;
 	$css['.search-results .page-title .fa, .archive .page-title .fa']['color'] = $meta_color;
 	$css['.single .nav-links span']['border-color'] = $meta_color;
@@ -66,6 +67,7 @@ function gently_dynamic_styles() {
 
 	/* Details color */
 	$details_color = kirki_get_option( 'details_color' );
+
 	$css['td']['border-color'] = $details_color;
 	$css['.single .post-navigation']['border-color'] = $details_color;
 	$css['.hentry:not(:last-child)']['border-color'] = $details_color;
@@ -122,8 +124,7 @@ function gently_dynamic_styles() {
 	/* Newsletter border color */
 	$css['div.mc4wp-form']['border-color'] = kirki_get_option( 'newsletter_border' );
 
-
-	// Parse array to CSS syntax string
+	/* Parse array to CSS syntax string */
 	$final_css = '';
 	foreach ( $css as $style => $style_array ) {
 		$final_css .= $style . '{';
@@ -138,9 +139,16 @@ function gently_dynamic_styles() {
 
 add_action( 'wp_head', 'gently_dynamic_styles', 99 );
 
-
+/**
+ * Adjust brightness of given hex-formatted color adding or subtracting up to 255 from each basic color.
+ *
+ * @param $hex string Color in hexadecimal format.
+ * @param $steps number Correction value between -255 and 255. Negative = darker, positive = lighter.
+ *
+ * @return string Color in hexadecimal format.
+ */
 function gently_adjust_brightness( $hex, $steps ) {
-	// Steps should be between -255 and 255. Negative = darker, positive = lighter
+
 	$steps = max( -255, min( 255, $steps ) );
 
 	// Normalize into a six character long hex string

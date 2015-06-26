@@ -1,6 +1,6 @@
 <?php
 /**
- * Gently functions and definitions
+ * Gently functions and definitions.
  *
  * @package Gently
  */
@@ -8,40 +8,33 @@
 if ( ! function_exists( 'gently_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
 	 */
 	function gently_setup() {
 
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Gently, use a find and replace
-		 * to change 'gently' to the name of your theme in all the template files
 		 */
 		load_theme_textdomain( 'gently', get_template_directory() . '/languages' );
 
-		// Add default posts and comments RSS feed links to head.
+		/**
+		 * Add default posts and comments RSS feed links to head.
+		 */
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
 		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
 		 */
 		add_theme_support( 'title-tag' );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
-		 *
-		 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
+		/**
+		 * Register two navigation menus.
+		 */
 		register_nav_menus( array(
 			'primary'   => esc_html__( 'Primary Menu', 'gently' ),
 			'secondary' => esc_html__( 'Secondary Menu', 'gently' )
@@ -79,6 +72,7 @@ if ( ! function_exists( 'gently_setup' ) ) :
 		) );
 	}
 endif; // gently_setup
+
 add_action( 'after_setup_theme', 'gently_setup' );
 
 /**
@@ -96,8 +90,6 @@ add_action( 'after_setup_theme', 'gently_content_width', 0 );
 
 /**
  * Register widget area.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
 function gently_widgets_init() {
 	register_sidebar( array(

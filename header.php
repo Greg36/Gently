@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for our theme.
+ * The header for this theme.
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
@@ -57,6 +57,7 @@
 
 			<?php
 
+			/* Get with header features to display */
 			$header_features = kirki_get_option( 'header_features' );
 			if ( is_string( $header_features ) || strpos( $header_features[0], ',' ) ) {
 				$header_features = explode( ',', $header_features );

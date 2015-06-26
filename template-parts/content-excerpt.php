@@ -1,5 +1,7 @@
 <?php
 /**
+ * The template part for displaying archive pages.
+ *
  * @package Gently
  */
 ?>

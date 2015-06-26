@@ -2,8 +2,6 @@
 /**
  * Custom template tags for this theme.
  *
- * Eventually, some of the functionality here could be replaced by core features.
- *
  * @package Gently
  */
 
@@ -71,7 +69,9 @@ endif;
 
 if ( ! function_exists( 'gently_posted_on' ) ) :
 	/**
-	 * Prints HTML with meta information for the current post-date/time, author and comments count.
+	 * Displays meta information for the current post - post-date/time, author and comments count.
+	 *
+	 * @param string $location Where will be displayed.
 	 */
 	function gently_posted_on( $location = '' ) {
 
@@ -90,7 +90,7 @@ if ( ! function_exists( 'gently_posted_on' ) ) :
 		} else if ( $location == 'archive' ) {
 			echo '<span class="byline"> ' . gently_get_author() . '</span>' . '<span class="posted-on">' . $posted_on . '</span>';
 		} else {
-			echo '<span class="byline"> ' . $byline . '</span><br><span class="posted-on">' . $posted_on . '</span>' . $comments_count; // WPCS: XSS OK
+			echo '<span class="byline"> ' . $byline . '</span><br><span class="posted-on">' . $posted_on . '</span>' . $comments_count;
 
 		}
 	}
@@ -99,6 +99,7 @@ endif;
 if ( ! function_exists( 'gently_entry_time' ) ) :
 	/**
 	 * Returns HTML with meta information for the current post-date/time.
+	 *
 	 * @return string Formatted post-date.
 	 */
 	function gently_entry_time() {
@@ -121,6 +122,7 @@ endif;
 if ( ! function_exists( 'gently_comments_count' ) ) :
 	/**
 	 * Returns HTML with comments count if there are any.
+	 *
 	 * @return string Comments count.
 	 */
 	function gently_comments_count() {
@@ -138,11 +140,12 @@ endif;
 
 if ( ! function_exists( 'gently_comments_link' ) ) :
 	/**
-	 * Prints HTML with comments link if there are available.
+	 * Display comments link if there are any.
+	 *
 	 * @return string Comments count.
 	 */
 	function gently_comments_link() {
-		/* Display comments count only if the are available. */
+		/* Display comments count only if ther are any. */
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
 			comments_popup_link( esc_html__( 'Leave a comment', 'gently' ), esc_html__( '1 Comment', 'gently' ), esc_html__( '% Comments', 'gently' ) );
@@ -154,6 +157,7 @@ endif;
 if ( ! function_exists( 'gently_list_categories' ) ) :
 	/**
 	 * Returns HTML list of categories.
+	 *
 	 * @return string List of categories.
 	 */
 	function gently_list_categories() {
@@ -170,6 +174,7 @@ endif;
 if ( ! function_exists( 'gently_list_tags' ) ) :
 	/**
 	 * Returns HTML list of tags.
+	 *
 	 * @return string List of tags.
 	 */
 	function gently_list_tags() {
@@ -186,6 +191,8 @@ endif;
 if ( ! function_exists( 'gently_featured_image' ) ) :
 	/**
 	 * Prints HTML with post's featured image.
+	 *
+	 * @param bool $skip Skips the image wrapper class.
 	 */
 	function  gently_featured_image( $skip = false ) {
 		if ( has_post_thumbnail() ) {
@@ -208,7 +215,8 @@ endif;
 
 if ( ! function_exists( 'gently_get_author' ) ) :
 	/**
-	 * Returns link to author's posts.
+	 * Returns link to author's posts page.
+	 *
 	 * @return string Formatted post author link.
 	 */
 	function gently_get_author() {
@@ -350,68 +358,9 @@ function gently_category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return;
 	}
-	// Like, beat it. Dig?
+
 	delete_transient( 'gently_categories' );
 }
 
 add_action( 'edit_category', 'gently_category_transient_flusher' );
 add_action( 'save_post', 'gently_category_transient_flusher' );
-
-
-/**
- * Prints related posts based on first tag.
- * @return string Formatted related posts.
- */
-function gently_related_posts() {
-	$args       = array(
-		'post__not_in'        => array( get_the_ID() ),
-		'posts_per_page'      => 3,
-		'ignore_sticky_posts' => 1
-	);
-	$tags       = wp_get_post_tags( get_the_ID() );
-	$categories = wp_get_post_categories( get_the_ID() );
-
-	if ( $tags ) {
-		$args['tag__in'] = $tags[0]->term_id;
-	} elseif ( $categories ) {
-		$args['category__in'] = $categories[0];
-	} else {
-		return;
-	}
-
-	/* Query posts */
-	$related = new WP_Query( $args );
-
-	if ( $related->have_posts() ) {
-		printf( '<h4>%s</h4>', esc_html__( 'Related posts:', 'gently' ) );
-		while ( $related->have_posts() ) {
-			$related->the_post();
-			echo gently_related_post();
-		}
-	}
-
-	wp_reset_postdata();
-}
-
-/**
- * Returns formatted post for use in related posts.
- */
-function gently_related_post() {
-	?>
-	<div class="row collapse">
-	<?php if ( has_post_thumbnail() ) { ?>
-	<div class="small-12 medium-3 columns related-post-img">
-		<?php gently_featured_image( true ); ?>
-	</div>
-	<div class="small-12 medium-9 columns">
-<?php } ?>
-	<?php gently_entry_time(); ?>
-	<?php gently_comments_count(); ?>
-	<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
-	<?php echo '<p>' . wp_trim_words( get_the_excerpt(), 27 ) . '</p>'; ?>
-	<?php if ( has_post_thumbnail() ) {
-		echo '</div>';
-	} ?>
-	</div>
-<?php
-}

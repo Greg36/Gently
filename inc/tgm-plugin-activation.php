@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Register the required plugins for this theme.
+ * Register required and recommended plugins for this theme.
  */
 function gently_register_required_plugins() {
 
