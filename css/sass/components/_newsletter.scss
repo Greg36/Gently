@@ -1,5 +1,5 @@
 .mc4wp-form {
-  margin: 2em 0;
+  margin: 2em 0 !important;
   background: #F7F8F9;
   border: 1px solid #DDE2E6;
   padding: 0 1.2em;
@@ -31,6 +31,7 @@
     form {
       input[type="text"] {
         width: 30%;
+        line-height: 25px;
         display: inline-block;
         &:nth-of-type(2) {
           margin-bottom: 1em;
@@ -38,6 +39,7 @@
       }
       input[type="email"] {
         width: 49%;
+        line-height: 25px;
         margin-left: 1%;
         display: inline-block;
         & + p {
