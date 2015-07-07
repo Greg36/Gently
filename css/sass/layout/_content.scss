@@ -21,7 +21,7 @@
 
 .entry-meta {
   @include font-size(0.875);
-  margin-bottom: 0.7em;
+  margin-bottom: 1em;
   .author {
     font-weight: bold;
   }
@@ -85,6 +85,11 @@
     a {
       font-weight: normal;
     }
+  }
+}
+body.blog .entry-content {
+  p:first-of-type {
+    margin-top: 0.35em;
   }
 }
 
