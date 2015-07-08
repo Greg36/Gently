@@ -1,19 +1,18 @@
 === Gently ===
 
 Contributors: automattic
-Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
+Tags: responsive-layout, accessibility-ready, custom-background, custom-colors, featured-image-header, featured-images, sticky-post, theme-options, translation-ready, white, light, left-sidebar, right-sidebar
 
 Requires at least: 4.0
-Tested up to: 4.2.2
+Tested up to: 4.2.3-alpha
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A starter theme called Gently, or underscores.
-
 == Description ==
 
-Hi. I'm a starter theme called Gently, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+Gently is fast, responsive theme focused on simple and clear content. Customize all colors, fonts and details with live preview inside customizer, easily set your logo as image or text, select sidebar position, change background and more. Gently comes with: authors social media links, share buttons, related posts, custom sidebar witch user can collapse, single or multiple authors support and Mailchimp newsletter.
+
 
 == Installation ==
 	
@@ -21,16 +20,6 @@ Hi. I'm a starter theme called Gently, or underscores, if you like. I'm a theme 
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
 
-== Frequently Asked Questions ==
-
-= Does this theme support any plugins? =
-
-_s includes support for Infinite Scroll in Jetpack.
-
-== Changelog ==
-
-= 1.0 - May 12 2015 =
-* Initial release
 
 == Credits ==
 
