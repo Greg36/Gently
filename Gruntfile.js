@@ -20,7 +20,7 @@ module.exports = function(grunt) {
                     'css/sass/**/*.scss',
                     'css/sass/*.scss'
                 ],
-                tasks: ['sass', 'autoprefixer', 'concat', 'cssmin']
+                tasks: ['sass', 'autoprefixer', 'cssmin']
             }
         },
 
@@ -70,13 +70,6 @@ module.exports = function(grunt) {
             }
         },
 
-        concat: {
-            dist: {
-                files: {
-                    'css/style.css': ['css/style.css']
-                }
-            }
-        },
 
         cssmin: {
             dist: {
@@ -90,9 +83,9 @@ module.exports = function(grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'images/',
+                    cwd: 'img/',
                     src: ['**/*.{png,jpg,gif}'],
-                    dest: 'images/'
+                    dest: 'img/'
                 }]
             }
         },
@@ -104,6 +97,7 @@ module.exports = function(grunt) {
                     potFilename: 'gently.pot',
                     type: 'wp-theme',
                     exclude: [
+                        '.idea',
                         'node_modules',
                         '.sass-cache',
                         'js',
@@ -133,7 +127,6 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks( 'grunt-contrib-watch' );
-    grunt.loadNpmTasks( 'grunt-contrib-concat' );
     grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
     grunt.loadNpmTasks( 'grunt-contrib-uglify' );
     grunt.loadNpmTasks( 'grunt-sass' );
@@ -147,5 +140,5 @@ module.exports = function(grunt) {
     // register tasks
     grunt.registerTask( 'default', ['browserSync', 'watch']);
 
-    grunt.registerTask('build', ['uglify', 'sass', 'autoprefixer', 'concat', 'cssmin', 'newer:imagemin', 'makepot', 'potomo' ]);
+    grunt.registerTask('build', ['uglify', 'sass', 'autoprefixer', 'cssmin', 'newer:imagemin', 'makepot', 'potomo' ]);
 };
