@@ -1,5 +1,5 @@
 # Gently
-Gently is fast, responsive theme focused on simple and clear content. Customize all colors, fonts and details with live preview inside customizer, easily set your logo as image or text, select sidebar position, change background and more.
+Gently is fast, responsive WordPress theme focused on simple and clear content. Customize all colors, fonts and details with live preview inside customizer, easily set your logo as image or text, select sidebar position, change background and more.
 
 Gently comes with:
 * authors social media links
