@@ -28,8 +28,7 @@ if ( ! function_exists( 'gently_posted_on' ) ) :
 		} else if ( $location === 'archive' ) {
 			echo '<span class="byline"> ' . gently_get_author() . '</span>' . '<span class="posted-on">' . $posted_on . '</span>';
 		} else {
-			echo '<span class="byline"> ' . $byline . '</span><br><span class="posted-on">' . $posted_on . '</span>' . $comments_count;
-
+			echo '<span class="byline"> ' . $byline . '<br></span><span class="posted-on">' . $posted_on . '</span>' . $comments_count;
 		}
 	}
 endif;

@@ -1,8 +1,8 @@
 /* POSTS AND PAGES */
 
 .hentry {
-  padding-bottom: 2em;
-  margin: 0 0 2em;
+  padding-bottom: 2.5em;
+  margin: 0 0 3em;
   &:not(:last-child) {
     border-bottom: 1px solid #eeeeee;
   }
@@ -144,7 +144,7 @@ body.blog .entry-content {
 }
 
 @media all and (min-width: 820px) and (max-width: 999px) {
-  .entry-image {
+  .entry-image, .sticky {
     width: 110%;
     margin-left: -5%;
   }
@@ -156,7 +156,7 @@ body.blog .entry-content {
 
 @media all and (min-width: 1000px) and (max-width: 1159px) {
   body.sidebar-closed {
-    .entry-image {
+    .entry-image, .sticky {
       width: 110%;
       margin-left: -5%;
     }
@@ -168,7 +168,7 @@ body.blog .entry-content {
 }
 
 @media all and (min-width: 1160px) {
-  .entry-image {
+  .entry-image, .sticky {
     width: 110%;
     margin-left: -5%;
   }
@@ -218,7 +218,7 @@ body.blog .entry-content {
     margin: 0.3em 0.7em 0.2em 0;
   }
   p {
-    margin: 0;
+    margin: 1em 0 0 0;
     @include font-size(0.875);
   }
 }
@@ -267,6 +267,10 @@ body.blog .entry-content {
 .sticky {
   border: 1px solid;
   padding: 1em;
+  .entry-image {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 .single {

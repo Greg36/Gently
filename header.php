@@ -78,8 +78,9 @@
 				<?php
 				if ( has_nav_menu( 'primary' ) ) {
 					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'walker' => new Gently_Menu_Walker() ) );
-				} else {
-					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+				} else if (current_user_can('install_plugins'))  {
+					echo '<div class="nav-admin-notice">There are no menus assigned to <em>Primary Navigation</em>. Create one in <strong>Appearance</strong> &gt; <strong>Menus</strong> or in <strong>Customizer</strong>.</div>';
+//					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
 				}
 				?>
 			</nav>

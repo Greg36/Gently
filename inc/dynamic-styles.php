@@ -4,7 +4,7 @@
  */
 
 /**
- * Make an array that is [selector][property] = value and parse it to CSS syntax
+ * Make an array that is '[selector][property] => value' and parse it to CSS syntax
  */
 function gently_dynamic_styles() {
 
@@ -39,6 +39,8 @@ function gently_dynamic_styles() {
 	$css['a:visited']['color'] = $accent_color;
 	$css['a:hover, a:focus, a:active']['color'] = gently_adjust_brightness( $accent_color, 35 );
 	$css['.main-navigation li:hover > a, .main-navigation li.focus > a']['color'] = $accent_color;
+	$css['.main-navigation .current_page_item > a, .main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a']['color'] = $accent_color;
+	$css['.main-navigation .current_page_item > a, .main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a']['border-color'] = $accent_color;
 	$css['.header-search i']['color'] = $accent_color;
 	$css['button:active, button:focus, button:hover, input[type="button"]:active, input[type="button"]:focus, input[type="button"]:hover, input[type="reset"]:active, input[type="reset"]:focus, input[type="reset"]:hover, input[type="submit"]:active, input[type="submit"]:focus, input[type="submit"]:hover, a.btn:active, a.btn:focus, a.btn:hover, i.btn:active, i.btn:focus, i.btn:hover']['background'] = gently_adjust_brightness( $accent_color, -20 );
 	$css['button:active, button:focus, button:hover, input[type="button"]:active, input[type="button"]:focus, input[type="button"]:hover, input[type="reset"]:active, input[type="reset"]:focus, input[type="reset"]:hover, input[type="submit"]:active, input[type="submit"]:focus, input[type="submit"]:hover, a.btn:active, a.btn:focus, a.btn:hover, i.btn:active, i.btn:focus, i.btn:hover']['color'] = gently_adjust_brightness( $accent_color, 170 );
@@ -46,7 +48,7 @@ function gently_dynamic_styles() {
 	$css['.toggle-sidebar']['border-color'] = $accent_color;
 	$css['.toggle-sidebar']['color'] = $accent_color;
 	$css['.single .cat-links i']['color'] = $accent_color;
-	$css['.archive .cat-links i']['color'] =
+	$css['.archive .cat-links i']['color'] = $accent_color;
 	$css['.tags-links i']['color'] = $accent_color;
 	$css['.bypostauthor .comment-body']['border-color'] = $accent_color;
 	$css['.bypostauthor .comment-body:before']['border-color'] = 'transparent ' . $accent_color . ' transparent transparent';
@@ -153,7 +155,7 @@ function gently_adjust_brightness( $hex, $steps ) {
 
 	// Normalize into a six character long hex string
 	$hex = str_replace( '#', '', $hex );
-	if ( strlen( $hex ) == 3 ) {
+	if ( strlen( $hex ) === 3 ) {
 		$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
 	}
 

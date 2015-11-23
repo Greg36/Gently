@@ -3,7 +3,7 @@
   border-color: inherit;
   border-top: 1px solid;
   min-height: 100%;
-  @include font-size(1);
+  @include font-size(0.9375); // 15px
   .widget-area {
     max-width: 700px;
     margin: 0 auto;

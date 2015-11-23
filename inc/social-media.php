@@ -96,7 +96,7 @@ function gently_social_links() {
 		echo '<span class="screen-reader-text">' . __( 'Social media links', 'gently' ) . '</span>';
 	}
 	foreach ( $links as $link ) {
-		if ( filter_var( $link, FILTER_VALIDATE_URL ) == true ) {
+		if ( filter_var( $link, FILTER_VALIDATE_URL ) === true ) {
 			$link  = esc_url( $link );
 			$color = kirki_get_option( 'header_icons_color_original' ) ? 'orig-col' : '';
 

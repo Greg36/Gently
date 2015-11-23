@@ -20,6 +20,7 @@
     margin: 0;
     padding: 0;
     li {
+      line-height: 2;
       list-style: none;
       ul li {
         padding: 0 0 0 1em;
@@ -148,7 +149,7 @@
 }
 
 .widget_pages, .widget_meta, .widget_nav_menu, .widget_recent_entries {
-  @include font-size(1);
+  //@include font-size(1);
   li a {
     &:hover, &:focus {
       &:before {
@@ -185,7 +186,7 @@
 
 .widget_recent_comments {
   @include font-size(0.875);
-  a {
-    @include font-size(1);
-  }
+  //a {
+  //  @include font-size(1);
+  //}
 }

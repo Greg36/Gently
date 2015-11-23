@@ -36,8 +36,8 @@ if ( ! function_exists( 'gently_setup' ) ) :
 		 * Register two navigation menus.
 		 */
 		register_nav_menus( array(
-			'primary'   => esc_html__( 'Primary Menu', 'gently' ),
-			'secondary' => esc_html__( 'Secondary Menu', 'gently' )
+			'primary'   => esc_html__( 'Primary Navigation', 'gently' ),
+			'secondary' => esc_html__( 'Secondary Navigation', 'gently' )
 		) );
 
 		/*

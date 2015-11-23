@@ -217,16 +217,6 @@ textarea {
   line-height: $font__line-height-body;
 }
 
-/* Bigger text on desktop resolution */
-@media screen and (min-width: 800px) {
-  body,
-  button,
-  input,
-  select,
-  textarea {
-    @include font-size-desktop(1);
-  }
-}
 
 /* HEADINGS */
 
@@ -298,33 +288,6 @@ h6 {
 
 h6 + p {
   margin-top: 0;
-}
-
-/* Bigger headings on desktop resolution */
-@media screen and (min-width: 800px) {
-  h1 {
-    @include font-size-desktop(2.684);
-  }
-
-  h2 {
-    @include font-size-desktop(1.631);
-  }
-
-  h3 {
-    @include font-size-desktop(1.158);
-  }
-
-  h4 {
-    @include font-size-desktop(0.947);
-  }
-
-  h5 {
-    @include font-size-desktop(0.842);
-  }
-
-  h6 {
-    @include font-size-desktop(0.737);
-  }
 }
 
 /* COPY */

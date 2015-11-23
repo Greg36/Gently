@@ -70,11 +70,6 @@
       color: inherit;
     }
   }
-
-  .current_page_item > a,
-  .current-menu-item > a,
-  .current_page_ancestor > a {
-  }
 }
 
 /* Small menu */
@@ -184,6 +179,14 @@
       }
     }
   }
+  ul:not(.sub-menu) > li {
+    &.current_page_item > a,
+    &.current-menu-item > a,
+    &.current_page_ancestor > a {
+      border-bottom: 1px solid;
+      line-height: 49px;
+    }
+  }
 }
 
 /* Inline navigation for wide displays */
@@ -210,6 +213,14 @@
   .main-navigation div.menu > ul > li > a {
     line-height: 64px;
   }
+
+  ul:not(.sub-menu) > li {
+    &.current_page_item > a,
+    &.current-menu-item > a,
+    &.current_page_ancestor > a {
+      line-height: 63px;
+    }
+  }
 }
 
 .comment-navigation,
@@ -231,4 +242,8 @@
     text-align: right;
     width: 50%;
   }
+}
+
+.nav-admin-notice {
+  line-height: 64px;
 }
