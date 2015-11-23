@@ -1,2 +1,8 @@
 = 1.0 - July 8 2015 =
-* Initial release
+* Initial release.
+
+= 1.0.1 - November 23 2015 =
+* Removed fallback functions, obsolete in WordPress 4.3.
+* CSS changes in overall font size.
+* Minor coding standards improvements.
+* Unified text domain 'gently'.
