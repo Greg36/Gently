@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gently\n"
-"POT-Creation-Date: 2015-06-23 23:15+0100\n"
-"PO-Revision-Date: 2015-06-23 23:15+0100\n"
+"POT-Creation-Date: 2015-11-23 22:51+0100\n"
+"PO-Revision-Date: 2015-11-23 22:51+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -18,18 +18,21 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: .git\n"
+"X-Poedit-SearchPathExcluded-2: .idea\n"
+"X-Poedit-SearchPathExcluded-3: node_modules\n"
 
 #: 404.php:15
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: 404.php:19
+#: 404.php:20
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or a search?"
 msgstr ""
 
-#: comments.php:29
+#: comments.php:27
 #, php-format
 msgctxt "comments title"
 msgid "One comment on &ldquo;%2$s&rdquo;"
@@ -37,31 +40,31 @@ msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;:"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:38 comments.php:59
+#: comments.php:36 comments.php:59
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:41 comments.php:62
+#: comments.php:40 comments.php:63
 msgid "Older Comments"
 msgstr ""
 
-#: comments.php:42 comments.php:63
+#: comments.php:41 comments.php:64
 msgid "Newer Comments"
 msgstr ""
 
-#: comments.php:75
+#: comments.php:77
 msgid "Comments are closed."
 msgstr ""
 
-#: functions.php:46
-msgid "Primary Menu"
+#: functions.php:39
+msgid "Primary Navigation"
 msgstr ""
 
-#: functions.php:47
-msgid "Secondary Menu"
+#: functions.php:40
+msgid "Secondary Navigation"
 msgstr ""
 
-#: functions.php:97 inc/customizer.php:86
+#: functions.php:96 inc/customizer.php:88
 msgid "Sidebar"
 msgstr ""
 
@@ -69,7 +72,7 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:54
+#: header.php:55
 msgid "Main menu"
 msgstr ""
 
@@ -364,594 +367,453 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/customizer.php:74
+#: inc/customizer.php:76
 msgid "Color"
 msgstr ""
 
-#: inc/customizer.php:78
+#: inc/customizer.php:80
 msgid "Typography"
 msgstr ""
 
-#: inc/customizer.php:82
+#: inc/customizer.php:84
 msgid "Top bar"
 msgstr ""
 
-#: inc/customizer.php:90
+#: inc/customizer.php:92
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer.php:94
+#: inc/customizer.php:96
 msgid "Social Media"
 msgstr ""
 
-#: inc/customizer.php:96
+#: inc/customizer.php:98
 msgid "Share buttons will be displayed under each single post."
 msgstr ""
 
-#: inc/customizer.php:100
+#: inc/customizer.php:102
 msgid "Newsletter"
 msgstr ""
 
-#: inc/customizer.php:107
+#: inc/customizer.php:109
 msgid "Site Branding"
 msgstr ""
 
-#: inc/customizer.php:110
+#: inc/customizer.php:112
 msgid "Background"
 msgstr ""
 
-#: inc/customizer.php:120
+#: inc/customizer.php:123
 msgid "If you want to use text version of logo remove images above."
 msgstr ""
 
-#: inc/customizer.php:121
+#: inc/customizer.php:124
 msgid "Logo text"
 msgstr ""
 
-#: inc/customizer.php:143
+#: inc/customizer.php:145
 msgid "Install Kirki for more options."
 msgstr ""
 
-#: inc/customizer.php:145
+#: inc/customizer.php:147
 msgid ""
 "This theme uses free plugin from wordpress.org - Kirki. Install it to use "
 "many customizer options that comes with this theme."
 msgstr ""
 
-#: inc/customizer.php:196
+#: inc/customizer.php:201
 msgid "Background Color"
 msgstr ""
 
-#: inc/customizer.php:197
+#: inc/customizer.php:202
 msgid "Background Image"
 msgstr ""
 
-#: inc/customizer.php:198
+#: inc/customizer.php:203
 msgid "No Repeat"
 msgstr ""
 
-#: inc/customizer.php:199
+#: inc/customizer.php:204
 msgid "Repeat All"
 msgstr ""
 
-#: inc/customizer.php:200
+#: inc/customizer.php:205
 msgid "Repeat Horizontally"
 msgstr ""
 
-#: inc/customizer.php:201
+#: inc/customizer.php:206
 msgid "Repeat Vertically"
 msgstr ""
 
-#: inc/customizer.php:202
+#: inc/customizer.php:207
 msgid "Inherit"
 msgstr ""
 
-#: inc/customizer.php:203
+#: inc/customizer.php:208
 msgid "Background Repeat"
 msgstr ""
 
-#: inc/customizer.php:204
+#: inc/customizer.php:209
 msgid "Cover"
 msgstr ""
 
-#: inc/customizer.php:205
+#: inc/customizer.php:210
 msgid "Contain"
 msgstr ""
 
-#: inc/customizer.php:206
+#: inc/customizer.php:211
 msgid "Background Size"
 msgstr ""
 
-#: inc/customizer.php:207
+#: inc/customizer.php:212
 msgid "Fixed"
 msgstr ""
 
-#: inc/customizer.php:208
+#: inc/customizer.php:213
 msgid "Scroll"
 msgstr ""
 
-#: inc/customizer.php:209
+#: inc/customizer.php:214
 msgid "Background Attachment"
 msgstr ""
 
-#: inc/customizer.php:210
+#: inc/customizer.php:215
 msgid "Left Top"
 msgstr ""
 
-#: inc/customizer.php:211
+#: inc/customizer.php:216
 msgid "Left Center"
 msgstr ""
 
-#: inc/customizer.php:212
+#: inc/customizer.php:217
 msgid "Left Bottom"
 msgstr ""
 
-#: inc/customizer.php:213
+#: inc/customizer.php:218
 msgid "Right Top"
 msgstr ""
 
-#: inc/customizer.php:214
+#: inc/customizer.php:219
 msgid "Right Center"
 msgstr ""
 
-#: inc/customizer.php:215
+#: inc/customizer.php:220
 msgid "Right Bottom"
 msgstr ""
 
-#: inc/customizer.php:216
+#: inc/customizer.php:221
 msgid "Center Top"
 msgstr ""
 
-#: inc/customizer.php:217
+#: inc/customizer.php:222
 msgid "Center Center"
 msgstr ""
 
-#: inc/customizer.php:218
+#: inc/customizer.php:223
 msgid "Center Bottom"
 msgstr ""
 
-#: inc/customizer.php:219
+#: inc/customizer.php:224
 msgid "Background Position"
 msgstr ""
 
-#: inc/customizer.php:220
+#: inc/customizer.php:225
 msgid "Background Opacity"
 msgstr ""
 
-#: inc/customizer.php:221
+#: inc/customizer.php:226
 msgid "ON"
 msgstr ""
 
-#: inc/customizer.php:222
+#: inc/customizer.php:227
 msgid "OFF"
 msgstr ""
 
-#: inc/customizer.php:223
+#: inc/customizer.php:228
 msgid "All"
 msgstr ""
 
-#: inc/customizer.php:228
+#: inc/customizer.php:233
 msgid "The theme description."
 msgstr ""
 
-#: inc/customizer.php:247
+#: inc/customizer.php:255
 msgid "Logo image"
 msgstr ""
 
-#: inc/customizer.php:248
+#: inc/customizer.php:256
 msgid "Normal size version of your logo."
 msgstr ""
 
-#: inc/customizer.php:249
+#: inc/customizer.php:257
 msgid "If you want to use text instead, just remove the image."
 msgstr ""
 
-#: inc/customizer.php:257
+#: inc/customizer.php:265
 msgid "Logo image retina version"
 msgstr ""
 
-#: inc/customizer.php:258
+#: inc/customizer.php:266
 msgid "2 times bigger image for high resolution retina displays."
 msgstr ""
 
-#: inc/customizer.php:266
+#: inc/customizer.php:274
 msgid "Logo font"
 msgstr ""
 
-#: inc/customizer.php:280
+#: inc/customizer.php:288
 msgid "Logo font size"
 msgstr ""
 
-#: inc/customizer.php:294
+#: inc/customizer.php:302
 msgid "Logo font color"
 msgstr ""
 
-#: inc/customizer.php:310
+#: inc/customizer.php:318
 msgid "Favicon"
 msgstr ""
 
-#: inc/customizer.php:311
+#: inc/customizer.php:319
 msgid "32px by 32px"
 msgstr ""
 
-#: inc/customizer.php:321
+#: inc/customizer.php:329
 msgid "Body text font"
 msgstr ""
 
-#: inc/customizer.php:334
+#: inc/customizer.php:342
 msgid "Body text color"
 msgstr ""
 
-#: inc/customizer.php:350
+#: inc/customizer.php:358
 msgid "Headings font"
 msgstr ""
 
-#: inc/customizer.php:363
+#: inc/customizer.php:371
 msgid "Headings color"
 msgstr ""
 
-#: inc/customizer.php:381
+#: inc/customizer.php:389
 msgid "Links and accent color"
 msgstr ""
 
-#: inc/customizer.php:389
+#: inc/customizer.php:397
 msgid "Metadata color"
 msgstr ""
 
-#: inc/customizer.php:398
+#: inc/customizer.php:406
 msgid "Details color"
 msgstr ""
 
-#: inc/customizer.php:409
+#: inc/customizer.php:417
 msgid "Sidebar background color"
 msgstr ""
 
-#: inc/customizer.php:425
+#: inc/customizer.php:433
 msgid "Sidebar border color"
 msgstr ""
 
-#: inc/customizer.php:441
+#: inc/customizer.php:449
 msgid "Sidebar position"
 msgstr ""
 
-#: inc/customizer.php:454
+#: inc/customizer.php:462
 msgid "Collapse sidebar by default"
 msgstr ""
 
-#: inc/customizer.php:455
+#: inc/customizer.php:463
 msgid "Check on what type of pages sidebar will be collapsed by default."
 msgstr ""
 
-#: inc/customizer.php:460
+#: inc/customizer.php:468
 msgid "Home page"
 msgstr ""
 
-#: inc/customizer.php:461
+#: inc/customizer.php:469
 msgid "Single post"
 msgstr ""
 
-#: inc/customizer.php:462
+#: inc/customizer.php:470
 msgid "Archive"
 msgstr ""
 
-#: inc/customizer.php:470
+#: inc/customizer.php:478
 msgid "Top bar background color"
 msgstr ""
 
-#: inc/customizer.php:486
+#: inc/customizer.php:494
 msgid "Top bar border color"
 msgstr ""
 
-#: inc/customizer.php:512
+#: inc/customizer.php:520
 msgid "Top bar features"
 msgstr ""
 
-#: inc/customizer.php:513
+#: inc/customizer.php:521
 msgid "Check what features you want to display in header."
 msgstr ""
 
-#: inc/customizer.php:518
+#: inc/customizer.php:526
 msgid "Social icons"
 msgstr ""
 
-#: inc/customizer.php:519
+#: inc/customizer.php:527
 msgid "Search"
 msgstr ""
 
-#: inc/customizer.php:525
+#: inc/customizer.php:533
 msgid "Social icons size"
 msgstr ""
 
-#: inc/customizer.php:526
+#: inc/customizer.php:534
 msgid "You can set with icons to display in Social Media section below."
 msgstr ""
 
-#: inc/customizer.php:540
+#: inc/customizer.php:548
 msgid "Social icons color"
 msgstr ""
 
-#: inc/customizer.php:556
+#: inc/customizer.php:564
 msgid "Use original icons color"
 msgstr ""
 
-#: inc/customizer.php:567
+#: inc/customizer.php:575
 msgid "Navigation color"
 msgstr ""
 
-#: inc/customizer.php:583
+#: inc/customizer.php:591
 msgid "Navigation font size"
 msgstr ""
 
-#: inc/customizer.php:599
+#: inc/customizer.php:607
 msgid "Footer background color"
 msgstr ""
 
-#: inc/customizer.php:615
+#: inc/customizer.php:623
 msgid "Footer border color"
 msgstr ""
 
-#: inc/customizer.php:631
+#: inc/customizer.php:639
 msgid "Footer content"
 msgstr ""
 
-#: inc/customizer.php:642 inc/social-media.php:32
+#: inc/customizer.php:649 inc/social-media.php:33
 msgid "Share buttons"
 msgstr ""
 
-#: inc/customizer.php:643
+#: inc/customizer.php:650
 msgid "Choose and reorder buttons."
 msgstr ""
 
-#: inc/customizer.php:644
+#: inc/customizer.php:651
 msgid ""
 "To turn on/off a service click on the eye icon. To reorder simply drag and "
 "drop."
 msgstr ""
 
-#: inc/customizer.php:653 inc/extras.php:102
+#: inc/customizer.php:660 inc/social-media.php:59
 msgid "Facebook"
 msgstr ""
 
-#: inc/customizer.php:654 inc/extras.php:103
+#: inc/customizer.php:661 inc/social-media.php:60
 msgid "Twitter"
 msgstr ""
 
-#: inc/customizer.php:655 inc/extras.php:104
+#: inc/customizer.php:662 inc/social-media.php:61
 msgid "Google+"
 msgstr ""
 
-#: inc/customizer.php:656
+#: inc/customizer.php:663
 msgid "Reddit"
 msgstr ""
 
-#: inc/customizer.php:657 inc/extras.php:106
+#: inc/customizer.php:664 inc/social-media.php:63
 msgid "LinkedIn"
 msgstr ""
 
-#: inc/customizer.php:658
+#: inc/customizer.php:665
 msgid "StumbleUpon"
 msgstr ""
 
-#: inc/customizer.php:659 inc/extras.php:105
+#: inc/customizer.php:666 inc/social-media.php:62
 msgid "Pinterest"
 msgstr ""
 
-#: inc/customizer.php:665
+#: inc/customizer.php:672
 msgid "Top bar social icons"
 msgstr ""
 
-#: inc/customizer.php:666
+#: inc/customizer.php:673
 msgid "Enter each link in new line"
 msgstr ""
 
-#: inc/customizer.php:676
+#: inc/customizer.php:683
 msgid "Header image height"
 msgstr ""
 
-#: inc/customizer.php:692
+#: inc/customizer.php:699
 msgid "Display newsletter under each post"
 msgstr ""
 
-#: inc/customizer.php:700
+#: inc/customizer.php:707
 msgid "Newsletter background color"
 msgstr ""
 
-#: inc/customizer.php:716
+#: inc/customizer.php:723
 msgid "Newsletter border color"
 msgstr ""
 
-#: inc/extras.php:52
-#, php-format
-msgid "Page %s"
-msgstr ""
-
-#: inc/extras.php:81
+#: inc/extras.php:69
 msgid "Read "
 msgstr ""
 
-#: inc/extras.php:82
+#: inc/extras.php:70
 msgid "Continue reading"
 msgstr ""
 
-#: inc/extras.php:107
-msgid "Tumblr"
+#: inc/extras.php:166
+msgid "Related posts:"
 msgstr ""
 
-#: inc/extras.php:201
+#: inc/extras.php:186
 msgid "Open sub menu"
 msgstr ""
 
-#: inc/social-media.php:75
+#: inc/social-media.php:64
+msgid "Tumblr"
+msgstr ""
+
+#: inc/social-media.php:96
 msgid "Social media links"
 msgstr ""
 
-#: inc/template-tags.php:23
-msgid "Posts navigation"
-msgstr ""
-
-#: inc/template-tags.php:27
-msgid "Older posts"
-msgstr ""
-
-#: inc/template-tags.php:31
-msgid "Newer posts"
-msgstr ""
-
-#: inc/template-tags.php:56
-msgid "Post navigation"
-msgstr ""
-
-#: inc/template-tags.php:127
+#: inc/template-tags.php:70
 msgid "Comments count"
 msgstr ""
 
-#: inc/template-tags.php:143
+#: inc/template-tags.php:88
 msgid "Leave a comment"
 msgstr ""
 
-#: inc/template-tags.php:143
+#: inc/template-tags.php:88
 msgid "1 Comment"
 msgstr ""
 
-#: inc/template-tags.php:143
+#: inc/template-tags.php:88
 msgid "% Comments"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:156 inc/template-tags.php:171
+#: inc/template-tags.php:102 inc/template-tags.php:119
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:158
+#: inc/template-tags.php:104
 msgid "Post categories"
 msgstr ""
 
-#: inc/template-tags.php:173
+#: inc/template-tags.php:121
 msgid "Post tags"
-msgstr ""
-
-#: inc/template-tags.php:228
-#, php-format
-msgid "Category: %s"
-msgstr ""
-
-#: inc/template-tags.php:230
-#, php-format
-msgid "Tag: %s"
-msgstr ""
-
-#: inc/template-tags.php:232
-#, php-format
-msgid "Author: %s"
-msgstr ""
-
-#: inc/template-tags.php:234
-#, php-format
-msgid "Year: %s"
-msgstr ""
-
-#: inc/template-tags.php:234
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: inc/template-tags.php:236
-#, php-format
-msgid "Month: %s"
-msgstr ""
-
-#: inc/template-tags.php:236
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#: inc/template-tags.php:238
-#, php-format
-msgid "Day: %s"
-msgstr ""
-
-#: inc/template-tags.php:238
-msgctxt "daily archives date format"
-msgid "F j, Y"
-msgstr ""
-
-#: inc/template-tags.php:241
-msgctxt "post format archive title"
-msgid "Asides"
-msgstr ""
-
-#: inc/template-tags.php:243
-msgctxt "post format archive title"
-msgid "Galleries"
-msgstr ""
-
-#: inc/template-tags.php:245
-msgctxt "post format archive title"
-msgid "Images"
-msgstr ""
-
-#: inc/template-tags.php:247
-msgctxt "post format archive title"
-msgid "Videos"
-msgstr ""
-
-#: inc/template-tags.php:249
-msgctxt "post format archive title"
-msgid "Quotes"
-msgstr ""
-
-#: inc/template-tags.php:251
-msgctxt "post format archive title"
-msgid "Links"
-msgstr ""
-
-#: inc/template-tags.php:253
-msgctxt "post format archive title"
-msgid "Statuses"
-msgstr ""
-
-#: inc/template-tags.php:255
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr ""
-
-#: inc/template-tags.php:257
-msgctxt "post format archive title"
-msgid "Chats"
-msgstr ""
-
-#: inc/template-tags.php:260
-#, php-format
-msgid "Archives: %s"
-msgstr ""
-
-#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
-#: inc/template-tags.php:264
-#, php-format
-msgid "%1$s: %2$s"
-msgstr ""
-
-#: inc/template-tags.php:266
-msgid "Archives"
-msgstr ""
-
-#: inc/template-tags.php:379
-msgid "Related posts:"
-msgstr ""
-
-#: node_modules/grunt-wp-i18n/test/fixtures/basic-theme/exclude/file.php:3
-#: node_modules/grunt-wp-i18n/test/fixtures/plugin-include/plugin-include.php:6
-msgid "Exclude"
-msgstr ""
-
-#: node_modules/grunt-wp-i18n/test/fixtures/plugin-include/include/file.php:2
-msgid "Include"
-msgstr ""
-
-#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/add-domain.php:2
-#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-domains.php:2
-#: node_modules/grunt-wp-i18n/test/fixtures/text-domains/update-domains.php:3
-msgid "String"
 msgstr ""
 
 #: search.php:16
@@ -963,42 +825,36 @@ msgstr ""
 msgid "Toggle sidebar"
 msgstr ""
 
-#: template-parts/content-none.php:13
+#: template-parts/content-none.php:11
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:19
+#: template-parts/content-none.php:18
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:23
+#: template-parts/content-none.php:22
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:28
+#: template-parts/content-none.php:27
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
 
-#: template-parts/content-page.php:19 template-parts/content-single.php:53
-#: template-parts/content.php:29
+#: template-parts/content-page.php:20 template-parts/content-single.php:54
 msgid "Pages:"
 msgstr ""
 
-#: template-parts/content-single.php:95
+#: template-parts/content-single.php:98
 msgid "Previous post"
 msgstr ""
 
-#: template-parts/content-single.php:96
+#: template-parts/content-single.php:99
 msgid "Next post"
-msgstr ""
-
-#: template-parts/content.php:22
-#, php-format
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
