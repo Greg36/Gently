@@ -18,7 +18,6 @@ function gently_is_kirki_installed() {
 				'logo_font_family'            => 'Playfair Display',
 				'logo_font_size'              => 43,
 				'logo_font_color'             => '#2d2d2d',
-				'favicon'                     => get_stylesheet_directory_uri() . '/img/favicon.png',
 				'body_text_font'              => 'Open Sans',
 				'body_text_color'             => '#575757',
 				'headings_font'               => 'Playfair Display',
@@ -97,17 +96,14 @@ function gently_customize_register( $wp_customize ) {
 			'priority'    => 112,
 			'description' => __( 'Share buttons will be displayed under each single post.', 'gently' ),
 		) );
-		if ( function_exists( 'mc4wp_form' ) ) {
+		if ( function_exists( 'mc4wp_show_form' ) ) {
 			$wp_customize->add_section( 'newsletter', array(
 				'title'    => __( 'Newsletter', 'gently' ),
 				'priority' => 113
 			) );
 		}
 
-		// Change settings of default sections
-		$branding_section = $wp_customize->get_section( 'title_tagline' );
-		$branding_section->title = __( 'Site Branding', 'gently' );
-
+		// Rename default section
 		$background_section = $wp_customize->get_section( 'background_image' );
 		$background_section->title = __( 'Background', 'gently' );
 
@@ -121,7 +117,6 @@ function gently_customize_register( $wp_customize ) {
 
 		$blogname_controll = $wp_customize->get_control( 'blogname' );
 		$blogname_controll->description = __( 'If you want to use text version of logo remove images above.', 'gently' );
-		$blogname_controll->label = __( 'Logo text', 'gently' );
 
 		// Change Header image section order
 		$header_image_section = $wp_customize->get_section( 'header_image' );
@@ -131,9 +126,6 @@ function gently_customize_register( $wp_customize ) {
 		// Remove unused header text and text color controls
 		$wp_customize->remove_control( 'display_header_text' );
 		$wp_customize->remove_control( 'header_textcolor' );
-
-		// Remove colors panel
-		$wp_customize->remove_panel( 'colors' );
 
 		// Remove tagline field
 		$wp_customize->remove_setting( 'blogdescription' );
@@ -161,14 +153,6 @@ function gently_customize_register( $wp_customize ) {
 				'type'    => ''
 			)
 		);
-
-		$wp_customize->remove_section( 'title_tagline' );
-		$wp_customize->remove_section( 'colors' );
-		$wp_customize->remove_section( 'header_image' );
-		$wp_customize->remove_section( 'background_image' );
-		$wp_customize->remove_section( 'static_front_page' );
-		$wp_customize->remove_panel( 'widgets' );
-
 	}
 }
 
@@ -311,15 +295,6 @@ function gently_kirki_fields( $fields ) {
 				'property' => 'color',
 			)
 		)
-	);
-	$fields[] = array(
-		'type'        => 'image',
-		'setting'     => 'favicon',
-		'label'       => __( 'Favicon', 'gently' ),
-		'description' => __( '32px by 32px', 'gently' ),
-		'section'     => 'title_tagline',
-		'default'     => get_stylesheet_directory_uri() . '/img/favicon.png',
-		'priority'    => 24,
 	);
 
 	/* Typography fields */

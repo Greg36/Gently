@@ -50,7 +50,7 @@
         if (totalSidebarH > $(window).height()) {
             $(window).scroll(function () {
                 $bottomSidebarToggle.removeClass('sticky-sidebar-toggle');
-                if (( $(window).scrollTop() + $(window).height() - 55 ) >= totalSidebarH) {
+                if (( $(window).scrollTop() + $(window).height()) >= totalSidebarH) {
                     $widget_area.addClass('stick-sidebar');
                 } else {
                     $widget_area.removeClass('stick-sidebar');
@@ -75,7 +75,8 @@
 
         /* Set minimal height of sidebar to fix scrolling problem when main content is to short */
         $('.site-content').css('min-height', function () {
-            return Math.max($(window).height() - $mainSidebar.offset().top - 1, $mainSidebar.outerHeight() + $mainSidebar.offset().top);
+            var $headerImage = $('.header-image');
+            return Math.max($(window).height() - $mainSidebar.offset().top - 1 - $headerImage.height(), $mainSidebar.outerHeight() + $mainSidebar.offset().top - $headerImage.height());
             //return $( window).height() - $mainSidebar.offset().top -1;
         });
     }

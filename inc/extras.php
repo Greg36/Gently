@@ -150,7 +150,7 @@ function gently_related_posts() {
 	$tags = wp_get_post_tags( get_the_ID() );
 	$categories = wp_get_post_categories( get_the_ID() );
 
-	/* Prior search with tags, if tere aren't any use categories */
+	/* Prior search with tags, if there aren't any use categories */
 	if ( $tags ) {
 		$args['tag__in'] = $tags[0]->term_id;
 	} elseif ( $categories ) {
@@ -183,7 +183,7 @@ function gently_related_posts() {
 class Gently_Menu_Walker extends Walker_Nav_Menu {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat( "\t", $depth + 1 );
-		$output .= "\t<span class='nav-sub-icon' tabindex='0'><i class='fa fa-chevron-down'></i><span class='screen-reader-text'>" . __( "Open sub menu", "gently" ) . "</span></span>\n$indent\t<ul class='sub-menu'>\n";
+		$output .= "\t<span class='nav-sub-icon' tabindex='0' aria-expanded='false'><i class='fa fa-chevron-down'></i><span class='screen-reader-text'>" . __( "Open sub menu", "gently" ) . "</span></span>\n$indent\t<ul class='sub-menu'>\n";
 	}
 
 	function end_lvl( &$output, $depth = 0, $args = array() ) {

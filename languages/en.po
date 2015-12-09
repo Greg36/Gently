@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gently\n"
-"POT-Creation-Date: 2015-11-23 22:51+0100\n"
-"PO-Revision-Date: 2015-11-23 22:51+0100\n"
+"POT-Creation-Date: 2015-12-09 13:11+0100\n"
+"PO-Revision-Date: 2015-12-09 13:11+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -64,16 +64,22 @@ msgstr ""
 msgid "Secondary Navigation"
 msgstr ""
 
-#: functions.php:96 inc/customizer.php:88
+#: functions.php:96 inc/customizer.php:87
 msgid "Sidebar"
 msgstr ""
 
-#: header.php:23
+#: header.php:22
 msgid "Skip to content"
 msgstr ""
 
-#: header.php:55
-msgid "Main menu"
+#: header.php:54
+msgid "Open Main menu"
+msgstr ""
+
+#: header.php:82
+msgid ""
+"There are no menus assigned to Primary Navigation. Create one in Appearance "
+"- Menus or in Customizer."
 msgstr ""
 
 #: inc/class-tgm-plugin-activation.php:161
@@ -367,399 +373,383 @@ msgstr ""
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/customizer.php:76
+#: inc/customizer.php:75
 msgid "Color"
 msgstr ""
 
-#: inc/customizer.php:80
+#: inc/customizer.php:79
 msgid "Typography"
 msgstr ""
 
-#: inc/customizer.php:84
+#: inc/customizer.php:83
 msgid "Top bar"
 msgstr ""
 
-#: inc/customizer.php:92
+#: inc/customizer.php:91
 msgid "Footer"
 msgstr ""
 
-#: inc/customizer.php:96
+#: inc/customizer.php:95
 msgid "Social Media"
 msgstr ""
 
-#: inc/customizer.php:98
+#: inc/customizer.php:97
 msgid "Share buttons will be displayed under each single post."
 msgstr ""
 
-#: inc/customizer.php:102
+#: inc/customizer.php:101
 msgid "Newsletter"
 msgstr ""
 
-#: inc/customizer.php:109
-msgid "Site Branding"
-msgstr ""
-
-#: inc/customizer.php:112
+#: inc/customizer.php:108
 msgid "Background"
 msgstr ""
 
-#: inc/customizer.php:123
+#: inc/customizer.php:119
 msgid "If you want to use text version of logo remove images above."
 msgstr ""
 
-#: inc/customizer.php:124
-msgid "Logo text"
-msgstr ""
-
-#: inc/customizer.php:145
+#: inc/customizer.php:137
 msgid "Install Kirki for more options."
 msgstr ""
 
-#: inc/customizer.php:147
+#: inc/customizer.php:139
 msgid ""
 "This theme uses free plugin from wordpress.org - Kirki. Install it to use "
 "many customizer options that comes with this theme."
 msgstr ""
 
-#: inc/customizer.php:201
+#: inc/customizer.php:185
 msgid "Background Color"
 msgstr ""
 
-#: inc/customizer.php:202
+#: inc/customizer.php:186
 msgid "Background Image"
 msgstr ""
 
-#: inc/customizer.php:203
+#: inc/customizer.php:187
 msgid "No Repeat"
 msgstr ""
 
-#: inc/customizer.php:204
+#: inc/customizer.php:188
 msgid "Repeat All"
 msgstr ""
 
-#: inc/customizer.php:205
+#: inc/customizer.php:189
 msgid "Repeat Horizontally"
 msgstr ""
 
-#: inc/customizer.php:206
+#: inc/customizer.php:190
 msgid "Repeat Vertically"
 msgstr ""
 
-#: inc/customizer.php:207
+#: inc/customizer.php:191
 msgid "Inherit"
 msgstr ""
 
-#: inc/customizer.php:208
+#: inc/customizer.php:192
 msgid "Background Repeat"
 msgstr ""
 
-#: inc/customizer.php:209
+#: inc/customizer.php:193
 msgid "Cover"
 msgstr ""
 
-#: inc/customizer.php:210
+#: inc/customizer.php:194
 msgid "Contain"
 msgstr ""
 
-#: inc/customizer.php:211
+#: inc/customizer.php:195
 msgid "Background Size"
 msgstr ""
 
-#: inc/customizer.php:212
+#: inc/customizer.php:196
 msgid "Fixed"
 msgstr ""
 
-#: inc/customizer.php:213
+#: inc/customizer.php:197
 msgid "Scroll"
 msgstr ""
 
-#: inc/customizer.php:214
+#: inc/customizer.php:198
 msgid "Background Attachment"
 msgstr ""
 
-#: inc/customizer.php:215
+#: inc/customizer.php:199
 msgid "Left Top"
 msgstr ""
 
-#: inc/customizer.php:216
+#: inc/customizer.php:200
 msgid "Left Center"
 msgstr ""
 
-#: inc/customizer.php:217
+#: inc/customizer.php:201
 msgid "Left Bottom"
 msgstr ""
 
-#: inc/customizer.php:218
+#: inc/customizer.php:202
 msgid "Right Top"
 msgstr ""
 
-#: inc/customizer.php:219
+#: inc/customizer.php:203
 msgid "Right Center"
 msgstr ""
 
-#: inc/customizer.php:220
+#: inc/customizer.php:204
 msgid "Right Bottom"
 msgstr ""
 
-#: inc/customizer.php:221
+#: inc/customizer.php:205
 msgid "Center Top"
 msgstr ""
 
-#: inc/customizer.php:222
+#: inc/customizer.php:206
 msgid "Center Center"
 msgstr ""
 
-#: inc/customizer.php:223
+#: inc/customizer.php:207
 msgid "Center Bottom"
 msgstr ""
 
-#: inc/customizer.php:224
+#: inc/customizer.php:208
 msgid "Background Position"
 msgstr ""
 
-#: inc/customizer.php:225
+#: inc/customizer.php:209
 msgid "Background Opacity"
 msgstr ""
 
-#: inc/customizer.php:226
+#: inc/customizer.php:210
 msgid "ON"
 msgstr ""
 
-#: inc/customizer.php:227
+#: inc/customizer.php:211
 msgid "OFF"
 msgstr ""
 
-#: inc/customizer.php:228
+#: inc/customizer.php:212
 msgid "All"
 msgstr ""
 
-#: inc/customizer.php:233
+#: inc/customizer.php:217
 msgid "The theme description."
 msgstr ""
 
-#: inc/customizer.php:255
+#: inc/customizer.php:239
 msgid "Logo image"
 msgstr ""
 
-#: inc/customizer.php:256
+#: inc/customizer.php:240
 msgid "Normal size version of your logo."
 msgstr ""
 
-#: inc/customizer.php:257
+#: inc/customizer.php:241
 msgid "If you want to use text instead, just remove the image."
 msgstr ""
 
-#: inc/customizer.php:265
+#: inc/customizer.php:249
 msgid "Logo image retina version"
 msgstr ""
 
-#: inc/customizer.php:266
+#: inc/customizer.php:250
 msgid "2 times bigger image for high resolution retina displays."
 msgstr ""
 
-#: inc/customizer.php:274
+#: inc/customizer.php:258
 msgid "Logo font"
 msgstr ""
 
-#: inc/customizer.php:288
+#: inc/customizer.php:272
 msgid "Logo font size"
 msgstr ""
 
-#: inc/customizer.php:302
+#: inc/customizer.php:286
 msgid "Logo font color"
 msgstr ""
 
-#: inc/customizer.php:318
-msgid "Favicon"
-msgstr ""
-
-#: inc/customizer.php:319
-msgid "32px by 32px"
-msgstr ""
-
-#: inc/customizer.php:329
+#: inc/customizer.php:304
 msgid "Body text font"
 msgstr ""
 
-#: inc/customizer.php:342
+#: inc/customizer.php:317
 msgid "Body text color"
 msgstr ""
 
-#: inc/customizer.php:358
+#: inc/customizer.php:333
 msgid "Headings font"
 msgstr ""
 
-#: inc/customizer.php:371
+#: inc/customizer.php:346
 msgid "Headings color"
 msgstr ""
 
-#: inc/customizer.php:389
+#: inc/customizer.php:364
 msgid "Links and accent color"
 msgstr ""
 
-#: inc/customizer.php:397
+#: inc/customizer.php:372
 msgid "Metadata color"
 msgstr ""
 
-#: inc/customizer.php:406
+#: inc/customizer.php:381
 msgid "Details color"
 msgstr ""
 
-#: inc/customizer.php:417
+#: inc/customizer.php:392
 msgid "Sidebar background color"
 msgstr ""
 
-#: inc/customizer.php:433
+#: inc/customizer.php:408
 msgid "Sidebar border color"
 msgstr ""
 
-#: inc/customizer.php:449
+#: inc/customizer.php:424
 msgid "Sidebar position"
 msgstr ""
 
-#: inc/customizer.php:462
+#: inc/customizer.php:437
 msgid "Collapse sidebar by default"
 msgstr ""
 
-#: inc/customizer.php:463
+#: inc/customizer.php:438
 msgid "Check on what type of pages sidebar will be collapsed by default."
 msgstr ""
 
-#: inc/customizer.php:468
+#: inc/customizer.php:443
 msgid "Home page"
 msgstr ""
 
-#: inc/customizer.php:469
+#: inc/customizer.php:444
 msgid "Single post"
 msgstr ""
 
-#: inc/customizer.php:470
+#: inc/customizer.php:445
 msgid "Archive"
 msgstr ""
 
-#: inc/customizer.php:478
+#: inc/customizer.php:453
 msgid "Top bar background color"
 msgstr ""
 
-#: inc/customizer.php:494
+#: inc/customizer.php:469
 msgid "Top bar border color"
 msgstr ""
 
-#: inc/customizer.php:520
+#: inc/customizer.php:495
 msgid "Top bar features"
 msgstr ""
 
-#: inc/customizer.php:521
+#: inc/customizer.php:496
 msgid "Check what features you want to display in header."
 msgstr ""
 
-#: inc/customizer.php:526
+#: inc/customizer.php:501
 msgid "Social icons"
 msgstr ""
 
-#: inc/customizer.php:527
+#: inc/customizer.php:502
 msgid "Search"
 msgstr ""
 
-#: inc/customizer.php:533
+#: inc/customizer.php:508
 msgid "Social icons size"
 msgstr ""
 
-#: inc/customizer.php:534
+#: inc/customizer.php:509
 msgid "You can set with icons to display in Social Media section below."
 msgstr ""
 
-#: inc/customizer.php:548
+#: inc/customizer.php:523
 msgid "Social icons color"
 msgstr ""
 
-#: inc/customizer.php:564
+#: inc/customizer.php:539
 msgid "Use original icons color"
 msgstr ""
 
-#: inc/customizer.php:575
+#: inc/customizer.php:550
 msgid "Navigation color"
 msgstr ""
 
-#: inc/customizer.php:591
+#: inc/customizer.php:566
 msgid "Navigation font size"
 msgstr ""
 
-#: inc/customizer.php:607
+#: inc/customizer.php:582
 msgid "Footer background color"
 msgstr ""
 
-#: inc/customizer.php:623
+#: inc/customizer.php:598
 msgid "Footer border color"
 msgstr ""
 
-#: inc/customizer.php:639
+#: inc/customizer.php:614
 msgid "Footer content"
 msgstr ""
 
-#: inc/customizer.php:649 inc/social-media.php:33
+#: inc/customizer.php:624 inc/social-media.php:34
 msgid "Share buttons"
 msgstr ""
 
-#: inc/customizer.php:650
+#: inc/customizer.php:625
 msgid "Choose and reorder buttons."
 msgstr ""
 
-#: inc/customizer.php:651
+#: inc/customizer.php:626
 msgid ""
 "To turn on/off a service click on the eye icon. To reorder simply drag and "
 "drop."
 msgstr ""
 
-#: inc/customizer.php:660 inc/social-media.php:59
+#: inc/customizer.php:635 inc/social-media.php:60
 msgid "Facebook"
 msgstr ""
 
-#: inc/customizer.php:661 inc/social-media.php:60
+#: inc/customizer.php:636 inc/social-media.php:61
 msgid "Twitter"
 msgstr ""
 
-#: inc/customizer.php:662 inc/social-media.php:61
+#: inc/customizer.php:637 inc/social-media.php:62
 msgid "Google+"
 msgstr ""
 
-#: inc/customizer.php:663
+#: inc/customizer.php:638
 msgid "Reddit"
 msgstr ""
 
-#: inc/customizer.php:664 inc/social-media.php:63
+#: inc/customizer.php:639 inc/social-media.php:64
 msgid "LinkedIn"
 msgstr ""
 
-#: inc/customizer.php:665
+#: inc/customizer.php:640
 msgid "StumbleUpon"
 msgstr ""
 
-#: inc/customizer.php:666 inc/social-media.php:62
+#: inc/customizer.php:641 inc/social-media.php:63
 msgid "Pinterest"
 msgstr ""
 
-#: inc/customizer.php:672
+#: inc/customizer.php:647
 msgid "Top bar social icons"
 msgstr ""
 
-#: inc/customizer.php:673
+#: inc/customizer.php:648
 msgid "Enter each link in new line"
 msgstr ""
 
-#: inc/customizer.php:683
+#: inc/customizer.php:658
 msgid "Header image height"
 msgstr ""
 
-#: inc/customizer.php:699
+#: inc/customizer.php:674
 msgid "Display newsletter under each post"
 msgstr ""
 
-#: inc/customizer.php:707
+#: inc/customizer.php:682
 msgid "Newsletter background color"
 msgstr ""
 
-#: inc/customizer.php:723
+#: inc/customizer.php:698
 msgid "Newsletter border color"
 msgstr ""
 
@@ -779,11 +769,11 @@ msgstr ""
 msgid "Open sub menu"
 msgstr ""
 
-#: inc/social-media.php:64
+#: inc/social-media.php:65
 msgid "Tumblr"
 msgstr ""
 
-#: inc/social-media.php:96
+#: inc/social-media.php:97
 msgid "Social media links"
 msgstr ""
 

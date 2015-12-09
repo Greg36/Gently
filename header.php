@@ -13,7 +13,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-	<link rel="shortcut icon" href="<?php echo kirki_get_option( 'favicon' ); ?>"/>
 
 	<?php wp_head(); ?>
 </head>
@@ -52,7 +51,7 @@
 
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 				<i class="fa fa-bars"></i>
-				<span class="screen-reader-text"><?php esc_html_e( 'Main menu', 'gently' ); ?></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Open Main menu', 'gently' ); ?></span>
 			</button>
 
 			<?php
@@ -79,8 +78,9 @@
 				if ( has_nav_menu( 'primary' ) ) {
 					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'walker' => new Gently_Menu_Walker() ) );
 				} else if (current_user_can('install_plugins'))  {
-					echo '<div class="nav-admin-notice">There are no menus assigned to <em>Primary Navigation</em>. Create one in <strong>Appearance</strong> &gt; <strong>Menus</strong> or in <strong>Customizer</strong>.</div>';
-//					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) );
+					printf('<div class="nav-admin-notice">%s</div>',
+							esc_html__( 'There are no menus assigned to Primary Navigation. Create one in Appearance - Menus or in Customizer.' )
+						);
 				}
 				?>
 			</nav>

@@ -27,7 +27,8 @@ function gently_share_buttons() {
 		'google'
 	) );
 	$sb_settings_serialized = get_theme_mod( 'share_buttons', $defaults );
-	$sb_settings = unserialize( $sb_settings_serialized );
+
+	$sb_settings = maybe_unserialize( $sb_settings_serialized );
 
 	if ( $sb_settings ) {
 		echo '<span class="screen-reader-text">' . __( 'Share buttons', 'gently' ) . '</span>';
@@ -96,7 +97,7 @@ function gently_social_links() {
 		echo '<span class="screen-reader-text">' . __( 'Social media links', 'gently' ) . '</span>';
 	}
 	foreach ( $links as $link ) {
-		if ( filter_var( $link, FILTER_VALIDATE_URL ) === true ) {
+		if ( filter_var( $link, FILTER_VALIDATE_URL ) ) {
 			$link  = esc_url( $link );
 			$color = kirki_get_option( 'header_icons_color_original' ) ? 'orig-col' : '';
 

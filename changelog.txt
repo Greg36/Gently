@@ -6,3 +6,13 @@
 * CSS changes in overall font size.
 * Minor coding standards improvements.
 * Unified text domain 'gently'.
+
+= 1.0.2 - December 09 2015 =
+* Corrected accessibility issues in navigation.
+* Removed custom favicon setting from customizer.
+* Fixed sidebar 'snapping' on scroll when using the header image.
+* Fixed header social icons and share buttons.
+* Featured images are using now srcset and sizes attributes.
+* Updated MailChimp deprecated function.
+* Removed RICG Responsive Images plugin from recommended list.
+* Kirki customizer plugin is not labeled as required, but still essential.

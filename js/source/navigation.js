@@ -62,12 +62,20 @@
         subMenus[i].parentNode.setAttribute('aria-haspopup', 'true');
     }
 
-    // Sub menu toggle
+    // Sub menu toggle on click or enter press
     var flag = false;
     var $subMenu = $('.nav-sub-icon');
     $subMenu.next().hide();
-    $subMenu.bind('touchstart click focus', function () {
+    $subMenu.bind('click keydown', function (e) {
+        if (e.type === "keydown" && e.which !== 13 ){
+            return;
+        }
         if (!flag) {
+            if(-1 !== this.className.indexOf('arrow-active')) {
+                this.setAttribute('aria-expanded', 'false');
+            } else {
+                this.setAttribute('aria-expanded', 'true');
+            }
             flag = true;
             setTimeout(function () {
                 flag = false;
@@ -75,7 +83,20 @@
             $(this).next().slideToggle(400);
             $(this).toggleClass('arrow-active');
         }
-        return false;
+    });
+
+    // Toggle `focus` class to allow submenu access on tablets.
+    $( '.nav-menu > li.menu-item-has-children' ).on("touchstart", function (e) {
+        var link = $(this);
+        if (link.hasClass('focus')) {
+            return true;
+        }
+        else {
+            link.addClass('focus');
+            $('.nav-menu > li').not(this).removeClass('hover');
+            e.preventDefault();
+            return false;
+        }
     });
 
     // Each time a menu link is focused or blurred, toggle focus.

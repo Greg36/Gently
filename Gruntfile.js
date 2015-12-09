@@ -140,5 +140,5 @@ module.exports = function(grunt) {
     // register tasks
     grunt.registerTask( 'default', ['browserSync', 'watch']);
 
-    grunt.registerTask('build', ['uglify', 'sass', 'autoprefixer', 'cssmin', 'newer:imagemin', 'makepot', 'potomo' ]);
+    grunt.registerTask('build', ['uglify', 'sass', 'autoprefixer', 'cssmin', 'makepot', 'potomo' ]);
 };

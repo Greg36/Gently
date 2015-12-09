@@ -140,11 +140,18 @@ if ( ! function_exists( 'gently_featured_image' ) ) :
 			} else {
 				echo '<div class="featured-image">';
 			}
-			printf(
+			$image = sprintf(
 				'<a href="%s" title="%s">' . get_the_post_thumbnail() . '</a>',
 				get_the_permalink(),
 				the_title_attribute( 'echo=0' )
 			);
+
+			// Add srcset and sizes to image in WordPress >= 4.4
+			if ( function_exists( 'wp_make_content_images_responsive' ) ){
+				echo wp_make_content_images_responsive($image);
+			} else {
+				echo $image;
+			}
 			echo '</div>';
 		}
 	}
