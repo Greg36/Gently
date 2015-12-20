@@ -52,7 +52,10 @@
     display: inline-block;
     line-height: 50px;
     a {
-      margin-right: 0.5em;
+      margin-right: 0.8em;
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }

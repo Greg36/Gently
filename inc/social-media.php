@@ -31,7 +31,7 @@ function gently_share_buttons() {
 	$sb_settings = maybe_unserialize( $sb_settings_serialized );
 
 	if ( $sb_settings ) {
-		echo '<span class="screen-reader-text">' . __( 'Share buttons', 'gently' ) . '</span>';
+		echo '<span class="screen-reader-text">' . __( 'Share on social media links', 'gently' ) . '</span>';
 	}
 
 	foreach ( $sb_settings as $media ) {
@@ -41,9 +41,10 @@ function gently_share_buttons() {
 		);
 		$url = esc_url( $url );
 
-		printf( '<a class="share-button" href="%1$s" title="%2$s" rel="nofollow" target="_blank"><span class="share-button-%3$s"></span></a>',
+		printf( '<a class="share-button" href="%1$s" title="%2$s" rel="nofollow" aria-label="%3$s"><span class="share-button-%4$s"></span></a>',
 			$url,
 			$services[ $media ]['title'],
+			esc_html__( 'Share this page', 'gently' ),
 			$services[ $media ]['id']
 		);
 	}
@@ -75,10 +76,15 @@ add_filter( 'user_contactmethods', 'gently_user_contact_methods' );
 function gently_author_social_icons() {
 	$links = array( 'facebook', 'twitter', 'google-plus', 'pinterest', 'linkedin', 'tumblr' );
 
+	if ( $links ) {
+		echo '<span class="screen-reader-text">' . __( "Author's social media links", 'gently' ) . '</span>';
+	}
+
 	foreach ( $links as $link ) {
 		if ( get_the_author_meta( $link ) ) {
-			printf( '<a href="%s"><i class="fa fa-%s-square"></i></a>',
+			printf( '<a href="%1$s" aria-label="%2$s"><i class="fa fa-%3$s-square" aria-hidden="true"></i></a>',
 				esc_url( get_the_author_meta( $link ) ),
+				esc_html__( "Author's social media", 'gently' ),
 				$link
 			);
 		}
@@ -86,7 +92,7 @@ function gently_author_social_icons() {
 }
 
 /**
- * Display social icons with are set in customizer.
+ * Display social icons which are set in customizer.
  */
 function gently_social_links() {
 	$links_string = kirki_get_option( 'social_links' );
@@ -101,9 +107,10 @@ function gently_social_links() {
 			$link  = esc_url( $link );
 			$color = kirki_get_option( 'header_icons_color_original' ) ? 'orig-col' : '';
 
-			printf( '<a href="%1$s" class="fa sc-link %2$s" target="_blank"></a>',
+			printf( '<a href="%1$s" class="fa sc-link %2$s" aria-label="%3$s"></a>',
 				$link,
-				$color
+				$color,
+				esc_html__( 'Social media page', 'gently' )
 			);
 		}
 	}

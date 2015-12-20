@@ -36,9 +36,10 @@
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<?php
 						if ( kirki_get_option( 'logo_image' ) ) {
-							printf( '<img class="site-logo" src="%1$s" srcset="%1$s 1x, %2$s 2x" alt="logo"/>',
+							printf( '<img class="site-logo" src="%1$s" srcset="%1$s 1x, %2$s 2x" alt="%3$s"/>',
 								kirki_get_option( 'logo_image' ),
-								kirki_get_option( 'logo_image_retina' )
+								kirki_get_option( 'logo_image_retina' ),
+								get_bloginfo( 'name' )
 							);
 						} else {
 							bloginfo( 'name' );
@@ -50,13 +51,13 @@
 			<!-- .site-branding -->
 
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-				<i class="fa fa-bars"></i>
+				<i class="fa fa-bars" aria-hidden="true"></i>
 				<span class="screen-reader-text"><?php esc_html_e( 'Open Main menu', 'gently' ); ?></span>
 			</button>
 
 			<?php
 
-			/* Get with header features to display */
+			/* Get which header features to display */
 			$header_features = kirki_get_option( 'header_features' );
 			if ( is_string( $header_features ) || strpos( $header_features[0], ',' ) ) {
 				$header_features = explode( ',', $header_features );
@@ -64,7 +65,15 @@
 
 			/* Search form */
 			if ( in_array( 'search', $header_features ) ) {
-				echo '<div class="header-search"><i class="btn fa fa-search" tabindex="0"></i><div>' . get_search_form( false ) . '</div></div>';
+				?>
+				<div class="header-search">
+					<button class="search-toggle" aria-controls="search-form" aria-expanded="false">
+						<i class="btn fa fa-search" aria-hidden="true"></i>
+						<span class="screen-reader-text"><?php esc_html_e( 'Open Search form', 'gently' ); ?></span>
+					</button>
+					<div><?php get_search_form(); ?></div>
+				</div>
+				<?php
 			}
 
 			/* Social icons */
@@ -79,7 +88,7 @@
 					wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'walker' => new Gently_Menu_Walker() ) );
 				} else if (current_user_can('install_plugins'))  {
 					printf('<div class="nav-admin-notice">%s</div>',
-							esc_html__( 'There are no menus assigned to Primary Navigation. Create one in Appearance - Menus or in Customizer.' )
+							esc_html__( 'There are no menus assigned to Primary Navigation. Create one in Appearance - Menus or in Customizer.', 'gently' )
 						);
 				}
 				?>

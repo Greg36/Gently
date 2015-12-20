@@ -22,8 +22,8 @@ function gently_is_kirki_installed() {
 				'body_text_color'             => '#575757',
 				'headings_font'               => 'Playfair Display',
 				'headings_color'              => '#2D2D2D',
-				'accent_color'                => '#147BB2',
-				'meta_color'                  => '#AAAAAA',
+				'accent_color'                => '#1271a3',
+				'meta_color'                  => '#484d55',
 				'details_color'               => '#EEEEEE',
 				'sidebar_bg'                  => '#fdfdfd',
 				'sidebar_border'              => '#f1f2f4',
@@ -33,9 +33,9 @@ function gently_is_kirki_installed() {
 				'header_border'               => '#e7e7e7',
 				'header_features'             => array( 'social', 'search' ),
 				'header_icon_size'            => 14,
-				'header_icons_color'          => '#147bb2',
+				'header_icons_color'          => '#1271a3',
 				'header_icons_color_original' => false,
-				'header_font_color'           => '#909699',
+				'header_font_color'           => '#4c4d4e',
 				'header_font_size'            => 13,
 				'footer_bg'                   => '#ffffff',
 				'footer_border'               => '#ffffff',
@@ -215,7 +215,7 @@ function gently_kirki_configuration() {
 	$args = array(
 		'logo_image'   => get_stylesheet_directory_uri() . '/img/logo_white.png',
 		'description'  => __( 'The theme description.', 'gently' ),
-		'color_accent' => '#147bb2',
+		'color_accent' => '#1271a3',
 		'color_back'   => '#2e2e2e',
 		'textdomain'   => 'gently',
 		'i18n'         => $strings,
@@ -363,7 +363,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'  => 'accent_color',
 		'label'    => __( 'Links and accent color', 'gently' ),
 		'section'  => 'color',
-		'default'  => '#147BB2',
+		'default'  => '#1271a3',
 		'priority' => 11
 	);
 	$fields[] = array(
@@ -371,7 +371,7 @@ function gently_kirki_fields( $fields ) {
 		'setting'   => 'meta_color',
 		'label'     => __( 'Metadata color', 'gently' ),
 		'section'   => 'color',
-		'default'   => '#AAAAAA',
+		'default'   => '#484d55',
 		'priority'  => 12,
 		'transport' => 'postMessage'
 	);
@@ -509,7 +509,7 @@ function gently_kirki_fields( $fields ) {
 		'description' => __( 'You can set with icons to display in Social Media section below.', 'gently' ),
 		'section'     => 'header',
 		'default'     => 14,
-		'priority'    => 13,
+		'priority'    => 16,
 		'transport'   => 'postMessage',
 		'choices'     => array(
 			'min'  => 8,
@@ -522,8 +522,8 @@ function gently_kirki_fields( $fields ) {
 		'setting'   => 'header_icons_color',
 		'label'     => __( 'Social icons color', 'gently' ),
 		'section'   => 'header',
-		'default'   => '#147bb2',
-		'priority'  => 14,
+		'default'   => '#1271a3',
+		'priority'  => 17,
 		'transport' => 'postMessage',
 		'js_vars'   => array(
 			array(
@@ -539,7 +539,7 @@ function gently_kirki_fields( $fields ) {
 		'label'     => __( 'Use original icons color', 'gently' ),
 		'section'   => 'header',
 		'default'   => false,
-		'priority'  => 15,
+		'priority'  => 18,
 		'transport' => 'postMessage'
 	);
 
@@ -548,8 +548,8 @@ function gently_kirki_fields( $fields ) {
 		'type'      => 'color',
 		'setting'   => 'header_font_color',
 		'label'     => __( 'Navigation color', 'gently' ),
-		'section'   => 'nav',
-		'default'   => '#909699',
+		'section'   => 'header',
+		'default'   => '#4c4d4e',
 		'priority'  => 13,
 		'transport' => 'postMessage',
 		'js_vars'   => array(
@@ -564,7 +564,7 @@ function gently_kirki_fields( $fields ) {
 		'type'      => 'slider',
 		'setting'   => 'header_font_size',
 		'label'     => __( 'Navigation font size', 'gently' ),
-		'section'   => 'nav',
+		'section'   => 'header',
 		'default'   => 13,
 		'priority'  => 14,
 		'transport' => 'postMessage',

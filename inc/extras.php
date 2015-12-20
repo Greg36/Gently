@@ -119,15 +119,15 @@ add_filter( 'get_the_archive_title', 'gently_custom_archive_title' );
  */
 function gently_archive_title_icons( $title ) {
 	if ( is_tag() ) {
-		$title = '<i class="fa fa-tag"></i>' . $title;
+		$title = '<i class="fa fa-tag" aria-hidden="true"></i>' . $title;
 		return $title;
 
 	} else if ( is_category() ) {
-		$title = '<i class="fa fa-folder"></i>' . $title;
+		$title = '<i class="fa fa-folder" aria-hidden="true"></i>' . $title;
 		return $title;
 
 	} else if ( is_date() ) {
-		$title = '<i class="fa fa-calendar-o"></i>' . $title;
+		$title = '<i class="fa fa-calendar-o" aria-hidden="true"></i>' . $title;
 		return $title;
 	}
 
@@ -163,7 +163,7 @@ function gently_related_posts() {
 	$related = new WP_Query( $args );
 
 	if ( $related->have_posts() ) {
-		printf( '<h4>%s</h4>', esc_html__( 'Related posts:', 'gently' ) );
+		printf( '<h2>%s</h2>', esc_html__( 'Related posts:', 'gently' ) );
 		while ( $related->have_posts() ) {
 			$related->the_post();
 
@@ -183,7 +183,7 @@ function gently_related_posts() {
 class Gently_Menu_Walker extends Walker_Nav_Menu {
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
 		$indent = str_repeat( "\t", $depth + 1 );
-		$output .= "\t<span class='nav-sub-icon' tabindex='0' aria-expanded='false'><i class='fa fa-chevron-down'></i><span class='screen-reader-text'>" . __( "Open sub menu", "gently" ) . "</span></span>\n$indent\t<ul class='sub-menu'>\n";
+		$output .= "\t<button class='nav-sub-icon' aria-expanded='false'><i class='fa fa-chevron-down' aria-hidden='true'></i><span class='screen-reader-text'>" . __( "Open sub menu", "gently" ) . "</span></button>\n$indent\t<ul class='sub-menu'>\n";
 	}
 
 	function end_lvl( &$output, $depth = 0, $args = array() ) {
@@ -191,3 +191,13 @@ class Gently_Menu_Walker extends Walker_Nav_Menu {
 		$output .= "$indent\t</ul>\n";
 	}
 }
+
+/**
+ * Add ARIA landmark to search form.
+ *
+ * @return string $form The search form HTML output.
+ */
+function gently_search_form_aria( $html ){
+	return preg_replace( "/(role=[\"']search[\"'])/", "$0 aria-expanded='false'", $html );
+}
+add_filter( 'get_search_form', 'gently_search_form_aria' );

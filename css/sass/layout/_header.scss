@@ -54,17 +54,24 @@
 .header-search {
   float: right;
   height: 50px;
+  margin-left: 10px;
+  button {
+    background: none;
+    border: 0;
+    padding: 0;
+    margin: 5px 9px;
+    font-size: 28px;
+    &:focus i {
+      color: inherit;
+    }
+  }
   i {
-    float: left;
-    display: inline-block;
     font-weight: normal;
     font-size: 18px;
-    cursor: pointer;
+    line-height: 28px;
     border: none;
     color: #147BB2;
-    line-height: 24px;
-    padding: 4px;
-    margin: 9px 5px 9px;
+    padding: 5px 6px;
     vertical-align: middle;
     box-shadow: none;
     &.btn {
@@ -82,7 +89,7 @@
     transition: width 250ms ease-out;
   }
   form {
-    width: 270px;
+    width: 255px;
     input[type="submit"], label {
       display: inline-block;
     }

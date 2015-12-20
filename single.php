@@ -24,7 +24,7 @@ get_header(); ?>
 			 * and it's set to display in customizer.
 			 */
 			if ( function_exists( 'mc4wp_show_form' ) && kirki_get_option( 'newsletter_use' ) ) {
-				mc4wp_show_form();
+				mc4wp_show_form( 0 );
 			}
 			?>
 

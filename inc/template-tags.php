@@ -66,7 +66,7 @@ if ( ! function_exists( 'gently_comments_count' ) ) :
 		/* Display comments count only if the are available. */
 		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			return sprintf(
-				'<a class="comments-count" href="' . get_comments_link() . '"><span class="screen-reader-text">%s</span><i class="fa fa-comments"></i>&nbsp;' . get_comments_number() . '</a>',
+				'<a class="comments-count" href="' . get_comments_link() . '"><span class="screen-reader-text">%s</span><i class="fa fa-comments" aria-hidden="true"></i>&nbsp;' . get_comments_number() . '</a>',
 				esc_html__( 'Comments count', 'gently' )
 			);
 		}
@@ -101,7 +101,7 @@ if ( ! function_exists( 'gently_list_categories' ) ) :
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'gently' ) );
 		if ( $categories_list && gently_categorized_blog() ) {
-			return '<div class="cat-links"><i class="fa fa-folder"></i><span class="screen-reader-text">' . __( 'Post categories', 'gently' ) . '</span>&nbsp;' . $categories_list . '</div>';
+			return '<div class="cat-links"><i class="fa fa-folder" aria-hidden="true"></i><span class="screen-reader-text">' . __( 'Post categories', 'gently' ) . '</span>&nbsp;' . $categories_list . '</div>';
 		}
 
 		return '';
@@ -118,7 +118,7 @@ if ( ! function_exists( 'gently_list_tags' ) ) :
 		/* translators: used between list items, there is a space after the comma */
 		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'gently' ) );
 		if ( $tags_list ) {
-			return '<span class="tags-links"><i class="fa fa-tag"></i><span class="screen-reader-text">' . __( 'Post tags', 'gently' ) . '</span>' . $tags_list . '</span>';
+			return '<span class="tags-links"><i class="fa fa-tag" aria-hidden="true"></i><span class="screen-reader-text">' . __( 'Post tags', 'gently' ) . '</span>' . $tags_list . '</span>';
 		}
 
 		return '';

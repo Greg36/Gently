@@ -37,7 +37,7 @@ function gently_dynamic_styles() {
 
 	$css['a']['color'] = $accent_color;
 	$css['a:visited']['color'] = $accent_color;
-	$css['a:hover, a:focus, a:active']['color'] = gently_adjust_brightness( $accent_color, 35 );
+	$css['a:hover, a:focus, a:active']['color'] = gently_adjust_brightness( $accent_color, -35 );
 	$css['.main-navigation li:hover > a, .main-navigation li.focus > a']['color'] = $accent_color;
 	$css['.main-navigation .current_page_item > a, .main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a']['color'] = $accent_color;
 	$css['.main-navigation .current_page_item > a, .main-navigation .current-menu-item > a, .main-navigation .current_page_ancestor > a']['border-color'] = $accent_color;
@@ -57,6 +57,7 @@ function gently_dynamic_styles() {
 		gently_adjust_brightness( $accent_color, 30 ),
 		gently_adjust_brightness( $accent_color, -30 )
 	);
+	$css['.mc4wp-form h3']['color'] = $accent_color;
 
 	/* Metadata color */
 	$meta_color = kirki_get_option( 'meta_color' );
@@ -66,6 +67,7 @@ function gently_dynamic_styles() {
 	$css['.single .nav-links span']['border-color'] = $meta_color;
 	$css['.rss-date']['color'] = $meta_color;
 	$css['.secondary-navigation li a']['color'] = $meta_color;
+	$css['.single .nav-links span']['color'] = $meta_color;
 
 	/* Details color */
 	$details_color = kirki_get_option( 'details_color' );

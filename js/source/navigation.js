@@ -7,13 +7,17 @@
 (function ($) {
 
     // Search toggle
-    $('.header-search i').bind('touchstart click keypress', ( function () {
+    $('.search-toggle').bind('touchstart click', ( function () {
         $(this).parent().toggleClass('search-open');
 
         if ($(this).parent().hasClass('search-open')) {
-            $('.header-search .search-field').focus();
+            $(this).attr( 'aria-expanded', 'true' );
+            $(this).next().children().attr( 'aria-expanded', 'true' );
+        } else {
+            $(this).attr( 'aria-expanded', 'false' );
+            $(this).next().children().attr( 'aria-expanded', 'false' );
         }
-    } ));
+    }));
 
     var container, button, menu, links, subMenus;
 
