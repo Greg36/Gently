@@ -71,9 +71,6 @@
 
 .entry-content {
   margin-top: 0;
-  a {
-    border-bottom: 1px solid;
-  }
   h3 + p:first-of-type {
     margin-top: 0.210em;
   }
@@ -93,6 +90,12 @@
 body.blog .entry-content {
   p:first-of-type {
     margin-top: 0.35em;
+  }
+}
+
+.single .entry-content {
+  a {
+    text-decoration: underline;
   }
 }
 

@@ -67,226 +67,276 @@
 }
 
 .sc-link[href*="behance"] {
-  &:before {
+  i:before {
     content: "\f1b4";
   }
   &.orig-col {
-    color: #1769ff;
+    i {
+      color: #1769ff;
+    }
   }
 }
 
 .sc-link[href*="codepen"] {
-  &:before {
+  i:before {
     content: "\f1cb";
   }
   &.orig-col {
-    color: #252527;
+    i {
+      color: #252527;
+    }
   }
 }
 
 .sc-link[href*="digg"] {
-  &:before {
+  i:before {
     content: "\f1a6";
   }
   &.orig-col {
-    color: #000000;
+    i {
+      color: #000000;
+    }
   }
 }
 
 .sc-link[href*="dribbble"] {
-  &:before {
+  i:before {
     content: "\f17d";
   }
   &.orig-col {
-    color: #ea4c89;
+    i {
+      color: #ea4c89;
+    }
   }
 }
 
 .sc-link[href*="facebook"] {
-  &:before {
+  i:before {
     content: "\f09a";
   }
   &.orig-col {
-    color: #3b5998;
+    i {
+      color: #3b5998;
+    }
   }
 }
 
 .sc-link[href*="flickr"] {
-  &:before {
+  i:before {
     content: "\f16e";
   }
   &.orig-col {
-    color: #ff0084;
+    i {
+      color: #ff0084;
+    }
   }
 }
 
 .sc-link[href*="github"] {
-  &:before {
+  i:before {
     content: "\f09b";
   }
   &.orig-col {
-    color: #333333;
+    i {
+      color: #333333;
+    }
   }
 }
 
 .sc-link[href*="plus.google"] {
-  &:before {
+  i:before {
     content: "\f0d5";
   }
   &.orig-col {
-    color: #dd4b39;
+    i {
+      color: #dd4b39;
+    }
   }
 }
 
 .sc-link[href*="instagram"] {
-  &:before {
+  i:before {
     content: "\f16d";
   }
   &.orig-col {
-    color: #3f729b;
+    i {
+      color: #3f729b;
+    }
   }
 }
 
 .sc-link[href*="lastfm"] {
-  &:before {
+  i:before {
     content: "\f202";
   }
   &.orig-col {
-    color: #d51007;
+    i {
+      color: #d51007;
+    }
   }
 }
 
 .sc-link[href*="linkedin"] {
-  &:before {
+  i:before {
     content: "\f0e1";
   }
   &.orig-col {
-    color: #0077b5;
+    i {
+      color: #0077b5;
+    }
   }
 }
 
 .sc-link[href*="medium"] {
-  &:before {
+  i:before {
     content: "\f23a";
   }
   &.orig-col {
-    color: #333332;
+    i {
+      color: #333332;
+    }
   }
 }
 
 .sc-link[href*="pinterest"] {
-  &:before {
+  i:before {
     content: "\f0d2";
   }
   &.orig-col {
-    color: #cc2127;
+    i {
+      color: #cc2127;
+    }
   }
 }
 
 .sc-link[href*="reddit"] {
-  &:before {
+  i:before {
     content: "\f1a1";
   }
   &.orig-col {
-    color: #5f99cf;
+    i {
+      color: #5f99cf;
+    }
   }
 }
 
 .sc-link[href*="soundcloud"] {
-  &:before {
+  i:before {
     content: "\f1be";
   }
   &.orig-col {
-    color: #ff8800;
+    i {
+      color: #ff8800;
+    }
   }
 }
 
 .sc-link[href*="stumbleupon"] {
-  &:before {
+  i:before {
     content: "\f1a4";
   }
   &.orig-col {
-    color: #eb4924;
+    i {
+      color: #eb4924;
+    }
   }
 }
 
 .sc-link[href*="tumblr"] {
-  &:before {
+  i:before {
     content: "\f173";
   }
   &.orig-col {
-    color: #35465c;
+    i {
+      color: #35465c;
+    }
   }
 }
 
 .sc-link[href*="twitch"] {
-  &:before {
+  i:before {
     content: "\f1e8";
   }
   &.orig-col {
-    color: #6441a5;
+    i {
+      color: #6441a5;
+    }
   }
 }
 
 .sc-link[href*="twitter"] {
-  &:before {
+  i:before {
     content: "\f099";
   }
   &.orig-col {
-    color: #55acee;
+    i {
+      color: #55acee;
+    }
   }
 }
 
 .sc-link[href*="vine"] {
-  &:before {
+  i:before {
     content: "\f1ca";
   }
   &.orig-col {
-    color: #00b488;
+    i {
+      color: #00b488;
+    }
   }
 }
 
 .sc-link[href*="vk"] {
-  &:before {
+  i:before {
     content: "\f189";
   }
   &.orig-col {
-    color: #2B587A;
+    i {
+      color: #2B587A;
+    }
   }
 }
 
 .sc-link[href*="whatsapp"] {
-  &:before {
+  i:before {
     content: "\f232";
   }
   &.orig-col {
-    color: #4dc247;
+    i {
+      color: #4dc247;
+    }
   }
 }
 
 .sc-link[href*="wordpress"] {
-  &:before {
+  i:before {
     content: "\f19a";
   }
   &.orig-col {
-    color: #21759b;
+    i {
+      color: #21759b;
+    }
   }
 }
 
 .sc-link[href*="yahoo"] {
-  &:before {
+  i:before {
     content: "\f19e";
   }
   &.orig-col {
-    color: #400191;
+    i {
+      color: #400191;
+    }
   }
 }
 
 .sc-link[href*="youtube"] {
-  &:before {
+  i:before {
     content: "\f167";
   }
   &.orig-col {
-    color: #cd201f;
+    i {
+      color: #cd201f;
+    }
   }
 }

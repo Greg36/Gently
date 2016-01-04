@@ -30,10 +30,6 @@ function gently_share_buttons() {
 
 	$sb_settings = maybe_unserialize( $sb_settings_serialized );
 
-	if ( $sb_settings ) {
-		echo '<span class="screen-reader-text">' . __( 'Share on social media links', 'gently' ) . '</span>';
-	}
-
 	foreach ( $sb_settings as $media ) {
 		$url = sprintf( $services[ $media ]['url_structure'],
 			get_the_permalink(),
@@ -41,10 +37,13 @@ function gently_share_buttons() {
 		);
 		$url = esc_url( $url );
 
-		printf( '<a class="share-button" href="%1$s" title="%2$s" rel="nofollow" aria-label="%3$s"><span class="share-button-%4$s"></span></a>',
+		printf( '<a class="share-button" href="%1$s" title="%2$s" rel="nofollow">
+					<span class="screen-reader-text">%3$s %2$s</span>
+					<span class="share-button-%4$s"></span>
+				</a>',
 			$url,
 			$services[ $media ]['title'],
-			esc_html__( 'Share this page', 'gently' ),
+			esc_html__( 'Share this page on', 'gently' ),
 			$services[ $media ]['id']
 		);
 	}
@@ -76,16 +75,16 @@ add_filter( 'user_contactmethods', 'gently_user_contact_methods' );
 function gently_author_social_icons() {
 	$links = array( 'facebook', 'twitter', 'google-plus', 'pinterest', 'linkedin', 'tumblr' );
 
-	if ( $links ) {
-		echo '<span class="screen-reader-text">' . __( "Author's social media links", 'gently' ) . '</span>';
-	}
-
 	foreach ( $links as $link ) {
 		if ( get_the_author_meta( $link ) ) {
-			printf( '<a href="%1$s" aria-label="%2$s"><i class="fa fa-%3$s-square" aria-hidden="true"></i></a>',
+			printf( '<a href="%1$s">
+						<i class="fa fa-%3$s-square" aria-hidden="true"></i>
+						<span class="screen-reader-text">%2$s %3$s %4$s</span>
+						</a>',
 				esc_url( get_the_author_meta( $link ) ),
-				esc_html__( "Author's social media", 'gently' ),
-				$link
+				esc_html__( "Author's", 'gently' ),
+				$link,
+				esc_html__( 'social media page', 'gently' )
 			);
 		}
 	}
@@ -100,18 +99,19 @@ function gently_social_links() {
 
 	if ( $links ) {
 		echo '<div class="social-links">';
-		echo '<span class="screen-reader-text">' . __( 'Social media links', 'gently' ) . '</span>';
 	}
 	foreach ( $links as $link ) {
 		if ( filter_var( $link, FILTER_VALIDATE_URL ) ) {
 			$link  = esc_url( $link );
 			$color = kirki_get_option( 'header_icons_color_original' ) ? 'orig-col' : '';
 
-			printf( '<a href="%1$s" class="fa sc-link %2$s" aria-label="%3$s"></a>',
-				$link,
-				$color,
-				esc_html__( 'Social media page', 'gently' )
-			);
+			printf('<a href="%1$s" class="sc-link">
+						<i class="fa %2$s" aria-hidden="true"></i>
+						<span class="screen-reader-text">%3$s</span>
+					</a>',
+					$link,
+					$color,
+					esc_html__( 'Social media page', 'gently' ));
 		}
 	}
 	if ( $links ) {

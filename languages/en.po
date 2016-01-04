@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gently\n"
-"POT-Creation-Date: 2015-12-20 15:51+0100\n"
-"PO-Revision-Date: 2015-12-20 15:51+0100\n"
+"POT-Creation-Date: 2016-01-04 18:53+0100\n"
+"PO-Revision-Date: 2016-01-04 18:53+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -705,15 +705,15 @@ msgid ""
 "drop."
 msgstr ""
 
-#: inc/customizer.php:635 inc/social-media.php:61
+#: inc/customizer.php:635 inc/social-media.php:60
 msgid "Facebook"
 msgstr ""
 
-#: inc/customizer.php:636 inc/social-media.php:62
+#: inc/customizer.php:636 inc/social-media.php:61
 msgid "Twitter"
 msgstr ""
 
-#: inc/customizer.php:637 inc/social-media.php:63
+#: inc/customizer.php:637 inc/social-media.php:62
 msgid "Google+"
 msgstr ""
 
@@ -721,7 +721,7 @@ msgstr ""
 msgid "Reddit"
 msgstr ""
 
-#: inc/customizer.php:639 inc/social-media.php:65
+#: inc/customizer.php:639 inc/social-media.php:64
 msgid "LinkedIn"
 msgstr ""
 
@@ -729,7 +729,7 @@ msgstr ""
 msgid "StumbleUpon"
 msgstr ""
 
-#: inc/customizer.php:641 inc/social-media.php:64
+#: inc/customizer.php:641 inc/social-media.php:63
 msgid "Pinterest"
 msgstr ""
 
@@ -773,31 +773,23 @@ msgstr ""
 msgid "Open sub menu"
 msgstr ""
 
-#: inc/social-media.php:34
-msgid "Share on social media links"
+#: inc/social-media.php:46
+msgid "Share this page on"
 msgstr ""
 
-#: inc/social-media.php:47
-msgid "Share this page"
-msgstr ""
-
-#: inc/social-media.php:66
+#: inc/social-media.php:65
 msgid "Tumblr"
 msgstr ""
 
-#: inc/social-media.php:80
-msgid "Author's social media links"
+#: inc/social-media.php:85
+msgid "Author's"
 msgstr ""
 
 #: inc/social-media.php:87
-msgid "Author's social media"
+msgid "social media page"
 msgstr ""
 
-#: inc/social-media.php:103
-msgid "Social media links"
-msgstr ""
-
-#: inc/social-media.php:113
+#: inc/social-media.php:111
 msgid "Social media page"
 msgstr ""
 
